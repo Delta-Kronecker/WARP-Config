@@ -1,4 +1,6 @@
-## در ویندوز به V2rayN و در اندروید به V2aryNG و یا Exclave,MahsaNG اضافه کنید
+## در ویندوز به V2rayN 
+و در اندروید به V2aryNG و یا Exclave,MahsaNG 
+اضافه کنید
 
 ### ایرانسل:
 ```
