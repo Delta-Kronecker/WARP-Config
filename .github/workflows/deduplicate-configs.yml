@@ -214,59 +214,54 @@ jobs:
                             indent=2)
 
           for i, filename in enumerate(FILES):
-              if not os.path.exists(filename):
-                  print(f"File {filename} not found, skipping...")
-                  continue
-              
               proxies = []
               proxy_names = []
               
-              with open(filename, 'r', encoding='utf-8') as f:
-                  for line in f:
-                      line = line.strip()
-                      if line.startswith("wireguard://"):
-                          config = parse_wireguard_config(line)
-                          if config:
-                              proxy_name = generate_proxy_name(config['endpoint'], len(proxies))
-                              proxy_names.append(proxy_name)
-                              
-                              proxy = {
-                                  'name': proxy_name,
-                                  'type': 'wireguard',
-                                  'server': config['address'],
-                                  'port': config['port'],
-                                  'private-key': config['private_key'],
-                                  'public-key': config['public_key'],
-                                  'mtu': config['mtu'],
-                                  'udp': True
-                              }
-                              
-                              if config['addresses']:
-                                  if len(config['addresses']) > 0 and config['addresses'][0]:
-                                      proxy['ip'] = config['addresses'][0].split('/')[0] if '/' in config['addresses'][0] else config['addresses'][0]
-                                  if len(config['addresses']) > 1 and config['addresses'][1]:
-                                      proxy['ipv6'] = config['addresses'][1].split('/')[0] if '/' in config['addresses'][1] else config['addresses'][1]
-                              
-                              proxies.append(proxy)
+              if os.path.exists(filename):
+                  with open(filename, 'r', encoding='utf-8') as f:
+                      for line in f:
+                          line = line.strip()
+                          if line.startswith("wireguard://"):
+                              config = parse_wireguard_config(line)
+                              if config:
+                                  proxy_name = generate_proxy_name(config['endpoint'], len(proxies))
+                                  proxy_names.append(proxy_name)
+                                  
+                                  proxy = {
+                                      'name': proxy_name,
+                                      'type': 'wireguard',
+                                      'server': config['address'],
+                                      'port': config['port'],
+                                      'private-key': config['private_key'],
+                                      'public-key': config['public_key'],
+                                      'mtu': config['mtu'],
+                                      'udp': True
+                                  }
+                                  
+                                  if config['addresses']:
+                                      if len(config['addresses']) > 0 and config['addresses'][0]:
+                                          proxy['ip'] = config['addresses'][0].split('/')[0] if '/' in config['addresses'][0] else config['addresses'][0]
+                                      if len(config['addresses']) > 1 and config['addresses'][1]:
+                                          proxy['ipv6'] = config['addresses'][1].split('/')[0] if '/' in config['addresses'][1] else config['addresses'][1]
+                                  
+                                  proxies.append(proxy)
               
-              if proxies:
-                  output_config = BASE_CONFIG.copy()
-                  output_config['proxies'] = proxies
-                  
-                  for group in output_config['proxy-groups']:
-                      if group['name'] in ['Load Balance', 'Auto', 'Fallback']:
-                          group['proxies'] = proxy_names.copy()
-                      elif group['name'] == 'PROXY':
-                          group['proxies'] = ['Fallback', 'Auto', 'Load Balance'] + proxy_names
-                  
-                  write_yaml(output_config, OUTPUT_FILES[i])
-                  print(f"Generated {OUTPUT_FILES[i]} with {len(proxies)} WireGuard proxies")
-              else:
-                  print(f"No valid configs found in {filename}")
+              output_config = BASE_CONFIG.copy()
+              output_config['proxies'] = proxies
+              
+              for group in output_config['proxy-groups']:
+                  if group['name'] in ['Load Balance', 'Auto', 'Fallback']:
+                      group['proxies'] = proxy_names.copy()
+                  elif group['name'] == 'PROXY':
+                      group['proxies'] = ['Fallback', 'Auto', 'Load Balance'] + proxy_names
+              
+              write_yaml(output_config, OUTPUT_FILES[i])
+              print(f"Generated {OUTPUT_FILES[i]} with {len(proxies)} WireGuard proxies")
 
       - name: Commit and push changes
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "Generate Clash configs based on standard template"
-          commit_user_name: github-actions[bot]
-          commit_user_email: github-actions[bot]@users.noreply.github.com
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add ALL.yaml MCI.yaml MTN.yaml
+          git diff --staged --quiet || git commit -m "Generate Clash configs based on standard template"
+          git push
