@@ -1,0 +1,64 @@
+name: Deduplicate and Sort WireGuard Configs
+
+on:
+  push:
+    paths:
+      - 'ALL.txt'
+  workflow_dispatch:
+
+jobs:
+  process-configs:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Run deduplication and sort
+        shell: python
+        run: |
+          import re, os
+
+          FILES = ["ALL.txt", "MCI.txt", "MTN.txt"]
+          file_configs = {f: [] for f in FILES}
+          seen_endpoints = {}
+
+          for filename in FILES:
+              if not os.path.exists(filename):
+                  continue
+              with open(filename, 'r', encoding='utf-8') as f:
+                  for line in f:
+                      line = line.strip()
+                      if not line.startswith("wireguard://"):
+                          continue
+                      match = re.search(r'@([^?#]+)', line)
+                      if not match:
+                          continue
+                      endpoint = match.group(1)
+                      if endpoint not in seen_endpoints:
+                          seen_endpoints[endpoint] = (filename, line)
+                          file_configs[filename].append((endpoint, line))
+
+          for filename in FILES:
+              configs = file_configs[filename]
+              if not configs:
+                  continue
+              configs.sort(key=lambda x: x[0])
+              with open(filename, 'w', encoding='utf-8') as f:
+                  for _, cfg in configs:
+                      f.write(cfg + "\n")
+
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Remove duplicate configs and sort by endpoint"
+          file_pattern: "ALL.txt MCI.txt MTN.txt"
+          commit_user_name: github-actions[bot]
+          commit_user_email: github-actions[bot]@users.noreply.github.com
