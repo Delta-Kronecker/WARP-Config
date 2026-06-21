@@ -28,13 +28,15 @@ jobs:
         shell: python
         run: |
           import re, os, yaml
+          from urllib.parse import unquote
 
           FILES = ["ALL.txt", "MCI.txt", "MTN.txt"]
           OUTPUT_FILES = ["ALL_clash.yaml", "MCI_clash.yaml", "MTN_clash.yaml"]
           CLASH_CONFIGS_DIR = "clash_configs"
 
           def parse_wireguard_config(line):
-              match = re.match(r'wireguard://([^@]+)@([^:]+):(\d+)\?(.+)', line)
+              decoded = unquote(line)
+              match = re.match(r'wireguard://([^@]+)@([^:]+):(\d+)\?(.+?)(?:#(.+))?$', decoded)
               if not match:
                   return None
               
@@ -42,6 +44,7 @@ jobs:
               address = match.group(2)
               port = int(match.group(3))
               params = match.group(4)
+              fragment = match.group(5) if match.group(5) else None
               
               params_dict = {}
               for param in params.split('&'):
@@ -49,18 +52,24 @@ jobs:
                       key, value = param.split('=', 1)
                       params_dict[key] = value
               
+              mtu_raw = params_dict.get('mtu', '1420')
+              mtu_match = re.match(r'(\d+)', mtu_raw)
+              mtu = int(mtu_match.group(1)) if mtu_match else 1420
+              
               return {
                   'private_key': private_key,
                   'address': address,
                   'port': port,
                   'public_key': params_dict.get('publickey', ''),
                   'addresses': params_dict.get('address', '').split(','),
-                  'mtu': params_dict.get('mtu', '1420'),
-                  'endpoint': f"{address}:{port}"
+                  'mtu': mtu,
+                  'endpoint': f"{address}:{port}",
+                  'fragment': fragment
               }
 
           def generate_proxy_name(endpoint, index):
-              return f"WG-{endpoint.replace('.', '-').replace(':', '-')}-{index}"
+              safe_name = re.sub(r'[^a-zA-Z0-9\-]', '-', endpoint)
+              return f"WG-{safe_name}-{index}"
 
           def generate_clash_config(configs, filename):
               proxies = []
@@ -77,13 +86,16 @@ jobs:
                       'port': config['port'],
                       'private-key': config['private_key'],
                       'public-key': config['public_key'],
-                      'ip': config['addresses'][0] if config['addresses'] else '172.16.0.2',
-                      'ipv6': config['addresses'][1] if len(config['addresses']) > 1 else None,
-                      'mtu': int(config['mtu']),
+                      'mtu': config['mtu'],
                       'udp': True
                   }
                   
-                  proxy = {k: v for k, v in proxy.items() if v is not None}
+                  if config['addresses']:
+                      if len(config['addresses']) > 0 and config['addresses'][0]:
+                          proxy['ip'] = config['addresses'][0].split('/')[0] if '/' in config['addresses'][0] else config['addresses'][0]
+                      if len(config['addresses']) > 1 and config['addresses'][1]:
+                          proxy['ipv6'] = config['addresses'][1].split('/')[0] if '/' in config['addresses'][1] else config['addresses'][1]
+                  
                   proxies.append(proxy)
               
               proxy_groups = []
@@ -154,6 +166,7 @@ jobs:
 
           for i, filename in enumerate(FILES):
               if not os.path.exists(filename):
+                  print(f"File {filename} not found, skipping...")
                   continue
               
               configs = []
