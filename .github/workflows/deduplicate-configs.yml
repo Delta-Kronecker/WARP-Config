@@ -27,12 +27,12 @@ jobs:
           import re, os
 
           FILES = ["ALL.txt", "MCI.txt", "MTN.txt"]
-          file_configs = {f: [] for f in FILES}
-          seen_endpoints = {}
+          all_endpoints = set()
 
           for filename in FILES:
               if not os.path.exists(filename):
                   continue
+              unique_configs = []
               with open(filename, 'r', encoding='utf-8') as f:
                   for line in f:
                       line = line.strip()
@@ -42,18 +42,17 @@ jobs:
                       if not match:
                           continue
                       endpoint = match.group(1)
-                      if endpoint not in seen_endpoints:
-                          seen_endpoints[endpoint] = (filename, line)
-                          file_configs[filename].append((endpoint, line))
+                      if endpoint not in all_endpoints:
+                          all_endpoints.add(endpoint)
+                          unique_configs.append((endpoint, line))
 
-          for filename in FILES:
-              configs = file_configs[filename]
-              if not configs:
-                  continue
-              configs.sort(key=lambda x: x[0])
-              with open(filename, 'w', encoding='utf-8') as f:
-                  for _, cfg in configs:
-                      f.write(cfg + "\n")
+              if unique_configs:
+                  unique_configs.sort(key=lambda x: x[0])
+                  with open(filename, 'w', encoding='utf-8') as f:
+                      for _, cfg in unique_configs:
+                          f.write(cfg + "\n")
+              else:
+                  open(filename, 'w').close()
 
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v5
