@@ -1,4 +1,4 @@
-name: Generate Clash Configs from WireGuard
+name: Deduplicate and Sort WireGuard Configs
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  generate-clash:
+  process-configs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -21,247 +21,46 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Install PyYAML
-        run: pip install pyyaml
-
-      - name: Generate Clash configs
+      - name: Run deduplication and sort
         shell: python
         run: |
-          import re, os, yaml
-          from urllib.parse import unquote
+          import re, os
 
           FILES = ["ALL.txt", "MCI.txt", "MTN.txt"]
-          OUTPUT_FILES = ["ALL.yaml", "MCI.yaml", "MTN.yaml"]
 
-          BASE_CONFIG = {
-              "name": "Standard",
-              "mixed-port": 7890,
-              "socks-port": 7891,
-              "port": 7892,
-              "allow-lan": True,
-              "bind-address": "*",
-              "mode": "global",
-              "log-level": "info",
-              "ipv6": False,
-              "external-controller": "127.0.0.1:9090",
-              "external-ui": "ui",
-              "secret": "",
-              "unified-delay": True,
-              "tcp-concurrent": True,
-              "global-client-fingerprint": "chrome",
-              "find-process-mode": "strict",
-              "keep-alive-interval": 15,
-              "profile": {
-                  "store-selected": True,
-                  "store-fake-ip": False
-              },
-              "dns": {
-                  "enable": True,
-                  "ipv6": False,
-                  "listen": "0.0.0.0:5353",
-                  "enhanced-mode": "fake-ip",
-                  "fake-ip-range": "198.18.0.1/16",
-                  "fake-ip-filter": [
-                      "*.local",
-                      "*.lan",
-                      "*.localhost",
-                      "+.stun.*.*",
-                      "+.stun.*.*.*",
-                      "time.*",
-                      "time.*.com",
-                      "connectivitycheck.gstatic.com",
-                      "detectportal.firefox.com",
-                      "captive.apple.com",
-                      "www.msftncsi.com",
-                      "cp.cloudflare.com"
-                  ],
-                  "default-nameserver": [
-                      "1.1.1.1", "1.0.0.1", "8.8.8.8", "8.8.4.4",
-                      "9.9.9.9", "149.112.112.112",
-                      "208.67.222.222", "208.67.220.220",
-                      "94.140.14.14", "94.140.15.15",
-                      "64.6.64.6", "64.6.65.6",
-                      "84.200.69.80", "84.200.70.40",
-                      "76.76.19.19", "76.223.122.150",
-                      "8.26.56.26", "8.20.247.20"
-                  ],
-                  "nameserver": [
-                      "https://cloudflare-dns.com/dns-query",
-                      "https://1.1.1.1/dns-query",
-                      "https://1.0.0.1/dns-query",
-                      "https://dns.google/dns-query",
-                      "https://8.8.8.8/dns-query",
-                      "https://8.8.4.4/dns-query",
-                      "https://dns.quad9.net/dns-query",
-                      "https://9.9.9.9/dns-query",
-                      "https://149.112.112.112/dns-query",
-                      "https://dns.adguard.com/dns-query",
-                      "https://94.140.14.14/dns-query",
-                      "https://94.140.15.15/dns-query",
-                      "https://doh.opendns.com/dns-query",
-                      "https://208.67.222.222/dns-query",
-                      "https://208.67.220.220/dns-query",
-                      "https://doh.comodo.com/dns-query",
-                      "https://8.26.56.26/dns-query",
-                      "https://8.20.247.20/dns-query",
-                      "https://doh.mullvad.net/dns-query",
-                      "https://doh.dns.mullvad.net/dns-query",
-                      "https://freedns.controld.com/p0",
-                      "https://freedns.controld.com/family",
-                      "tls://1.1.1.1:853", "tls://1.0.0.1:853",
-                      "tls://8.8.8.8:853", "tls://8.8.4.4:853",
-                      "tls://9.9.9.9:853", "tls://149.112.112.112:853",
-                      "tls://94.140.14.14:853", "tls://94.140.15.15:853",
-                      "tls://208.67.222.222:853", "tls://208.67.220.220:853",
-                      "tls://family-filter-dns.cleanbrowsing.org:853",
-                      "tls://adult-filter-dns.cleanbrowsing.org:853",
-                      "tls://security-filter-dns.cleanbrowsing.org:853",
-                      "1.1.1.1", "1.0.0.1", "8.8.8.8", "8.8.4.4",
-                      "9.9.9.9", "149.112.112.112",
-                      "208.67.222.222", "208.67.220.220",
-                      "94.140.14.14", "94.140.15.15",
-                      "64.6.64.6", "64.6.65.6",
-                      "84.200.69.80", "84.200.70.40",
-                      "8.26.56.26", "8.20.247.20",
-                      "76.76.19.19", "76.223.122.150",
-                      "208.67.222.123", "208.67.220.123",
-                      "195.46.39.39", "195.46.39.40",
-                      "38.132.106.139", "194.187.251.67"
-                  ]
-              },
-              "proxy-groups": [
-                  {
-                      "name": "PROXY",
-                      "type": "select",
-                      "proxies": ["Fallback", "Auto", "Load Balance"]
-                  },
-                  {
-                      "name": "Load Balance",
-                      "type": "load-balance",
-                      "strategy": "consistent-hashing",
-                      "url": "http://www.gstatic.com/generate_204",
-                      "interval": 60,
-                      "tolerance": 50,
-                      "lazy": True,
-                      "proxies": []
-                  },
-                  {
-                      "name": "Auto",
-                      "type": "url-test",
-                      "url": "http://www.gstatic.com/generate_204",
-                      "interval": 60,
-                      "tolerance": 50,
-                      "lazy": True,
-                      "proxies": []
-                  },
-                  {
-                      "name": "Fallback",
-                      "type": "fallback",
-                      "url": "http://www.gstatic.com/generate_204",
-                      "interval": 60,
-                      "lazy": True,
-                      "proxies": []
-                  }
-              ],
-              "rules": ["MATCH,PROXY"]
-          }
-
-          def parse_wireguard_config(line):
-              decoded = unquote(line)
-              match = re.match(r'wireguard://([^@]+)@([^:]+):(\d+)\?(.+?)(?:#(.+))?$', decoded)
-              if not match:
-                  return None
+          for filename in FILES:
+              if not os.path.exists(filename):
+                  continue
               
-              private_key = match.group(1)
-              address = match.group(2)
-              port = int(match.group(3))
-              params = match.group(4)
+              seen_endpoints = set()
+              unique_configs = []
               
-              params_dict = {}
-              for param in params.split('&'):
-                  if '=' in param:
-                      key, value = param.split('=', 1)
-                      params_dict[key] = value
+              with open(filename, 'r', encoding='utf-8') as f:
+                  for line in f:
+                      line = line.strip()
+                      if not line.startswith("wireguard://"):
+                          continue
+                      match = re.search(r'@([^?#]+)', line)
+                      if not match:
+                          continue
+                      endpoint = match.group(1)
+                      if endpoint not in seen_endpoints:
+                          seen_endpoints.add(endpoint)
+                          unique_configs.append((endpoint, line))
               
-              mtu_raw = params_dict.get('mtu', '1420')
-              mtu_match = re.match(r'(\d+)', mtu_raw)
-              mtu = int(mtu_match.group(1)) if mtu_match else 1420
-              
-              return {
-                  'private_key': private_key,
-                  'address': address,
-                  'port': port,
-                  'public_key': params_dict.get('publickey', ''),
-                  'addresses': params_dict.get('address', '').split(','),
-                  'mtu': mtu,
-                  'endpoint': f"{address}:{port}"
-              }
-
-          def generate_proxy_name(endpoint, index):
-              safe_name = re.sub(r'[^a-zA-Z0-9\-]', '-', endpoint)
-              return f"WG-{safe_name}-{index}"
-
-          def write_yaml(config, filepath):
-              class CustomDumper(yaml.Dumper):
-                  def increase_indent(self, flow=False, indentless=False):
-                      return super(CustomDumper, self).increase_indent(flow, False)
-              
-              with open(filepath, 'w', encoding='utf-8') as f:
-                  yaml.dump(config, f, Dumper=CustomDumper, 
-                            default_flow_style=False, 
-                            allow_unicode=True, 
-                            sort_keys=False,
-                            indent=2)
-
-          for i, filename in enumerate(FILES):
-              proxies = []
-              proxy_names = []
-              
-              if os.path.exists(filename):
-                  with open(filename, 'r', encoding='utf-8') as f:
-                      for line in f:
-                          line = line.strip()
-                          if line.startswith("wireguard://"):
-                              config = parse_wireguard_config(line)
-                              if config:
-                                  proxy_name = generate_proxy_name(config['endpoint'], len(proxies))
-                                  proxy_names.append(proxy_name)
-                                  
-                                  proxy = {
-                                      'name': proxy_name,
-                                      'type': 'wireguard',
-                                      'server': config['address'],
-                                      'port': config['port'],
-                                      'private-key': config['private_key'],
-                                      'public-key': config['public_key'],
-                                      'mtu': config['mtu'],
-                                      'udp': True
-                                  }
-                                  
-                                  if config['addresses']:
-                                      if len(config['addresses']) > 0 and config['addresses'][0]:
-                                          proxy['ip'] = config['addresses'][0].split('/')[0] if '/' in config['addresses'][0] else config['addresses'][0]
-                                      if len(config['addresses']) > 1 and config['addresses'][1]:
-                                          proxy['ipv6'] = config['addresses'][1].split('/')[0] if '/' in config['addresses'][1] else config['addresses'][1]
-                                  
-                                  proxies.append(proxy)
-              
-              output_config = BASE_CONFIG.copy()
-              output_config['proxies'] = proxies
-              
-              for group in output_config['proxy-groups']:
-                  if group['name'] in ['Load Balance', 'Auto', 'Fallback']:
-                      group['proxies'] = proxy_names.copy()
-                  elif group['name'] == 'PROXY':
-                      group['proxies'] = ['Fallback', 'Auto', 'Load Balance'] + proxy_names
-              
-              write_yaml(output_config, OUTPUT_FILES[i])
-              print(f"Generated {OUTPUT_FILES[i]} with {len(proxies)} WireGuard proxies")
+              if unique_configs:
+                  unique_configs.sort(key=lambda x: x[0])
+                  with open(filename, 'w', encoding='utf-8') as f:
+                      for _, cfg in unique_configs:
+                          f.write(cfg + "\n")
+                  print(f"{filename}: {len(unique_configs)} unique configs")
+              else:
+                  print(f"{filename}: no valid configs found (file left unchanged)")
 
       - name: Commit and push changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add ALL.yaml MCI.yaml MTN.yaml
-          git diff --staged --quiet || git commit -m "Generate Clash configs based on standard template"
+          git add -A
+          git diff --staged --quiet || git commit -m "Remove duplicate configs and sort by endpoint within each file"
           git push
