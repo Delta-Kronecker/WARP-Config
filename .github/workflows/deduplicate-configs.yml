@@ -262,7 +262,7 @@ jobs:
                   if group['name'] in ['Load Balance', 'Auto', 'Fallback']:
                       group['proxies'] = proxy_names.copy()
                   elif group['name'] == 'PROXY':
-                      group['proxies'] = ['Fallback', 'Auto', 'Load Balance'] + proxy_names
+                      group['proxies'] = ['Fallback', 'Auto', 'Load Balance']
               
               write_yaml(output_config, OUTPUT_FILES[i])
               print(f"Generated {OUTPUT_FILES[i]} with {len(proxies)} WireGuard proxies")
