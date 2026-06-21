@@ -1,4 +1,4 @@
-name: Deduplicate and Sort WireGuard Configs
+name: Generate Clash Configs from WireGuard
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  process-configs:
+  generate-clash:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -21,43 +21,162 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Run deduplication and sort
+      - name: Install PyYAML
+        run: pip install pyyaml
+
+      - name: Generate Clash configs
         shell: python
         run: |
-          import re, os
+          import re, os, yaml
 
           FILES = ["ALL.txt", "MCI.txt", "MTN.txt"]
-          all_endpoints = set()
+          OUTPUT_FILES = ["ALL_clash.yaml", "MCI_clash.yaml", "MTN_clash.yaml"]
+          CLASH_CONFIGS_DIR = "clash_configs"
 
-          for filename in FILES:
+          def parse_wireguard_config(line):
+              match = re.match(r'wireguard://([^@]+)@([^:]+):(\d+)\?(.+)', line)
+              if not match:
+                  return None
+              
+              private_key = match.group(1)
+              address = match.group(2)
+              port = int(match.group(3))
+              params = match.group(4)
+              
+              params_dict = {}
+              for param in params.split('&'):
+                  if '=' in param:
+                      key, value = param.split('=', 1)
+                      params_dict[key] = value
+              
+              return {
+                  'private_key': private_key,
+                  'address': address,
+                  'port': port,
+                  'public_key': params_dict.get('publickey', ''),
+                  'addresses': params_dict.get('address', '').split(','),
+                  'mtu': params_dict.get('mtu', '1420'),
+                  'endpoint': f"{address}:{port}"
+              }
+
+          def generate_proxy_name(endpoint, index):
+              return f"WG-{endpoint.replace('.', '-').replace(':', '-')}-{index}"
+
+          def generate_clash_config(configs, filename):
+              proxies = []
+              proxy_names = []
+              
+              for i, config in enumerate(configs):
+                  proxy_name = generate_proxy_name(config['endpoint'], i)
+                  proxy_names.append(proxy_name)
+                  
+                  proxy = {
+                      'name': proxy_name,
+                      'type': 'wireguard',
+                      'server': config['address'],
+                      'port': config['port'],
+                      'private-key': config['private_key'],
+                      'public-key': config['public_key'],
+                      'ip': config['addresses'][0] if config['addresses'] else '172.16.0.2',
+                      'ipv6': config['addresses'][1] if len(config['addresses']) > 1 else None,
+                      'mtu': int(config['mtu']),
+                      'udp': True
+                  }
+                  
+                  proxy = {k: v for k, v in proxy.items() if v is not None}
+                  proxies.append(proxy)
+              
+              proxy_groups = []
+              
+              if len(proxy_names) >= 2:
+                  proxy_groups.append({
+                      'name': f'{filename.replace(".txt", "")}-load-balance',
+                      'type': 'load-balance',
+                      'proxies': proxy_names.copy(),
+                      'url': 'http://www.gstatic.com/generate_204',
+                      'interval': 300,
+                      'strategy': 'consistent-hashing'
+                  })
+                  
+                  proxy_groups.append({
+                      'name': f'{filename.replace(".txt", "")}-fallback',
+                      'type': 'fallback',
+                      'proxies': proxy_names.copy(),
+                      'url': 'http://www.gstatic.com/generate_204',
+                      'interval': 300
+                  })
+                  
+                  proxy_groups.append({
+                      'name': f'{filename.replace(".txt", "")}-auto',
+                      'type': 'url-test',
+                      'proxies': proxy_names.copy(),
+                      'url': 'http://www.gstatic.com/generate_204',
+                      'interval': 300,
+                      'tolerance': 150
+                  })
+              
+              all_group_names = [g['name'] for g in proxy_groups]
+              
+              main_groups = [
+                  {
+                      'name': 'Proxy',
+                      'type': 'select',
+                      'proxies': all_group_names + proxy_names + ['DIRECT']
+                  },
+                  {
+                      'name': 'Auto-Select',
+                      'type': 'fallback',
+                      'proxies': all_group_names,
+                      'url': 'http://www.gstatic.com/generate_204',
+                      'interval': 300
+                  }
+              ]
+              
+              return {
+                  'proxies': proxies,
+                  'proxy-groups': main_groups + proxy_groups,
+                  'rules': ['MATCH,Proxy']
+              }
+
+          def write_yaml(config, filepath):
+              class CustomDumper(yaml.Dumper):
+                  def increase_indent(self, flow=False, indentless=False):
+                      return super(CustomDumper, self).increase_indent(flow, False)
+              
+              with open(filepath, 'w', encoding='utf-8') as f:
+                  yaml.dump(config, f, Dumper=CustomDumper, 
+                            default_flow_style=False, 
+                            allow_unicode=True, 
+                            sort_keys=False,
+                            indent=2)
+
+          os.makedirs(CLASH_CONFIGS_DIR, exist_ok=True)
+
+          for i, filename in enumerate(FILES):
               if not os.path.exists(filename):
                   continue
-              unique_configs = []
+              
+              configs = []
               with open(filename, 'r', encoding='utf-8') as f:
                   for line in f:
                       line = line.strip()
-                      if not line.startswith("wireguard://"):
-                          continue
-                      match = re.search(r'@([^?#]+)', line)
-                      if not match:
-                          continue
-                      endpoint = match.group(1)
-                      if endpoint not in all_endpoints:
-                          all_endpoints.add(endpoint)
-                          unique_configs.append((endpoint, line))
-
-              if unique_configs:
-                  unique_configs.sort(key=lambda x: x[0])
-                  with open(filename, 'w', encoding='utf-8') as f:
-                      for _, cfg in unique_configs:
-                          f.write(cfg + "\n")
+                      if line.startswith("wireguard://"):
+                          parsed = parse_wireguard_config(line)
+                          if parsed:
+                              configs.append(parsed)
+              
+              if configs:
+                  clash_config = generate_clash_config(configs, filename)
+                  output_path = os.path.join(CLASH_CONFIGS_DIR, OUTPUT_FILES[i])
+                  write_yaml(clash_config, output_path)
+                  print(f"Generated {output_path} with {len(configs)} WireGuard configs")
               else:
-                  open(filename, 'w').close()
+                  print(f"No valid configs found in {filename}")
 
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Remove duplicate configs and sort by endpoint"
-          file_pattern: "ALL.txt MCI.txt MTN.txt"
+          commit_message: "Generate Clash configs with load-balance, auto-select, and fallback"
+          file_pattern: "clash_configs/*.yaml"
           commit_user_name: github-actions[bot]
           commit_user_email: github-actions[bot]@users.noreply.github.com
