@@ -213,6 +213,8 @@ jobs:
                             sort_keys=False,
                             indent=2)
 
+          generated_files = []
+
           for i, filename in enumerate(FILES):
               if not os.path.exists(filename):
                   print(f"File {filename} not found, skipping...")
@@ -260,14 +262,20 @@ jobs:
                           group['proxies'] = ['Fallback', 'Auto', 'Load Balance'] + proxy_names
                   
                   write_yaml(output_config, OUTPUT_FILES[i])
+                  generated_files.append(OUTPUT_FILES[i])
                   print(f"Generated {OUTPUT_FILES[i]} with {len(proxies)} WireGuard proxies")
               else:
+                  if os.path.exists(OUTPUT_FILES[i]):
+                      os.remove(OUTPUT_FILES[i])
+                      generated_files.append(OUTPUT_FILES[i])
                   print(f"No valid configs found in {filename}")
+
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+              f.write(f"files={','.join(generated_files)}\n")
 
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Generate Clash configs based on standard template"
-          file_pattern: "ALL.yaml MCI.yaml MTN.yaml"
           commit_user_name: github-actions[bot]
           commit_user_email: github-actions[bot]@users.noreply.github.com
