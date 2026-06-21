@@ -245,36 +245,8 @@ jobs:
                                       'mtu': config['mtu'],
                                       'udp': True,
                                       'reserved': [0, 0, 0],
-                                      'workers': 8,
-                                      'allowed-ips': ['0.0.0.0/0', '::/0'],
-                                      'persistent-keepalive': 25,
-                                      'amnezia-wg-options': {
-                                          'jc': 4,
-                                          'jmin': 50,
-                                          'jmax': 1000,
-                                          's1': 10,
-                                          's2': 30,
-                                          'init-packet-jc': 4,
-                                          'init-packet-jmin': 50,
-                                          'init-packet-jmax': 1000,
-                                          'init-packet-s1': 10,
-                                          'init-packet-s2': 30
-                                      },
-                                      'tfo': True,
-                                      'skip-cert-verify': True,
-                                      'smux': {
-                                          'enabled': True,
-                                          'protocol': 'smux',
-                                          'max-connections': 8,
-                                          'min-streams': 4,
-                                          'max-streams': 16,
-                                          'padding': False,
-                                          'statistic': False,
-                                          'only-tcp': False
-                                      },
-                                      'gso': True,
-                                      'gso-size': 65536,
-                                      'batched': True
+                                      'workers': 4,
+                                      'persistent-keepalive': 25
                                   }
                                   
                                   if config['addresses']:
@@ -302,5 +274,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
-          git diff --staged --quiet || git commit -m "Generate Clash configs with advanced WireGuard settings for maximum speed"
+          git diff --staged --quiet || git commit -m "Generate Clash configs with stable WireGuard settings"
           git push
