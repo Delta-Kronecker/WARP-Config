@@ -130,10 +130,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -178,10 +174,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -226,10 +218,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -274,10 +262,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -322,10 +306,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -370,10 +350,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -418,10 +394,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -466,10 +438,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -514,10 +482,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -562,10 +526,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -610,10 +570,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -658,10 +614,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -706,10 +658,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -754,10 +702,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -802,10 +746,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -850,10 +790,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -898,10 +834,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -946,10 +878,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -994,10 +922,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -1042,10 +966,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -1090,10 +1010,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -1138,10 +1054,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -1186,10 +1098,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -1234,10 +1142,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -1282,10 +1186,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -1330,10 +1230,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -1378,10 +1274,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -1426,10 +1318,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -1474,10 +1362,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -1522,10 +1406,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -1570,10 +1450,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -1618,10 +1494,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -1666,10 +1538,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -1714,10 +1582,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -1762,10 +1626,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -1810,10 +1670,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -1858,10 +1714,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -1906,10 +1758,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -1954,10 +1802,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -2002,10 +1846,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -2050,10 +1890,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -2098,10 +1934,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -2146,10 +1978,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -2194,10 +2022,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -2242,10 +2066,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -2290,10 +2110,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -2338,10 +2154,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -2386,10 +2198,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -2434,10 +2242,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -2482,10 +2286,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -2530,10 +2330,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -2578,10 +2374,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -2626,10 +2418,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -2674,10 +2462,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -2722,10 +2506,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -2770,10 +2550,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -2818,10 +2594,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -2866,10 +2638,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -2914,10 +2682,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -2962,10 +2726,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -3010,10 +2770,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -3058,10 +2814,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -3106,10 +2858,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -3154,10 +2902,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -3202,10 +2946,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -3250,10 +2990,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -3298,10 +3034,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -3346,10 +3078,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -3394,10 +3122,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -3442,10 +3166,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -3490,10 +3210,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -3538,10 +3254,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -3586,10 +3298,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -3634,10 +3342,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -3682,10 +3386,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -3730,10 +3430,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -3778,10 +3474,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -3826,10 +3518,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -3874,10 +3562,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -3922,10 +3606,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -3970,10 +3650,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -4018,10 +3694,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -4066,10 +3738,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -4114,10 +3782,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -4162,10 +3826,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -4210,10 +3870,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -4258,10 +3914,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -4306,10 +3958,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -4354,10 +4002,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -4402,10 +4046,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -4450,10 +4090,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -4498,10 +4134,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -4546,10 +4178,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -4594,10 +4222,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -4642,10 +4266,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -4690,10 +4310,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -4738,10 +4354,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -4786,10 +4398,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -4834,10 +4442,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -4882,10 +4486,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -4930,10 +4530,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -4978,10 +4574,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -5026,10 +4618,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -5074,10 +4662,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -5122,10 +4706,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -5170,10 +4750,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -5218,10 +4794,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -5266,10 +4838,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -5314,10 +4882,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -5362,10 +4926,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -5410,10 +4970,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -5458,10 +5014,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -5506,10 +5058,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -5554,10 +5102,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -5602,10 +5146,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -5650,10 +5190,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -5698,10 +5234,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -5746,10 +5278,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -5794,10 +5322,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -5842,10 +5366,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -5890,10 +5410,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -5938,10 +5454,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -5986,10 +5498,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -6034,10 +5542,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -6082,10 +5586,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -6130,10 +5630,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -6178,10 +5674,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -6226,10 +5718,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -6274,10 +5762,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -6322,10 +5806,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -6370,10 +5850,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -6418,10 +5894,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -6466,10 +5938,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -6514,10 +5982,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -6562,10 +6026,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -6610,10 +6070,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -6658,10 +6114,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -6706,10 +6158,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -6754,10 +6202,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
@@ -6802,10 +6246,6 @@ proxies:
       - 0
       - 0
     workers: 8
-    remote-dns-resolve: true
-    dns:
-      - 1.1.1.1
-      - 8.8.8.8
     allowed-ips:
       - 0.0.0.0/0
       - ::/0
