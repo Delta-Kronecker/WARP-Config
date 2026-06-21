@@ -42,7 +42,7 @@ jobs:
               "bind-address": "*",
               "mode": "global",
               "log-level": "info",
-              "ipv6": True,
+              "ipv6": False,
               "external-controller": "127.0.0.1:9090",
               "external-ui": "ui",
               "secret": "",
@@ -57,7 +57,7 @@ jobs:
               },
               "dns": {
                   "enable": True,
-                  "ipv6": True,
+                  "ipv6": False,
                   "listen": "0.0.0.0:5353",
                   "enhanced-mode": "fake-ip",
                   "fake-ip-range": "198.18.0.1/16",
@@ -243,10 +243,7 @@ jobs:
                                       'private-key': config['private_key'],
                                       'public-key': config['public_key'],
                                       'mtu': config['mtu'],
-                                      'udp': True,
-                                      'reserved': [0, 0, 0],
-                                      'workers': 4,
-                                      'persistent-keepalive': 25
+                                      'udp': True
                                   }
                                   
                                   if config['addresses']:
@@ -274,5 +271,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
-          git diff --staged --quiet || git commit -m "Generate Clash configs with stable WireGuard settings"
+          git diff --staged --quiet || git commit -m "Generate Clash configs based on standard template"
           git push
