@@ -242,7 +242,7 @@ jobs:
                                       'port': config['port'],
                                       'private-key': config['private_key'],
                                       'public-key': config['public_key'],
-                                      'mtu': mtu,
+                                      'mtu': config['mtu'],
                                       'udp': True,
                                       'reserved': [0, 0, 0],
                                       'workers': 8,
