@@ -129,6 +129,7 @@ jobs:
                       "38.132.106.139", "194.187.251.67"
                   ]
               },
+              "proxies": [],
               "proxy-groups": [
                   {
                       "name": "PROXY",
@@ -261,8 +262,6 @@ jobs:
               for group in output_config['proxy-groups']:
                   if group['name'] in ['Load Balance', 'Auto', 'Fallback']:
                       group['proxies'] = proxy_names.copy()
-                  elif group['name'] == 'PROXY':
-                      group['proxies'] = ['Fallback', 'Auto', 'Load Balance']
               
               write_yaml(output_config, OUTPUT_FILES[i])
               print(f"Generated {OUTPUT_FILES[i]} with {len(proxies)} WireGuard proxies")
