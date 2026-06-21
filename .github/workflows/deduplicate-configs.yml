@@ -31,8 +31,140 @@ jobs:
           from urllib.parse import unquote
 
           FILES = ["ALL.txt", "MCI.txt", "MTN.txt"]
-          OUTPUT_FILES = ["ALL_clash.yaml", "MCI_clash.yaml", "MTN_clash.yaml"]
-          CLASH_CONFIGS_DIR = "clash_configs"
+          OUTPUT_FILES = ["ALL.yaml", "MCI.yaml", "MTN.yaml"]
+
+          BASE_CONFIG = {
+              "name": "Standard",
+              "mixed-port": 7890,
+              "socks-port": 7891,
+              "port": 7892,
+              "allow-lan": True,
+              "bind-address": "*",
+              "mode": "global",
+              "log-level": "info",
+              "ipv6": False,
+              "external-controller": "127.0.0.1:9090",
+              "external-ui": "ui",
+              "secret": "",
+              "unified-delay": True,
+              "tcp-concurrent": True,
+              "global-client-fingerprint": "chrome",
+              "find-process-mode": "strict",
+              "keep-alive-interval": 15,
+              "profile": {
+                  "store-selected": True,
+                  "store-fake-ip": False
+              },
+              "dns": {
+                  "enable": True,
+                  "ipv6": False,
+                  "listen": "0.0.0.0:5353",
+                  "enhanced-mode": "fake-ip",
+                  "fake-ip-range": "198.18.0.1/16",
+                  "fake-ip-filter": [
+                      "*.local",
+                      "*.lan",
+                      "*.localhost",
+                      "+.stun.*.*",
+                      "+.stun.*.*.*",
+                      "time.*",
+                      "time.*.com",
+                      "connectivitycheck.gstatic.com",
+                      "detectportal.firefox.com",
+                      "captive.apple.com",
+                      "www.msftncsi.com",
+                      "cp.cloudflare.com"
+                  ],
+                  "default-nameserver": [
+                      "1.1.1.1", "1.0.0.1", "8.8.8.8", "8.8.4.4",
+                      "9.9.9.9", "149.112.112.112",
+                      "208.67.222.222", "208.67.220.220",
+                      "94.140.14.14", "94.140.15.15",
+                      "64.6.64.6", "64.6.65.6",
+                      "84.200.69.80", "84.200.70.40",
+                      "76.76.19.19", "76.223.122.150",
+                      "8.26.56.26", "8.20.247.20"
+                  ],
+                  "nameserver": [
+                      "https://cloudflare-dns.com/dns-query",
+                      "https://1.1.1.1/dns-query",
+                      "https://1.0.0.1/dns-query",
+                      "https://dns.google/dns-query",
+                      "https://8.8.8.8/dns-query",
+                      "https://8.8.4.4/dns-query",
+                      "https://dns.quad9.net/dns-query",
+                      "https://9.9.9.9/dns-query",
+                      "https://149.112.112.112/dns-query",
+                      "https://dns.adguard.com/dns-query",
+                      "https://94.140.14.14/dns-query",
+                      "https://94.140.15.15/dns-query",
+                      "https://doh.opendns.com/dns-query",
+                      "https://208.67.222.222/dns-query",
+                      "https://208.67.220.220/dns-query",
+                      "https://doh.comodo.com/dns-query",
+                      "https://8.26.56.26/dns-query",
+                      "https://8.20.247.20/dns-query",
+                      "https://doh.mullvad.net/dns-query",
+                      "https://doh.dns.mullvad.net/dns-query",
+                      "https://freedns.controld.com/p0",
+                      "https://freedns.controld.com/family",
+                      "tls://1.1.1.1:853", "tls://1.0.0.1:853",
+                      "tls://8.8.8.8:853", "tls://8.8.4.4:853",
+                      "tls://9.9.9.9:853", "tls://149.112.112.112:853",
+                      "tls://94.140.14.14:853", "tls://94.140.15.15:853",
+                      "tls://208.67.222.222:853", "tls://208.67.220.220:853",
+                      "tls://family-filter-dns.cleanbrowsing.org:853",
+                      "tls://adult-filter-dns.cleanbrowsing.org:853",
+                      "tls://security-filter-dns.cleanbrowsing.org:853",
+                      "1.1.1.1", "1.0.0.1", "8.8.8.8", "8.8.4.4",
+                      "9.9.9.9", "149.112.112.112",
+                      "208.67.222.222", "208.67.220.220",
+                      "94.140.14.14", "94.140.15.15",
+                      "64.6.64.6", "64.6.65.6",
+                      "84.200.69.80", "84.200.70.40",
+                      "8.26.56.26", "8.20.247.20",
+                      "76.76.19.19", "76.223.122.150",
+                      "208.67.222.123", "208.67.220.123",
+                      "195.46.39.39", "195.46.39.40",
+                      "38.132.106.139", "194.187.251.67"
+                  ]
+              },
+              "proxy-groups": [
+                  {
+                      "name": "PROXY",
+                      "type": "select",
+                      "proxies": ["Fallback", "Auto", "Load Balance"]
+                  },
+                  {
+                      "name": "Load Balance",
+                      "type": "load-balance",
+                      "strategy": "consistent-hashing",
+                      "url": "http://www.gstatic.com/generate_204",
+                      "interval": 60,
+                      "tolerance": 50,
+                      "lazy": True,
+                      "proxies": []
+                  },
+                  {
+                      "name": "Auto",
+                      "type": "url-test",
+                      "url": "http://www.gstatic.com/generate_204",
+                      "interval": 60,
+                      "tolerance": 50,
+                      "lazy": True,
+                      "proxies": []
+                  },
+                  {
+                      "name": "Fallback",
+                      "type": "fallback",
+                      "url": "http://www.gstatic.com/generate_204",
+                      "interval": 60,
+                      "lazy": True,
+                      "proxies": []
+                  }
+              ],
+              "rules": ["MATCH,PROXY"]
+          }
 
           def parse_wireguard_config(line):
               decoded = unquote(line)
@@ -44,7 +176,6 @@ jobs:
               address = match.group(2)
               port = int(match.group(3))
               params = match.group(4)
-              fragment = match.group(5) if match.group(5) else None
               
               params_dict = {}
               for param in params.split('&'):
@@ -63,92 +194,12 @@ jobs:
                   'public_key': params_dict.get('publickey', ''),
                   'addresses': params_dict.get('address', '').split(','),
                   'mtu': mtu,
-                  'endpoint': f"{address}:{port}",
-                  'fragment': fragment
+                  'endpoint': f"{address}:{port}"
               }
 
           def generate_proxy_name(endpoint, index):
               safe_name = re.sub(r'[^a-zA-Z0-9\-]', '-', endpoint)
               return f"WG-{safe_name}-{index}"
-
-          def generate_clash_config(configs, filename):
-              proxies = []
-              proxy_names = []
-              
-              for i, config in enumerate(configs):
-                  proxy_name = generate_proxy_name(config['endpoint'], i)
-                  proxy_names.append(proxy_name)
-                  
-                  proxy = {
-                      'name': proxy_name,
-                      'type': 'wireguard',
-                      'server': config['address'],
-                      'port': config['port'],
-                      'private-key': config['private_key'],
-                      'public-key': config['public_key'],
-                      'mtu': config['mtu'],
-                      'udp': True
-                  }
-                  
-                  if config['addresses']:
-                      if len(config['addresses']) > 0 and config['addresses'][0]:
-                          proxy['ip'] = config['addresses'][0].split('/')[0] if '/' in config['addresses'][0] else config['addresses'][0]
-                      if len(config['addresses']) > 1 and config['addresses'][1]:
-                          proxy['ipv6'] = config['addresses'][1].split('/')[0] if '/' in config['addresses'][1] else config['addresses'][1]
-                  
-                  proxies.append(proxy)
-              
-              proxy_groups = []
-              
-              if len(proxy_names) >= 2:
-                  proxy_groups.append({
-                      'name': f'{filename.replace(".txt", "")}-load-balance',
-                      'type': 'load-balance',
-                      'proxies': proxy_names.copy(),
-                      'url': 'http://www.gstatic.com/generate_204',
-                      'interval': 300,
-                      'strategy': 'consistent-hashing'
-                  })
-                  
-                  proxy_groups.append({
-                      'name': f'{filename.replace(".txt", "")}-fallback',
-                      'type': 'fallback',
-                      'proxies': proxy_names.copy(),
-                      'url': 'http://www.gstatic.com/generate_204',
-                      'interval': 300
-                  })
-                  
-                  proxy_groups.append({
-                      'name': f'{filename.replace(".txt", "")}-auto',
-                      'type': 'url-test',
-                      'proxies': proxy_names.copy(),
-                      'url': 'http://www.gstatic.com/generate_204',
-                      'interval': 300,
-                      'tolerance': 150
-                  })
-              
-              all_group_names = [g['name'] for g in proxy_groups]
-              
-              main_groups = [
-                  {
-                      'name': 'Proxy',
-                      'type': 'select',
-                      'proxies': all_group_names + proxy_names + ['DIRECT']
-                  },
-                  {
-                      'name': 'Auto-Select',
-                      'type': 'fallback',
-                      'proxies': all_group_names,
-                      'url': 'http://www.gstatic.com/generate_204',
-                      'interval': 300
-                  }
-              ]
-              
-              return {
-                  'proxies': proxies,
-                  'proxy-groups': main_groups + proxy_groups,
-                  'rules': ['MATCH,Proxy']
-              }
 
           def write_yaml(config, filepath):
               class CustomDumper(yaml.Dumper):
@@ -162,34 +213,61 @@ jobs:
                             sort_keys=False,
                             indent=2)
 
-          os.makedirs(CLASH_CONFIGS_DIR, exist_ok=True)
-
           for i, filename in enumerate(FILES):
               if not os.path.exists(filename):
                   print(f"File {filename} not found, skipping...")
                   continue
               
-              configs = []
+              proxies = []
+              proxy_names = []
+              
               with open(filename, 'r', encoding='utf-8') as f:
                   for line in f:
                       line = line.strip()
                       if line.startswith("wireguard://"):
-                          parsed = parse_wireguard_config(line)
-                          if parsed:
-                              configs.append(parsed)
+                          config = parse_wireguard_config(line)
+                          if config:
+                              proxy_name = generate_proxy_name(config['endpoint'], len(proxies))
+                              proxy_names.append(proxy_name)
+                              
+                              proxy = {
+                                  'name': proxy_name,
+                                  'type': 'wireguard',
+                                  'server': config['address'],
+                                  'port': config['port'],
+                                  'private-key': config['private_key'],
+                                  'public-key': config['public_key'],
+                                  'mtu': config['mtu'],
+                                  'udp': True
+                              }
+                              
+                              if config['addresses']:
+                                  if len(config['addresses']) > 0 and config['addresses'][0]:
+                                      proxy['ip'] = config['addresses'][0].split('/')[0] if '/' in config['addresses'][0] else config['addresses'][0]
+                                  if len(config['addresses']) > 1 and config['addresses'][1]:
+                                      proxy['ipv6'] = config['addresses'][1].split('/')[0] if '/' in config['addresses'][1] else config['addresses'][1]
+                              
+                              proxies.append(proxy)
               
-              if configs:
-                  clash_config = generate_clash_config(configs, filename)
-                  output_path = os.path.join(CLASH_CONFIGS_DIR, OUTPUT_FILES[i])
-                  write_yaml(clash_config, output_path)
-                  print(f"Generated {output_path} with {len(configs)} WireGuard configs")
+              if proxies:
+                  output_config = BASE_CONFIG.copy()
+                  output_config['proxies'] = proxies
+                  
+                  for group in output_config['proxy-groups']:
+                      if group['name'] in ['Load Balance', 'Auto', 'Fallback']:
+                          group['proxies'] = proxy_names.copy()
+                      elif group['name'] == 'PROXY':
+                          group['proxies'] = ['Fallback', 'Auto', 'Load Balance'] + proxy_names
+                  
+                  write_yaml(output_config, OUTPUT_FILES[i])
+                  print(f"Generated {OUTPUT_FILES[i]} with {len(proxies)} WireGuard proxies")
               else:
                   print(f"No valid configs found in {filename}")
 
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Generate Clash configs with load-balance, auto-select, and fallback"
-          file_pattern: "clash_configs/*.yaml"
+          commit_message: "Generate Clash configs based on standard template"
+          file_pattern: "ALL.yaml MCI.yaml MTN.yaml"
           commit_user_name: github-actions[bot]
           commit_user_email: github-actions[bot]@users.noreply.github.com
