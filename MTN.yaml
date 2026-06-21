@@ -6,7 +6,7 @@ allow-lan: true
 bind-address: '*'
 mode: global
 log-level: info
-ipv6: true
+ipv6: false
 external-controller: 127.0.0.1:9090
 external-ui: ui
 secret: ''
@@ -20,7 +20,7 @@ profile:
   store-fake-ip: false
 dns:
   enable: true
-  ipv6: true
+  ipv6: false
   listen: 0.0.0.0:5353
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
@@ -125,12 +125,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8276:4e70:6957:28ae:9556
   - name: WG-188-114-97-6-928-1
@@ -141,12 +135,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8c20:76f2:2eb6:df60:266c
   - name: WG-8-6-112-100-878-2
@@ -157,12 +145,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1420
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8af2:447b:a9b9:b420:ebff
   - name: WG-8-6-112-101-7152-3
@@ -173,12 +155,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8e1b:6598:be64:176:553
   - name: WG-8-6-112-106-1074-4
@@ -189,12 +165,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8dc4:f0e2:7d0f:d8e0:a50c
   - name: WG-8-6-112-106-890-5
@@ -205,12 +175,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8904:98d2:7555:2ee7:acbf
   - name: WG-8-6-112-107-4500-6
@@ -221,12 +185,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8c42:3d86:86a9:8cd2:db69
   - name: WG-8-6-112-108-890-7
@@ -237,12 +195,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8daa:3a43:8bed:dc6d:ea2c
   - name: WG-8-6-112-10-894-8
@@ -253,12 +205,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1420
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8af2:447b:a9b9:b420:ebff
   - name: WG-8-6-112-110-943-9
@@ -269,12 +215,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:836b:9abb:879a:6f9f:75a6
   - name: WG-8-6-112-112-7281-10
@@ -285,12 +225,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8ba9:50e:ba9c:6399:9432
   - name: WG-8-6-112-113-8319-11
@@ -301,12 +235,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:895d:3f07:c33c:9c06:c6c5
   - name: WG-8-6-112-118-1014-12
@@ -317,12 +245,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:809d:8182:286e:2da6:2b4
   - name: WG-8-6-112-11-864-13
@@ -333,12 +255,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:82d9:2ca5:7c97:cc2a:566b
   - name: WG-8-6-112-122-1701-14
@@ -349,12 +265,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8598:5292:6008:6f22:d8e4
   - name: WG-8-6-112-129-500-15
@@ -365,12 +275,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8215:31fe:cf09:31b2:51e8
   - name: WG-8-6-112-12-2506-16
@@ -381,12 +285,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8add:4b88:626b:ff71:3018
   - name: WG-8-6-112-137-1180-17
@@ -397,12 +295,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8820:e7c8:e449:f851:f0c
   - name: WG-8-6-112-137-3581-18
@@ -413,12 +305,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8632:1c07:9af0:1c9b:32c6
   - name: WG-8-6-112-137-854-19
@@ -429,12 +315,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8cb6:abe7:1968:730d:7ed5
   - name: WG-8-6-112-139-4233-20
@@ -445,12 +325,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:89ad:7b0c:484e:d2b3:38ef
   - name: WG-8-6-112-141-3476-21
@@ -461,12 +335,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1420
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8af2:447b:a9b9:b420:ebff
   - name: WG-8-6-112-141-7103-22
@@ -477,12 +345,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8886:8725:7467:8c95:a6ad
   - name: WG-8-6-112-141-8854-23
@@ -493,12 +355,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8ada:f64e:468:6a73:f445
   - name: WG-8-6-112-144-7156-24
@@ -509,12 +365,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8202:e814:9e59:caae:2428
   - name: WG-8-6-112-145-928-25
@@ -525,12 +375,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8844:d84a:9b19:b3d8:a6a3
   - name: WG-8-6-112-149-988-26
@@ -541,12 +385,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8eaf:942f:6949:1e6:64d1
   - name: WG-8-6-112-154-1018-27
@@ -557,12 +395,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8913:8962:de61:cc41:aa69
   - name: WG-8-6-112-156-943-28
@@ -573,12 +405,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:86e2:7971:1e18:99de:b116
   - name: WG-8-6-112-157-4500-29
@@ -589,12 +415,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8c86:fa14:5b02:d10:6404
   - name: WG-8-6-112-159-3581-30
@@ -605,12 +425,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:844a:db2:c3f8:52b8:f7b7
   - name: WG-8-6-112-15-3854-31
@@ -621,12 +435,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8b4d:9a41:bbd:469b:abac
   - name: WG-8-6-112-162-8854-32
@@ -637,12 +445,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:86d3:4c7c:928d:5b75:d437
   - name: WG-8-6-112-164-500-33
@@ -653,12 +455,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8fcf:7b4e:cdab:d630:3195
   - name: WG-8-6-112-164-7103-34
@@ -669,12 +465,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8826:d8de:d9ef:f279:f44b
   - name: WG-8-6-112-164-878-35
@@ -685,12 +475,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:831a:f65d:fd7:e7d7:9c10
   - name: WG-8-6-112-165-880-36
@@ -701,12 +485,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:866f:f846:e2ff:20a5:2c0c
   - name: WG-8-6-112-166-1002-37
@@ -717,12 +495,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:85ac:8688:cd25:374a:7ae2
   - name: WG-8-6-112-166-943-38
@@ -733,12 +505,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8d88:2e76:e419:58c:f2ac
   - name: WG-8-6-112-171-3581-39
@@ -749,12 +515,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8bfc:5b30:7d0d:d980:8e1
   - name: WG-8-6-112-171-942-40
@@ -765,12 +525,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:811e:501e:dcb:204d:412b
   - name: WG-8-6-112-172-1018-41
@@ -781,12 +535,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8c04:6483:2f02:914d:bd4f
   - name: WG-8-6-112-172-8742-42
@@ -797,12 +545,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8ecd:d090:a10:6851:a973
   - name: WG-8-6-112-176-3138-43
@@ -813,12 +555,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:815e:1e81:44cf:2592:d683
   - name: WG-8-6-112-176-908-44
@@ -829,12 +565,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:88c5:e18b:e731:b845:f549
   - name: WG-8-6-112-177-987-45
@@ -845,12 +575,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8616:8fd6:c4a4:67a5:6f78
   - name: WG-8-6-112-180-5956-46
@@ -861,12 +585,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8e94:1212:55e9:5805:c495
   - name: WG-8-6-112-180-903-47
@@ -877,12 +595,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:84be:8870:347:46ae:c22c
   - name: WG-8-6-112-181-946-48
@@ -893,12 +605,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1420
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8af2:447b:a9b9:b420:ebff
   - name: WG-8-6-112-182-5279-49
@@ -909,12 +615,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8cb6:abe7:1968:730d:7ed5
   - name: WG-8-6-112-183-4198-50
@@ -925,12 +625,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8543:e817:bed5:1629:81e8
   - name: WG-8-6-112-183-8886-51
@@ -941,12 +635,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8563:5f79:19c5:100d:ea3c
   - name: WG-8-6-112-189-864-52
@@ -957,12 +645,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:83d8:f56c:6284:5862:ffc4
   - name: WG-8-6-112-18-3138-53
@@ -973,12 +655,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8ec9:f3ae:b477:500f:4257
   - name: WG-8-6-112-191-4198-54
@@ -989,12 +665,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8cb9:d5bc:18d9:d295:25cb
   - name: WG-8-6-112-191-7152-55
@@ -1005,12 +675,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8cb6:abe7:1968:730d:7ed5
   - name: WG-8-6-112-193-903-56
@@ -1021,12 +685,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8072:bf2:75cc:c318:430e
   - name: WG-8-6-112-195-894-57
@@ -1037,12 +695,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8cb6:abe7:1968:730d:7ed5
   - name: WG-8-6-112-197-1002-58
@@ -1053,12 +705,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8f84:641f:14ef:9c3e:68eb
   - name: WG-8-6-112-198-7281-59
@@ -1069,12 +715,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8242:3952:7779:547:cd69
   - name: WG-8-6-112-199-890-60
@@ -1085,12 +725,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8afe:e60f:264e:3c88:d85b
   - name: WG-8-6-112-200-1843-61
@@ -1101,12 +735,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:876e:d81d:e3af:e877:6f47
   - name: WG-8-6-112-202-908-62
@@ -1117,12 +745,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:83fd:b89d:4035:2e7b:937c
   - name: WG-8-6-112-206-1010-63
@@ -1133,12 +755,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8629:a4ea:6b43:3bf6:296e
   - name: WG-8-6-112-206-939-64
@@ -1149,12 +765,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8713:3cd0:48b5:bf38:befb
   - name: WG-8-6-112-206-943-65
@@ -1165,12 +775,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8663:c1b4:24e7:70ff:381a
   - name: WG-8-6-112-206-955-66
@@ -1181,12 +785,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8eff:8c65:5601:7375:a21c
   - name: WG-8-6-112-20-4233-67
@@ -1197,12 +795,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:863a:1105:61b6:79f2:cd8b
   - name: WG-8-6-112-211-8742-68
@@ -1213,12 +805,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8cb6:abe7:1968:730d:7ed5
   - name: WG-8-6-112-211-928-69
@@ -1229,12 +815,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:80a1:43e3:1c3b:c445:f865
   - name: WG-8-6-112-213-2371-70
@@ -1245,12 +825,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8bdc:14e6:e4d3:ae48:3d92
   - name: WG-8-6-112-220-2408-71
@@ -1261,12 +835,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8607:df5a:7d84:f603:5bbd
   - name: WG-8-6-112-22-4177-72
@@ -1277,12 +845,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8d63:e0df:6f1d:51d8:d66e
   - name: WG-8-6-112-232-7559-73
@@ -1293,12 +855,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:82e8:3fd7:c967:3db1:bf8b
   - name: WG-8-6-112-234-5279-74
@@ -1309,12 +865,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8cb6:abe7:1968:730d:7ed5
   - name: WG-8-6-112-235-4198-75
@@ -1325,12 +875,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8a58:e6c1:8f71:e4a2:4abd
   - name: WG-8-6-112-235-943-76
@@ -1341,12 +885,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:82fa:8b63:98cc:29f:13c1
   - name: WG-8-6-112-236-3138-77
@@ -1357,12 +895,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8a29:d302:5a2e:5e27:2f81
   - name: WG-8-6-112-236-5279-78
@@ -1373,12 +905,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:88bf:48bd:935f:445a:1522
   - name: WG-8-6-112-237-8854-79
@@ -1389,12 +915,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8bba:5095:d218:270a:e758
   - name: WG-8-6-112-239-891-80
@@ -1405,12 +925,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8e6f:c4d:11e9:67b3:5c02
   - name: WG-8-6-112-240-1010-81
@@ -1421,12 +935,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:85fc:caa:1f70:9ef0:72c6
   - name: WG-8-6-112-240-1180-82
@@ -1437,12 +945,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:87c7:5050:c624:fc26:71c9
   - name: WG-8-6-112-242-1074-83
@@ -1453,12 +955,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:88ad:4dc:5beb:81e1:82cd
   - name: WG-8-6-112-244-1014-84
@@ -1469,12 +965,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8cb6:abe7:1968:730d:7ed5
   - name: WG-8-6-112-245-3138-85
@@ -1485,12 +975,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:89ca:d73d:b4b4:7409:ab11
   - name: WG-8-6-112-246-8319-86
@@ -1501,12 +985,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8c1f:1123:7d78:568b:de25
   - name: WG-8-6-112-248-3138-87
@@ -1517,12 +995,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:88ec:a20a:8c64:6617:f4a2
   - name: WG-8-6-112-253-4177-88
@@ -1533,12 +1005,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8214:55ad:5d1a:2ae1:4372
   - name: WG-8-6-112-255-7559-89
@@ -1549,12 +1015,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8cb6:abe7:1968:730d:7ed5
   - name: WG-8-6-112-26-2408-90
@@ -1565,12 +1025,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8e4e:939b:b987:39aa:c46c
   - name: WG-8-6-112-30-1014-91
@@ -1581,12 +1035,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1420
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8af2:447b:a9b9:b420:ebff
   - name: WG-8-6-112-30-1387-92
@@ -1597,12 +1045,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8de0:f86c:ca8a:7943:155d
   - name: WG-8-6-112-32-8742-93
@@ -1613,12 +1055,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:84f9:1fdf:7b44:1ce3:531e
   - name: WG-8-6-112-32-8854-94
@@ -1629,12 +1065,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:85c0:ed6c:dbfe:7fab:732
   - name: WG-8-6-112-32-8886-95
@@ -1645,12 +1075,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:82b2:74ac:4b7c:cf0e:131e
   - name: WG-8-6-112-32-894-96
@@ -1661,12 +1085,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8594:5c5:bc:3d95:4cbd
   - name: WG-8-6-112-33-1002-97
@@ -1677,12 +1095,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8684:f5fc:4f82:70d2:628c
   - name: WG-8-6-112-33-8854-98
@@ -1693,12 +1105,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8c7a:3029:6d7f:3948:7cc1
   - name: WG-8-6-112-34-5279-99
@@ -1709,12 +1115,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:87bf:c3f9:afbe:9a03:6a38
   - name: WG-8-6-112-35-928-100
@@ -1725,12 +1125,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:81af:a27:71d8:223b:b1ee
   - name: WG-8-6-112-35-939-101
@@ -1741,12 +1135,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8dde:5fc2:6cbf:6f73:c2d9
   - name: WG-8-6-112-37-1070-102
@@ -1757,12 +1145,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8fe9:edd7:daab:e10d:8268
   - name: WG-8-6-112-40-859-103
@@ -1773,12 +1155,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8a42:c1f5:4aa5:6db9:6a
   - name: WG-8-6-112-40-890-104
@@ -1789,12 +1165,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8cb6:abe7:1968:730d:7ed5
   - name: WG-8-6-112-46-4500-105
@@ -1805,12 +1175,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8a62:c02e:406:db1f:cab1
   - name: WG-8-6-112-47-859-106
@@ -1821,12 +1185,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:85dd:644f:15a0:e51a:11d9
   - name: WG-8-6-112-48-1010-107
@@ -1837,12 +1195,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8e42:c87c:2e1:a608:b947
   - name: WG-8-6-112-48-1070-108
@@ -1853,12 +1205,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1420
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8af2:447b:a9b9:b420:ebff
   - name: WG-8-6-112-49-934-109
@@ -1869,12 +1215,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8484:e6f8:e374:23b9:f533
   - name: WG-8-6-112-4-854-110
@@ -1885,12 +1225,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:888a:579b:a5b8:49de:76a8
   - name: WG-8-6-112-50-859-111
@@ -1901,12 +1235,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8a43:857f:db23:8f63:477c
   - name: WG-8-6-112-51-7559-112
@@ -1917,12 +1245,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1420
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8af2:447b:a9b9:b420:ebff
   - name: WG-8-6-112-52-894-113
@@ -1933,12 +1255,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8da2:7c51:de63:685e:a966
   - name: WG-8-6-112-53-987-114
@@ -1949,12 +1265,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:802e:c5b6:76f4:42f2:75c1
   - name: WG-8-6-112-56-5279-115
@@ -1965,12 +1275,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8686:a036:7587:4155:45eb
   - name: WG-8-6-112-59-968-116
@@ -1981,12 +1285,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:878d:da67:265c:1135:bcde
   - name: WG-8-6-112-5-955-117
@@ -1997,12 +1295,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1420
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8af2:447b:a9b9:b420:ebff
   - name: WG-8-6-112-65-1180-118
@@ -2013,12 +1305,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:882c:bda2:57af:c1d1:2855
   - name: WG-8-6-112-65-894-119
@@ -2029,12 +1315,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8245:703e:a87c:ab24:9c73
   - name: WG-8-6-112-65-955-120
@@ -2045,12 +1325,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8ec7:4d22:8905:ee44:e285
   - name: WG-8-6-112-73-3476-121
@@ -2061,12 +1335,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:862d:f4e9:974:a8ed:d92c
   - name: WG-8-6-112-73-500-122
@@ -2077,12 +1345,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:805a:290:708b:b4fd:b87b
   - name: WG-8-6-112-74-7156-123
@@ -2093,12 +1355,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8500:615a:4806:11b:133
   - name: WG-8-6-112-77-894-124
@@ -2109,12 +1365,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:84e4:b983:a362:c99f:7324
   - name: WG-8-6-112-78-7281-125
@@ -2125,12 +1375,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8ed7:4a69:d8cf:603b:55a6
   - name: WG-8-6-112-7-7152-126
@@ -2141,12 +1385,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1420
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8af2:447b:a9b9:b420:ebff
   - name: WG-8-6-112-81-3476-127
@@ -2157,12 +1395,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8a44:efc7:85a5:c43c:db5f
   - name: WG-8-6-112-81-7559-128
@@ -2173,12 +1405,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:82c4:984f:f9b6:e48c:6bcb
   - name: WG-8-6-112-81-8854-129
@@ -2189,12 +1415,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8c85:64b:d5ea:c2e7:2b86
   - name: WG-8-6-112-83-890-130
@@ -2205,12 +1425,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:84e4:1906:fc3b:dc56:bac0
   - name: WG-8-6-112-86-5279-131
@@ -2221,12 +1435,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8b8b:264d:8401:7db2:d444
   - name: WG-8-6-112-88-4233-132
@@ -2237,12 +1445,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:872c:d27a:f304:f91d:3bf3
   - name: WG-8-6-112-89-3476-133
@@ -2253,12 +1455,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8da5:19f:b9c7:698c:3d0d
   - name: WG-8-6-112-90-7103-134
@@ -2269,12 +1465,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8d0d:4420:924:36f8:20de
   - name: WG-8-6-112-90-908-135
@@ -2285,12 +1475,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8831:33d3:968c:485b:50a0
   - name: WG-8-6-112-95-1387-136
@@ -2301,12 +1485,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8a74:a585:2354:6e36:665
   - name: WG-8-6-112-95-908-137
@@ -2317,12 +1495,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8b4f:93c5:b658:f4e4:9b9a
   - name: WG-8-6-112-96-8854-138
@@ -2333,12 +1505,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8058:5bf5:ed41:ddf3:5eaa
   - name: WG-8-6-112-9-5279-139
@@ -2349,12 +1515,6 @@ proxies:
     public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
     mtu: 1280
     udp: true
-    reserved:
-      - 0
-      - 0
-      - 0
-    workers: 4
-    persistent-keepalive: 25
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8329:e1c0:512d:5fb1:c738
 proxy-groups:
