@@ -246,8 +246,6 @@ jobs:
                                       'udp': True,
                                       'reserved': [0, 0, 0],
                                       'workers': 8,
-                                      'remote-dns-resolve': True,
-                                      'dns': ['1.1.1.1', '8.8.8.8'],
                                       'allowed-ips': ['0.0.0.0/0', '::/0'],
                                       'persistent-keepalive': 25,
                                       'amnezia-wg-options': {
