@@ -117,7 +117,517 @@ dns:
     - 38.132.106.139
     - 194.187.251.67
 proxies:
-  - name: WG-188-114-97-6-500-0
+  - name: WG-8-6-112-4-7152-0
+    type: wireguard
+    server: 8.6.112.4
+    port: 7152
+    private-key: 0K4BUu+cotPsObr2uViW6a77VkM0u3eqxtVkdoSqWVg=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    mtu: 1280
+    udp: true
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:8de9:e99:ee95:d525:58cd
+  - name: WG-8-6-112-154-934-1
+    type: wireguard
+    server: 8.6.112.154
+    port: 934
+    private-key: mAzOyEkgSRmT1Rh83QyxoZLEqMGjVPpnxSSI5URkWFE=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    mtu: 1280
+    udp: true
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:8408:103b:9cd7:6796:272c
+  - name: WG-8-6-112-122-968-2
+    type: wireguard
+    server: 8.6.112.122
+    port: 968
+    private-key: +N8AYs0Op3JWwVRZGWY9kdONDfGR/esdKtBT3g9R4kg=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    mtu: 1280
+    udp: true
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:8939:38c6:623a:11fc:5dc3
+  - name: WG-8-6-112-199-903-3
+    type: wireguard
+    server: 8.6.112.199
+    port: 903
+    private-key: 2P03bBMjle8JF3ZE/iiy68DEe/ZPPzwGJ0g+n0r5lk8=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    mtu: 1280
+    udp: true
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:8697:754e:8f12:de8b:ad58
+  - name: WG-8-6-112-79-1010-4
+    type: wireguard
+    server: 8.6.112.79
+    port: 1010
+    private-key: SNQV/ifDRb4bDjExOKRx0h8JipXcI9FMuCAyEj3SeEg=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    mtu: 1280
+    udp: true
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:844a:f260:af09:3edc:7dc4
+  - name: WG-8-6-112-169-945-5
+    type: wireguard
+    server: 8.6.112.169
+    port: 945
+    private-key: WNmiQ1zoiVC58Sseycv6ldm5UGm8o4yPeKD7VDcHDFk=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    mtu: 1280
+    udp: true
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:8dcd:2e11:fdea:959d:3769
+  - name: WG-8-6-112-174-1701-6
+    type: wireguard
+    server: 8.6.112.174
+    port: 1701
+    private-key: sOQDm8Lrv2ZsdFUqERzyn9q4yP3TECwmJnEp+UBnun4=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    mtu: 1280
+    udp: true
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:838c:832a:f3c5:a7e0:f35b
+  - name: WG-8-6-112-47-878-7
+    type: wireguard
+    server: 8.6.112.47
+    port: 878
+    private-key: sBWAxM8JJjdVnncVvC7w9+h9F0IjbYLYNoy/TGZ+R10=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    mtu: 1280
+    udp: true
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:8ce5:c039:7ae5:7f9a:2fd6
+  - name: WG-8-6-112-35-854-8
+    type: wireguard
+    server: 8.6.112.35
+    port: 854
+    private-key: ODV0Y20epXlXi2i6gQGxNQYpqFcnukbUy38K9XlT03M=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    mtu: 1280
+    udp: true
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:8aad:55c8:25d6:3e9b:88a9
+  - name: WG-8-6-112-119-7559-9
+    type: wireguard
+    server: 8.6.112.119
+    port: 7559
+    private-key: kEf8eFPHC2Pd0XyiIcFRDFBgZLtOlbByL6+G4/T7jEk=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    mtu: 1280
+    udp: true
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:8539:d61e:d9a2:6a95:c569
+  - name: WG-8-6-112-136-1014-10
+    type: wireguard
+    server: 8.6.112.136
+    port: 1014
+    private-key: kNR4+VCmOOLJ53B6uc1drl7f1/G6G1QPzLjLpWaCRUc=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    mtu: 1280
+    udp: true
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:8df9:1553:13d9:1861:da72
+  - name: WG-8-6-112-229-8319-11
+    type: wireguard
+    server: 8.6.112.229
+    port: 8319
+    private-key: 0JCTU467lHhOYLjPfsi6ffxObES1JlyExmgT9wMOx0A=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    mtu: 1280
+    udp: true
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:8e24:7a1b:7c9d:9609:ffd
+  - name: WG-8-6-112-155-1843-12
+    type: wireguard
+    server: 8.6.112.155
+    port: 1843
+    private-key: yKsMCPKm94mZplGJW7hbFkuDccipW9l2A7flLdHnJGE=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    mtu: 1280
+    udp: true
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:82ca:5aa:a2d9:6776:ed83
+  - name: WG-8-6-112-174-7152-13
+    type: wireguard
+    server: 8.6.112.174
+    port: 7152
+    private-key: 8AvZURE3CBJF8dYAYau4PEy7Dbt6WVX9PV+nYeevRlc=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    mtu: 1280
+    udp: true
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:8c08:240e:9ef5:5616:f0b2
+  - name: WG-8-6-112-37-1070-14
+    type: wireguard
+    server: 8.6.112.37
+    port: 1070
+    private-key: mN4Vyw8nTE0m3XmYxGrh636zttKk+QTpZa8DpwgnCHo=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    mtu: 1280
+    udp: true
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:8c9f:8a06:a968:973d:1274
+  - name: WG-8-6-112-118-1010-15
+    type: wireguard
+    server: 8.6.112.118
+    port: 1010
+    private-key: WPZYdqE4vZ63R2ayOjUFReQTdvubK489nlwdt6TaDFY=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    mtu: 1280
+    udp: true
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:8336:c271:2851:894d:589
+  - name: WG-8-6-112-143-859-16
+    type: wireguard
+    server: 8.6.112.143
+    port: 859
+    private-key: cPq9XTR7G5L2YnRw1rvUvqUE9SFv86I5qk4eIbYzq14=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    mtu: 1280
+    udp: true
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:8fc4:b2dc:7d0b:368c:d96b
+  - name: WG-8-6-112-195-2408-17
+    type: wireguard
+    server: 8.6.112.195
+    port: 2408
+    private-key: AE69eYV7vqVUlEg/j1mkFt/zyt/dD1lQN/7IK4BWo10=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    mtu: 1280
+    udp: true
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:89d5:c094:2891:3104:bf9b
+  - name: WG-8-6-112-229-934-18
+    type: wireguard
+    server: 8.6.112.229
+    port: 934
+    private-key: wB82f7MQ71dRil1eN0dMLFW0+pMn19rLrbDtsECLH1s=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    mtu: 1280
+    udp: true
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:879c:8a85:9628:8d29:7986
+  - name: WG-8-6-112-224-1014-19
+    type: wireguard
+    server: 8.6.112.224
+    port: 1014
+    private-key: yN6FP316liRL28qMLazC1X817ixBiy+gLQL5W4nIbW8=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    mtu: 1280
+    udp: true
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:8940:fa6:f40b:2d90:ea49
+  - name: WG-8-6-112-41-894-20
+    type: wireguard
+    server: 8.6.112.41
+    port: 894
+    private-key: GO/gk4Hr3J6sEQ2v2jJyIDDXlDa0RUJBL8ScAzaGfFY=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    mtu: 1280
+    udp: true
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:8ab1:c6ee:773f:42d0:ff78
+  - name: WG-8-6-112-195-908-21
+    type: wireguard
+    server: 8.6.112.195
+    port: 908
+    private-key: iIYHhqFyXik2ghFMkwBvboJuHIYUbfL2QHdhQ9MAAHw=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    mtu: 1280
+    udp: true
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:8d0f:1eeb:15f1:e552:ae2d
+  - name: WG-8-6-112-240-928-22
+    type: wireguard
+    server: 8.6.112.240
+    port: 928
+    private-key: cGvlR+SEuFX1V5HMRU4oqZuV3Ig5l6A/SCO+P5WlOno=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    mtu: 1280
+    udp: true
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:8fc1:e365:5ac1:5c8c:501f
+  - name: WG-8-6-112-177-903-23
+    type: wireguard
+    server: 8.6.112.177
+    port: 903
+    private-key: IM7kG6aA4We06u3wM75XtZfdOyi105paWEKj86lLEXQ=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    mtu: 1280
+    udp: true
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:8d27:2e20:c355:a7cf:96f3
+  - name: WG-8-6-112-88-854-24
+    type: wireguard
+    server: 8.6.112.88
+    port: 854
+    private-key: QIWJEbqsJNN0kvMbZSxtJqS2aMn9YNCV2LqKFONRWmU=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    mtu: 1280
+    udp: true
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:8889:970c:824c:c260:99
+  - name: WG-8-6-112-113-4177-25
+    type: wireguard
+    server: 8.6.112.113
+    port: 4177
+    private-key: 4PxyG6Ha0YeQTIyX9PS0+uunVtyUvCFRtynfca7aklo=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    mtu: 1280
+    udp: true
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:8a47:8d95:989c:38dc:6d2
+  - name: WG-8-6-112-135-968-26
+    type: wireguard
+    server: 8.6.112.135
+    port: 968
+    private-key: CFsYNQSeXYFEt3kdYKeqpEIITN6nASs3bjWGrWYzcX0=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    mtu: 1280
+    udp: true
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:86c0:e37f:e1c3:6684:e49c
+  - name: WG-8-6-112-89-7559-27
+    type: wireguard
+    server: 8.6.112.89
+    port: 7559
+    private-key: kNCc4cxg8dzyJBeb7IbjevOSRxeYS3mD59s1GKXv6Vo=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    mtu: 1280
+    udp: true
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:83d1:23b4:dadf:2338:fa14
+  - name: WG-8-6-112-95-1701-28
+    type: wireguard
+    server: 8.6.112.95
+    port: 1701
+    private-key: 6LHCoQa6rEB8uBl2V0n5SrKB/xASPxTVT4P9wUPCpV4=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    mtu: 1280
+    udp: true
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:84ca:b642:dc58:64f3:29b9
+  - name: WG-8-6-112-9-4198-29
+    type: wireguard
+    server: 8.6.112.9
+    port: 4198
+    private-key: cDtCBwkGI162B+ii3+QzE2pPTMPwVphMLDY79lijzms=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    mtu: 1280
+    udp: true
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:8099:b48f:6b8:6415:6477
+  - name: WG-8-39-204-206-8319-30
+    type: wireguard
+    server: 8.39.204.206
+    port: 8319
+    private-key: 6F0h5/sHZoematEk5S6W+9nKRCSXILiZgGNCb9k7w0k=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    mtu: 1280
+    udp: true
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:80f2:85ab:2066:ea9f:d69e
+  - name: WG-8-6-112-106-8886-31
+    type: wireguard
+    server: 8.6.112.106
+    port: 8886
+    private-key: 0J54RRPLbiNFd+jOPuRc4DS6O4lx/LLjj9WK8lFf+Xs=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    mtu: 1280
+    udp: true
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:881d:cf46:21d5:6677:ddd0
+  - name: WG-8-6-112-167-859-32
+    type: wireguard
+    server: 8.6.112.167
+    port: 859
+    private-key: SF1PTtcUVrowJK9wHI1Nla0reKmsURnHNQkwiZhVIGw=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    mtu: 1280
+    udp: true
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:8a4f:3d56:bd86:2326:f101
+  - name: WG-8-6-112-211-945-33
+    type: wireguard
+    server: 8.6.112.211
+    port: 945
+    private-key: eLxsNJS4BNO2Ev73WclEY56cZ0nq03zsC1ZRf1qL6Vw=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    mtu: 1280
+    udp: true
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:8326:6d90:d53e:4121:8a15
+  - name: WG-8-6-112-232-1843-34
+    type: wireguard
+    server: 8.6.112.232
+    port: 1843
+    private-key: yLyT1gFqTz6gGAlkBkVoMwi7Vbw0+krm6UvT+PKdHHc=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    mtu: 1280
+    udp: true
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:86b6:758b:5a3b:c0dd:15c9
+  - name: WG-8-6-112-180-928-35
+    type: wireguard
+    server: 8.6.112.180
+    port: 928
+    private-key: QCCt+cuHGssnXbXgh7Alt0AxJerpbG9ASepJPA5QZkk=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    mtu: 1280
+    udp: true
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:81dc:74df:b80:c632:9e04
+  - name: WG-8-6-112-180-3854-36
+    type: wireguard
+    server: 8.6.112.180
+    port: 3854
+    private-key: +OhH1MbaGrerxMaTsMu8GP9z4mgQsHBMV1TKkUcdx2A=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    mtu: 1280
+    udp: true
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:8675:4e7c:f7bd:aad6:46a0
+  - name: WG-8-6-112-160-3581-37
+    type: wireguard
+    server: 8.6.112.160
+    port: 3581
+    private-key: mM8bp82jQsSdpfJR/A122TVko0jEzcqqJTl2l2n1JXk=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    mtu: 1280
+    udp: true
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:80cf:9cb4:a62f:1e03:68ac
+  - name: WG-8-6-112-87-3476-38
+    type: wireguard
+    server: 8.6.112.87
+    port: 3476
+    private-key: kPQG7m1edhUCnhz0K/MLBWO27BWtRPPQy9g5mQzPBlo=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    mtu: 1280
+    udp: true
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:8c6a:400c:2856:bda5:fb59
+  - name: WG-8-6-112-149-4233-39
+    type: wireguard
+    server: 8.6.112.149
+    port: 4233
+    private-key: KFgmf9sXvq+jM3dYZIJuIJxZtsd3hWD00WHsSxX2iHk=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    mtu: 1280
+    udp: true
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:8a2d:5a52:e388:3c0d:f613
+  - name: WG-8-6-112-36-1701-40
+    type: wireguard
+    server: 8.6.112.36
+    port: 1701
+    private-key: mLgJQRWUd2SGXx/VvwnZcz3IT+oG0YMl1vdM9gPNQFo=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    mtu: 1280
+    udp: true
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:8260:2ffb:77d5:ca68:7501
+  - name: WG-8-6-112-246-1387-41
+    type: wireguard
+    server: 8.6.112.246
+    port: 1387
+    private-key: yD107rDdrhLcmewjSbDyJriamuFTUfEqjwC5508sbWs=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    mtu: 1280
+    udp: true
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:8835:5716:dadb:b4d0:827b
+  - name: WG-8-6-112-218-8742-42
+    type: wireguard
+    server: 8.6.112.218
+    port: 8742
+    private-key: mMLNclRjfm4z5qJ+oYD3JAHPxfUKTqz9azU65BNwgFA=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    mtu: 1280
+    udp: true
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:8f27:f17f:3b6e:2275:e111
+  - name: WG-8-6-112-104-1002-43
+    type: wireguard
+    server: 8.6.112.104
+    port: 1002
+    private-key: QCIpPRrpQd3B969dih2QoAQCiLC1xYNN4qOMlk/YM0k=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    mtu: 1280
+    udp: true
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:8320:c5ab:12d:cc7d:a664
+  - name: WG-8-6-112-118-1014-44
+    type: wireguard
+    server: 8.6.112.118
+    port: 1014
+    private-key: wJyuUW9JhY74UdHaNJy5RZm/OPRujQNVzi+1nkAC5XU=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    mtu: 1280
+    udp: true
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:8576:5522:1afd:cefd:7712
+  - name: WG-8-6-112-193-946-45
+    type: wireguard
+    server: 8.6.112.193
+    port: 946
+    private-key: AH8m0BAhSfHBdAT1Ig1Y2YkGWFogI1c5RiCN7pxellg=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    mtu: 1280
+    udp: true
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:888b:6412:c9ea:abda:4dc4
+  - name: WG-8-6-112-23-5279-46
+    type: wireguard
+    server: 8.6.112.23
+    port: 5279
+    private-key: GJv3fb+63PZTprqqt/S1KqJYSJMpqrKkOseR+7UX0Uk=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    mtu: 1280
+    udp: true
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:8d14:adae:6d72:7c5f:e3cb
+  - name: WG-8-6-112-34-1843-47
+    type: wireguard
+    server: 8.6.112.34
+    port: 1843
+    private-key: 6DNxutMVuqhyV0HXlG20gw9kY7gzJ0Ny2eS6oi3knWw=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    mtu: 1280
+    udp: true
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:8212:4268:ff10:5fd:759c
+  - name: WG-8-6-112-209-987-48
+    type: wireguard
+    server: 8.6.112.209
+    port: 987
+    private-key: CHpMXdvXKNlDnH/mTKX+OpPw7kW+V0DKV0lNGQ6ViHo=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    mtu: 1280
+    udp: true
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:8e5d:cca:500b:1f04:cff7
+  - name: WG-8-6-112-95-859-49
+    type: wireguard
+    server: 8.6.112.95
+    port: 859
+    private-key: EJHvrQKuH+Bn1j8Pe8sFkR2DsPUcxh7lAdC1OMzHIVA=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    mtu: 1280
+    udp: true
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:8f53:91a3:a887:85d4:690
+  - name: WG-8-6-112-169-891-50
+    type: wireguard
+    server: 8.6.112.169
+    port: 891
+    private-key: 6NTseV0K8tpr1Wnb7upHrmcFko8hrZMYoCJF/+cHuWM=
+    public-key: bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=
+    mtu: 1280
+    udp: true
+    ip: 172.16.0.2
+    ipv6: 2606:4700:110:8973:f659:e191:df48:178e
+  - name: WG-188-114-97-6-500-51
     type: wireguard
     server: 188.114.97.6
     port: 500
@@ -127,7 +637,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8276:4e70:6957:28ae:9556
-  - name: WG-188-114-97-6-928-1
+  - name: WG-188-114-97-6-928-52
     type: wireguard
     server: 188.114.97.6
     port: 928
@@ -137,7 +647,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8c20:76f2:2eb6:df60:266c
-  - name: WG-8-6-112-100-878-2
+  - name: WG-8-6-112-100-878-53
     type: wireguard
     server: 8.6.112.100
     port: 878
@@ -147,7 +657,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8af2:447b:a9b9:b420:ebff
-  - name: WG-8-6-112-101-7152-3
+  - name: WG-8-6-112-101-7152-54
     type: wireguard
     server: 8.6.112.101
     port: 7152
@@ -157,7 +667,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8e1b:6598:be64:176:553
-  - name: WG-8-6-112-106-1074-4
+  - name: WG-8-6-112-106-1074-55
     type: wireguard
     server: 8.6.112.106
     port: 1074
@@ -167,7 +677,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8dc4:f0e2:7d0f:d8e0:a50c
-  - name: WG-8-6-112-106-890-5
+  - name: WG-8-6-112-106-890-56
     type: wireguard
     server: 8.6.112.106
     port: 890
@@ -177,7 +687,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8904:98d2:7555:2ee7:acbf
-  - name: WG-8-6-112-107-4500-6
+  - name: WG-8-6-112-107-4500-57
     type: wireguard
     server: 8.6.112.107
     port: 4500
@@ -187,7 +697,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8c42:3d86:86a9:8cd2:db69
-  - name: WG-8-6-112-108-890-7
+  - name: WG-8-6-112-108-890-58
     type: wireguard
     server: 8.6.112.108
     port: 890
@@ -197,7 +707,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8daa:3a43:8bed:dc6d:ea2c
-  - name: WG-8-6-112-10-894-8
+  - name: WG-8-6-112-10-894-59
     type: wireguard
     server: 8.6.112.10
     port: 894
@@ -207,7 +717,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8af2:447b:a9b9:b420:ebff
-  - name: WG-8-6-112-110-943-9
+  - name: WG-8-6-112-110-943-60
     type: wireguard
     server: 8.6.112.110
     port: 943
@@ -217,7 +727,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:836b:9abb:879a:6f9f:75a6
-  - name: WG-8-6-112-112-7281-10
+  - name: WG-8-6-112-112-7281-61
     type: wireguard
     server: 8.6.112.112
     port: 7281
@@ -227,7 +737,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8ba9:50e:ba9c:6399:9432
-  - name: WG-8-6-112-113-8319-11
+  - name: WG-8-6-112-113-8319-62
     type: wireguard
     server: 8.6.112.113
     port: 8319
@@ -237,7 +747,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:895d:3f07:c33c:9c06:c6c5
-  - name: WG-8-6-112-118-1014-12
+  - name: WG-8-6-112-118-1014-63
     type: wireguard
     server: 8.6.112.118
     port: 1014
@@ -247,7 +757,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:809d:8182:286e:2da6:2b4
-  - name: WG-8-6-112-11-864-13
+  - name: WG-8-6-112-11-864-64
     type: wireguard
     server: 8.6.112.11
     port: 864
@@ -257,7 +767,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:82d9:2ca5:7c97:cc2a:566b
-  - name: WG-8-6-112-122-1701-14
+  - name: WG-8-6-112-122-1701-65
     type: wireguard
     server: 8.6.112.122
     port: 1701
@@ -267,7 +777,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8598:5292:6008:6f22:d8e4
-  - name: WG-8-6-112-129-500-15
+  - name: WG-8-6-112-129-500-66
     type: wireguard
     server: 8.6.112.129
     port: 500
@@ -277,7 +787,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8215:31fe:cf09:31b2:51e8
-  - name: WG-8-6-112-12-2506-16
+  - name: WG-8-6-112-12-2506-67
     type: wireguard
     server: 8.6.112.12
     port: 2506
@@ -287,7 +797,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8add:4b88:626b:ff71:3018
-  - name: WG-8-6-112-137-1180-17
+  - name: WG-8-6-112-137-1180-68
     type: wireguard
     server: 8.6.112.137
     port: 1180
@@ -297,7 +807,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8820:e7c8:e449:f851:f0c
-  - name: WG-8-6-112-137-3581-18
+  - name: WG-8-6-112-137-3581-69
     type: wireguard
     server: 8.6.112.137
     port: 3581
@@ -307,7 +817,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8632:1c07:9af0:1c9b:32c6
-  - name: WG-8-6-112-137-854-19
+  - name: WG-8-6-112-137-854-70
     type: wireguard
     server: 8.6.112.137
     port: 854
@@ -317,7 +827,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8cb6:abe7:1968:730d:7ed5
-  - name: WG-8-6-112-139-4233-20
+  - name: WG-8-6-112-139-4233-71
     type: wireguard
     server: 8.6.112.139
     port: 4233
@@ -327,7 +837,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:89ad:7b0c:484e:d2b3:38ef
-  - name: WG-8-6-112-141-3476-21
+  - name: WG-8-6-112-141-3476-72
     type: wireguard
     server: 8.6.112.141
     port: 3476
@@ -337,7 +847,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8af2:447b:a9b9:b420:ebff
-  - name: WG-8-6-112-141-7103-22
+  - name: WG-8-6-112-141-7103-73
     type: wireguard
     server: 8.6.112.141
     port: 7103
@@ -347,7 +857,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8886:8725:7467:8c95:a6ad
-  - name: WG-8-6-112-141-8854-23
+  - name: WG-8-6-112-141-8854-74
     type: wireguard
     server: 8.6.112.141
     port: 8854
@@ -357,7 +867,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8ada:f64e:468:6a73:f445
-  - name: WG-8-6-112-144-7156-24
+  - name: WG-8-6-112-144-7156-75
     type: wireguard
     server: 8.6.112.144
     port: 7156
@@ -367,7 +877,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8202:e814:9e59:caae:2428
-  - name: WG-8-6-112-145-928-25
+  - name: WG-8-6-112-145-928-76
     type: wireguard
     server: 8.6.112.145
     port: 928
@@ -377,7 +887,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8844:d84a:9b19:b3d8:a6a3
-  - name: WG-8-6-112-149-988-26
+  - name: WG-8-6-112-149-988-77
     type: wireguard
     server: 8.6.112.149
     port: 988
@@ -387,7 +897,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8eaf:942f:6949:1e6:64d1
-  - name: WG-8-6-112-154-1018-27
+  - name: WG-8-6-112-154-1018-78
     type: wireguard
     server: 8.6.112.154
     port: 1018
@@ -397,7 +907,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8913:8962:de61:cc41:aa69
-  - name: WG-8-6-112-156-943-28
+  - name: WG-8-6-112-156-943-79
     type: wireguard
     server: 8.6.112.156
     port: 943
@@ -407,7 +917,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:86e2:7971:1e18:99de:b116
-  - name: WG-8-6-112-157-4500-29
+  - name: WG-8-6-112-157-4500-80
     type: wireguard
     server: 8.6.112.157
     port: 4500
@@ -417,7 +927,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8c86:fa14:5b02:d10:6404
-  - name: WG-8-6-112-159-3581-30
+  - name: WG-8-6-112-159-3581-81
     type: wireguard
     server: 8.6.112.159
     port: 3581
@@ -427,7 +937,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:844a:db2:c3f8:52b8:f7b7
-  - name: WG-8-6-112-15-3854-31
+  - name: WG-8-6-112-15-3854-82
     type: wireguard
     server: 8.6.112.15
     port: 3854
@@ -437,7 +947,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8b4d:9a41:bbd:469b:abac
-  - name: WG-8-6-112-162-8854-32
+  - name: WG-8-6-112-162-8854-83
     type: wireguard
     server: 8.6.112.162
     port: 8854
@@ -447,7 +957,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:86d3:4c7c:928d:5b75:d437
-  - name: WG-8-6-112-164-500-33
+  - name: WG-8-6-112-164-500-84
     type: wireguard
     server: 8.6.112.164
     port: 500
@@ -457,7 +967,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8fcf:7b4e:cdab:d630:3195
-  - name: WG-8-6-112-164-7103-34
+  - name: WG-8-6-112-164-7103-85
     type: wireguard
     server: 8.6.112.164
     port: 7103
@@ -467,7 +977,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8826:d8de:d9ef:f279:f44b
-  - name: WG-8-6-112-164-878-35
+  - name: WG-8-6-112-164-878-86
     type: wireguard
     server: 8.6.112.164
     port: 878
@@ -477,7 +987,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:831a:f65d:fd7:e7d7:9c10
-  - name: WG-8-6-112-165-880-36
+  - name: WG-8-6-112-165-880-87
     type: wireguard
     server: 8.6.112.165
     port: 880
@@ -487,7 +997,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:866f:f846:e2ff:20a5:2c0c
-  - name: WG-8-6-112-166-1002-37
+  - name: WG-8-6-112-166-1002-88
     type: wireguard
     server: 8.6.112.166
     port: 1002
@@ -497,7 +1007,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:85ac:8688:cd25:374a:7ae2
-  - name: WG-8-6-112-166-943-38
+  - name: WG-8-6-112-166-943-89
     type: wireguard
     server: 8.6.112.166
     port: 943
@@ -507,7 +1017,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8d88:2e76:e419:58c:f2ac
-  - name: WG-8-6-112-171-3581-39
+  - name: WG-8-6-112-171-3581-90
     type: wireguard
     server: 8.6.112.171
     port: 3581
@@ -517,7 +1027,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8bfc:5b30:7d0d:d980:8e1
-  - name: WG-8-6-112-171-942-40
+  - name: WG-8-6-112-171-942-91
     type: wireguard
     server: 8.6.112.171
     port: 942
@@ -527,7 +1037,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:811e:501e:dcb:204d:412b
-  - name: WG-8-6-112-172-1018-41
+  - name: WG-8-6-112-172-1018-92
     type: wireguard
     server: 8.6.112.172
     port: 1018
@@ -537,7 +1047,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8c04:6483:2f02:914d:bd4f
-  - name: WG-8-6-112-172-8742-42
+  - name: WG-8-6-112-172-8742-93
     type: wireguard
     server: 8.6.112.172
     port: 8742
@@ -547,7 +1057,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8ecd:d090:a10:6851:a973
-  - name: WG-8-6-112-176-3138-43
+  - name: WG-8-6-112-176-3138-94
     type: wireguard
     server: 8.6.112.176
     port: 3138
@@ -557,7 +1067,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:815e:1e81:44cf:2592:d683
-  - name: WG-8-6-112-176-908-44
+  - name: WG-8-6-112-176-908-95
     type: wireguard
     server: 8.6.112.176
     port: 908
@@ -567,7 +1077,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:88c5:e18b:e731:b845:f549
-  - name: WG-8-6-112-177-987-45
+  - name: WG-8-6-112-177-987-96
     type: wireguard
     server: 8.6.112.177
     port: 987
@@ -577,7 +1087,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8616:8fd6:c4a4:67a5:6f78
-  - name: WG-8-6-112-180-5956-46
+  - name: WG-8-6-112-180-5956-97
     type: wireguard
     server: 8.6.112.180
     port: 5956
@@ -587,7 +1097,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8e94:1212:55e9:5805:c495
-  - name: WG-8-6-112-180-903-47
+  - name: WG-8-6-112-180-903-98
     type: wireguard
     server: 8.6.112.180
     port: 903
@@ -597,7 +1107,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:84be:8870:347:46ae:c22c
-  - name: WG-8-6-112-181-946-48
+  - name: WG-8-6-112-181-946-99
     type: wireguard
     server: 8.6.112.181
     port: 946
@@ -607,7 +1117,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8af2:447b:a9b9:b420:ebff
-  - name: WG-8-6-112-182-5279-49
+  - name: WG-8-6-112-182-5279-100
     type: wireguard
     server: 8.6.112.182
     port: 5279
@@ -617,7 +1127,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8cb6:abe7:1968:730d:7ed5
-  - name: WG-8-6-112-183-4198-50
+  - name: WG-8-6-112-183-4198-101
     type: wireguard
     server: 8.6.112.183
     port: 4198
@@ -627,7 +1137,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8543:e817:bed5:1629:81e8
-  - name: WG-8-6-112-183-8886-51
+  - name: WG-8-6-112-183-8886-102
     type: wireguard
     server: 8.6.112.183
     port: 8886
@@ -637,7 +1147,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8563:5f79:19c5:100d:ea3c
-  - name: WG-8-6-112-189-864-52
+  - name: WG-8-6-112-189-864-103
     type: wireguard
     server: 8.6.112.189
     port: 864
@@ -647,7 +1157,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:83d8:f56c:6284:5862:ffc4
-  - name: WG-8-6-112-18-3138-53
+  - name: WG-8-6-112-18-3138-104
     type: wireguard
     server: 8.6.112.18
     port: 3138
@@ -657,7 +1167,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8ec9:f3ae:b477:500f:4257
-  - name: WG-8-6-112-191-4198-54
+  - name: WG-8-6-112-191-4198-105
     type: wireguard
     server: 8.6.112.191
     port: 4198
@@ -667,7 +1177,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8cb9:d5bc:18d9:d295:25cb
-  - name: WG-8-6-112-191-7152-55
+  - name: WG-8-6-112-191-7152-106
     type: wireguard
     server: 8.6.112.191
     port: 7152
@@ -677,7 +1187,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8cb6:abe7:1968:730d:7ed5
-  - name: WG-8-6-112-193-903-56
+  - name: WG-8-6-112-193-903-107
     type: wireguard
     server: 8.6.112.193
     port: 903
@@ -687,7 +1197,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8072:bf2:75cc:c318:430e
-  - name: WG-8-6-112-195-894-57
+  - name: WG-8-6-112-195-894-108
     type: wireguard
     server: 8.6.112.195
     port: 894
@@ -697,7 +1207,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8cb6:abe7:1968:730d:7ed5
-  - name: WG-8-6-112-197-1002-58
+  - name: WG-8-6-112-197-1002-109
     type: wireguard
     server: 8.6.112.197
     port: 1002
@@ -707,7 +1217,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8f84:641f:14ef:9c3e:68eb
-  - name: WG-8-6-112-198-7281-59
+  - name: WG-8-6-112-198-7281-110
     type: wireguard
     server: 8.6.112.198
     port: 7281
@@ -717,7 +1227,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8242:3952:7779:547:cd69
-  - name: WG-8-6-112-199-890-60
+  - name: WG-8-6-112-199-890-111
     type: wireguard
     server: 8.6.112.199
     port: 890
@@ -727,7 +1237,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8afe:e60f:264e:3c88:d85b
-  - name: WG-8-6-112-200-1843-61
+  - name: WG-8-6-112-200-1843-112
     type: wireguard
     server: 8.6.112.200
     port: 1843
@@ -737,7 +1247,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:876e:d81d:e3af:e877:6f47
-  - name: WG-8-6-112-202-908-62
+  - name: WG-8-6-112-202-908-113
     type: wireguard
     server: 8.6.112.202
     port: 908
@@ -747,7 +1257,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:83fd:b89d:4035:2e7b:937c
-  - name: WG-8-6-112-206-1010-63
+  - name: WG-8-6-112-206-1010-114
     type: wireguard
     server: 8.6.112.206
     port: 1010
@@ -757,7 +1267,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8629:a4ea:6b43:3bf6:296e
-  - name: WG-8-6-112-206-939-64
+  - name: WG-8-6-112-206-939-115
     type: wireguard
     server: 8.6.112.206
     port: 939
@@ -767,7 +1277,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8713:3cd0:48b5:bf38:befb
-  - name: WG-8-6-112-206-943-65
+  - name: WG-8-6-112-206-943-116
     type: wireguard
     server: 8.6.112.206
     port: 943
@@ -777,7 +1287,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8663:c1b4:24e7:70ff:381a
-  - name: WG-8-6-112-206-955-66
+  - name: WG-8-6-112-206-955-117
     type: wireguard
     server: 8.6.112.206
     port: 955
@@ -787,7 +1297,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8eff:8c65:5601:7375:a21c
-  - name: WG-8-6-112-20-4233-67
+  - name: WG-8-6-112-20-4233-118
     type: wireguard
     server: 8.6.112.20
     port: 4233
@@ -797,7 +1307,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:863a:1105:61b6:79f2:cd8b
-  - name: WG-8-6-112-211-8742-68
+  - name: WG-8-6-112-211-8742-119
     type: wireguard
     server: 8.6.112.211
     port: 8742
@@ -807,7 +1317,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8cb6:abe7:1968:730d:7ed5
-  - name: WG-8-6-112-211-928-69
+  - name: WG-8-6-112-211-928-120
     type: wireguard
     server: 8.6.112.211
     port: 928
@@ -817,7 +1327,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:80a1:43e3:1c3b:c445:f865
-  - name: WG-8-6-112-213-2371-70
+  - name: WG-8-6-112-213-2371-121
     type: wireguard
     server: 8.6.112.213
     port: 2371
@@ -827,7 +1337,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8bdc:14e6:e4d3:ae48:3d92
-  - name: WG-8-6-112-220-2408-71
+  - name: WG-8-6-112-220-2408-122
     type: wireguard
     server: 8.6.112.220
     port: 2408
@@ -837,7 +1347,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8607:df5a:7d84:f603:5bbd
-  - name: WG-8-6-112-22-4177-72
+  - name: WG-8-6-112-22-4177-123
     type: wireguard
     server: 8.6.112.22
     port: 4177
@@ -847,7 +1357,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8d63:e0df:6f1d:51d8:d66e
-  - name: WG-8-6-112-232-7559-73
+  - name: WG-8-6-112-232-7559-124
     type: wireguard
     server: 8.6.112.232
     port: 7559
@@ -857,7 +1367,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:82e8:3fd7:c967:3db1:bf8b
-  - name: WG-8-6-112-234-5279-74
+  - name: WG-8-6-112-234-5279-125
     type: wireguard
     server: 8.6.112.234
     port: 5279
@@ -867,7 +1377,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8cb6:abe7:1968:730d:7ed5
-  - name: WG-8-6-112-235-4198-75
+  - name: WG-8-6-112-235-4198-126
     type: wireguard
     server: 8.6.112.235
     port: 4198
@@ -877,7 +1387,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8a58:e6c1:8f71:e4a2:4abd
-  - name: WG-8-6-112-235-943-76
+  - name: WG-8-6-112-235-943-127
     type: wireguard
     server: 8.6.112.235
     port: 943
@@ -887,7 +1397,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:82fa:8b63:98cc:29f:13c1
-  - name: WG-8-6-112-236-3138-77
+  - name: WG-8-6-112-236-3138-128
     type: wireguard
     server: 8.6.112.236
     port: 3138
@@ -897,7 +1407,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8a29:d302:5a2e:5e27:2f81
-  - name: WG-8-6-112-236-5279-78
+  - name: WG-8-6-112-236-5279-129
     type: wireguard
     server: 8.6.112.236
     port: 5279
@@ -907,7 +1417,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:88bf:48bd:935f:445a:1522
-  - name: WG-8-6-112-237-8854-79
+  - name: WG-8-6-112-237-8854-130
     type: wireguard
     server: 8.6.112.237
     port: 8854
@@ -917,7 +1427,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8bba:5095:d218:270a:e758
-  - name: WG-8-6-112-239-891-80
+  - name: WG-8-6-112-239-891-131
     type: wireguard
     server: 8.6.112.239
     port: 891
@@ -927,7 +1437,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8e6f:c4d:11e9:67b3:5c02
-  - name: WG-8-6-112-240-1010-81
+  - name: WG-8-6-112-240-1010-132
     type: wireguard
     server: 8.6.112.240
     port: 1010
@@ -937,7 +1447,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:85fc:caa:1f70:9ef0:72c6
-  - name: WG-8-6-112-240-1180-82
+  - name: WG-8-6-112-240-1180-133
     type: wireguard
     server: 8.6.112.240
     port: 1180
@@ -947,7 +1457,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:87c7:5050:c624:fc26:71c9
-  - name: WG-8-6-112-242-1074-83
+  - name: WG-8-6-112-242-1074-134
     type: wireguard
     server: 8.6.112.242
     port: 1074
@@ -957,7 +1467,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:88ad:4dc:5beb:81e1:82cd
-  - name: WG-8-6-112-244-1014-84
+  - name: WG-8-6-112-244-1014-135
     type: wireguard
     server: 8.6.112.244
     port: 1014
@@ -967,7 +1477,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8cb6:abe7:1968:730d:7ed5
-  - name: WG-8-6-112-245-3138-85
+  - name: WG-8-6-112-245-3138-136
     type: wireguard
     server: 8.6.112.245
     port: 3138
@@ -977,7 +1487,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:89ca:d73d:b4b4:7409:ab11
-  - name: WG-8-6-112-246-8319-86
+  - name: WG-8-6-112-246-8319-137
     type: wireguard
     server: 8.6.112.246
     port: 8319
@@ -987,7 +1497,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8c1f:1123:7d78:568b:de25
-  - name: WG-8-6-112-248-3138-87
+  - name: WG-8-6-112-248-3138-138
     type: wireguard
     server: 8.6.112.248
     port: 3138
@@ -997,7 +1507,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:88ec:a20a:8c64:6617:f4a2
-  - name: WG-8-6-112-253-4177-88
+  - name: WG-8-6-112-253-4177-139
     type: wireguard
     server: 8.6.112.253
     port: 4177
@@ -1007,7 +1517,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8214:55ad:5d1a:2ae1:4372
-  - name: WG-8-6-112-255-7559-89
+  - name: WG-8-6-112-255-7559-140
     type: wireguard
     server: 8.6.112.255
     port: 7559
@@ -1017,7 +1527,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8cb6:abe7:1968:730d:7ed5
-  - name: WG-8-6-112-26-2408-90
+  - name: WG-8-6-112-26-2408-141
     type: wireguard
     server: 8.6.112.26
     port: 2408
@@ -1027,7 +1537,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8e4e:939b:b987:39aa:c46c
-  - name: WG-8-6-112-30-1014-91
+  - name: WG-8-6-112-30-1014-142
     type: wireguard
     server: 8.6.112.30
     port: 1014
@@ -1037,7 +1547,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8af2:447b:a9b9:b420:ebff
-  - name: WG-8-6-112-30-1387-92
+  - name: WG-8-6-112-30-1387-143
     type: wireguard
     server: 8.6.112.30
     port: 1387
@@ -1047,7 +1557,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8de0:f86c:ca8a:7943:155d
-  - name: WG-8-6-112-32-8742-93
+  - name: WG-8-6-112-32-8742-144
     type: wireguard
     server: 8.6.112.32
     port: 8742
@@ -1057,7 +1567,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:84f9:1fdf:7b44:1ce3:531e
-  - name: WG-8-6-112-32-8854-94
+  - name: WG-8-6-112-32-8854-145
     type: wireguard
     server: 8.6.112.32
     port: 8854
@@ -1067,7 +1577,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:85c0:ed6c:dbfe:7fab:732
-  - name: WG-8-6-112-32-8886-95
+  - name: WG-8-6-112-32-8886-146
     type: wireguard
     server: 8.6.112.32
     port: 8886
@@ -1077,7 +1587,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:82b2:74ac:4b7c:cf0e:131e
-  - name: WG-8-6-112-32-894-96
+  - name: WG-8-6-112-32-894-147
     type: wireguard
     server: 8.6.112.32
     port: 894
@@ -1087,7 +1597,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8594:5c5:bc:3d95:4cbd
-  - name: WG-8-6-112-33-1002-97
+  - name: WG-8-6-112-33-1002-148
     type: wireguard
     server: 8.6.112.33
     port: 1002
@@ -1097,7 +1607,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8684:f5fc:4f82:70d2:628c
-  - name: WG-8-6-112-33-8854-98
+  - name: WG-8-6-112-33-8854-149
     type: wireguard
     server: 8.6.112.33
     port: 8854
@@ -1107,7 +1617,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8c7a:3029:6d7f:3948:7cc1
-  - name: WG-8-6-112-34-5279-99
+  - name: WG-8-6-112-34-5279-150
     type: wireguard
     server: 8.6.112.34
     port: 5279
@@ -1117,7 +1627,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:87bf:c3f9:afbe:9a03:6a38
-  - name: WG-8-6-112-35-928-100
+  - name: WG-8-6-112-35-928-151
     type: wireguard
     server: 8.6.112.35
     port: 928
@@ -1127,7 +1637,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:81af:a27:71d8:223b:b1ee
-  - name: WG-8-6-112-35-939-101
+  - name: WG-8-6-112-35-939-152
     type: wireguard
     server: 8.6.112.35
     port: 939
@@ -1137,7 +1647,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8dde:5fc2:6cbf:6f73:c2d9
-  - name: WG-8-6-112-37-1070-102
+  - name: WG-8-6-112-37-1070-153
     type: wireguard
     server: 8.6.112.37
     port: 1070
@@ -1147,7 +1657,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8fe9:edd7:daab:e10d:8268
-  - name: WG-8-6-112-40-859-103
+  - name: WG-8-6-112-40-859-154
     type: wireguard
     server: 8.6.112.40
     port: 859
@@ -1157,7 +1667,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8a42:c1f5:4aa5:6db9:6a
-  - name: WG-8-6-112-40-890-104
+  - name: WG-8-6-112-40-890-155
     type: wireguard
     server: 8.6.112.40
     port: 890
@@ -1167,7 +1677,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8cb6:abe7:1968:730d:7ed5
-  - name: WG-8-6-112-46-4500-105
+  - name: WG-8-6-112-46-4500-156
     type: wireguard
     server: 8.6.112.46
     port: 4500
@@ -1177,7 +1687,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8a62:c02e:406:db1f:cab1
-  - name: WG-8-6-112-47-859-106
+  - name: WG-8-6-112-47-859-157
     type: wireguard
     server: 8.6.112.47
     port: 859
@@ -1187,7 +1697,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:85dd:644f:15a0:e51a:11d9
-  - name: WG-8-6-112-48-1010-107
+  - name: WG-8-6-112-48-1010-158
     type: wireguard
     server: 8.6.112.48
     port: 1010
@@ -1197,7 +1707,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8e42:c87c:2e1:a608:b947
-  - name: WG-8-6-112-48-1070-108
+  - name: WG-8-6-112-48-1070-159
     type: wireguard
     server: 8.6.112.48
     port: 1070
@@ -1207,7 +1717,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8af2:447b:a9b9:b420:ebff
-  - name: WG-8-6-112-49-934-109
+  - name: WG-8-6-112-49-934-160
     type: wireguard
     server: 8.6.112.49
     port: 934
@@ -1217,7 +1727,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8484:e6f8:e374:23b9:f533
-  - name: WG-8-6-112-4-854-110
+  - name: WG-8-6-112-4-854-161
     type: wireguard
     server: 8.6.112.4
     port: 854
@@ -1227,7 +1737,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:888a:579b:a5b8:49de:76a8
-  - name: WG-8-6-112-50-859-111
+  - name: WG-8-6-112-50-859-162
     type: wireguard
     server: 8.6.112.50
     port: 859
@@ -1237,7 +1747,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8a43:857f:db23:8f63:477c
-  - name: WG-8-6-112-51-7559-112
+  - name: WG-8-6-112-51-7559-163
     type: wireguard
     server: 8.6.112.51
     port: 7559
@@ -1247,7 +1757,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8af2:447b:a9b9:b420:ebff
-  - name: WG-8-6-112-52-894-113
+  - name: WG-8-6-112-52-894-164
     type: wireguard
     server: 8.6.112.52
     port: 894
@@ -1257,7 +1767,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8da2:7c51:de63:685e:a966
-  - name: WG-8-6-112-53-987-114
+  - name: WG-8-6-112-53-987-165
     type: wireguard
     server: 8.6.112.53
     port: 987
@@ -1267,7 +1777,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:802e:c5b6:76f4:42f2:75c1
-  - name: WG-8-6-112-56-5279-115
+  - name: WG-8-6-112-56-5279-166
     type: wireguard
     server: 8.6.112.56
     port: 5279
@@ -1277,7 +1787,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8686:a036:7587:4155:45eb
-  - name: WG-8-6-112-59-968-116
+  - name: WG-8-6-112-59-968-167
     type: wireguard
     server: 8.6.112.59
     port: 968
@@ -1287,7 +1797,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:878d:da67:265c:1135:bcde
-  - name: WG-8-6-112-5-955-117
+  - name: WG-8-6-112-5-955-168
     type: wireguard
     server: 8.6.112.5
     port: 955
@@ -1297,7 +1807,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8af2:447b:a9b9:b420:ebff
-  - name: WG-8-6-112-65-1180-118
+  - name: WG-8-6-112-65-1180-169
     type: wireguard
     server: 8.6.112.65
     port: 1180
@@ -1307,7 +1817,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:882c:bda2:57af:c1d1:2855
-  - name: WG-8-6-112-65-894-119
+  - name: WG-8-6-112-65-894-170
     type: wireguard
     server: 8.6.112.65
     port: 894
@@ -1317,7 +1827,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8245:703e:a87c:ab24:9c73
-  - name: WG-8-6-112-65-955-120
+  - name: WG-8-6-112-65-955-171
     type: wireguard
     server: 8.6.112.65
     port: 955
@@ -1327,7 +1837,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8ec7:4d22:8905:ee44:e285
-  - name: WG-8-6-112-73-3476-121
+  - name: WG-8-6-112-73-3476-172
     type: wireguard
     server: 8.6.112.73
     port: 3476
@@ -1337,7 +1847,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:862d:f4e9:974:a8ed:d92c
-  - name: WG-8-6-112-73-500-122
+  - name: WG-8-6-112-73-500-173
     type: wireguard
     server: 8.6.112.73
     port: 500
@@ -1347,7 +1857,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:805a:290:708b:b4fd:b87b
-  - name: WG-8-6-112-74-7156-123
+  - name: WG-8-6-112-74-7156-174
     type: wireguard
     server: 8.6.112.74
     port: 7156
@@ -1357,7 +1867,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8500:615a:4806:11b:133
-  - name: WG-8-6-112-77-894-124
+  - name: WG-8-6-112-77-894-175
     type: wireguard
     server: 8.6.112.77
     port: 894
@@ -1367,7 +1877,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:84e4:b983:a362:c99f:7324
-  - name: WG-8-6-112-78-7281-125
+  - name: WG-8-6-112-78-7281-176
     type: wireguard
     server: 8.6.112.78
     port: 7281
@@ -1377,7 +1887,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8ed7:4a69:d8cf:603b:55a6
-  - name: WG-8-6-112-7-7152-126
+  - name: WG-8-6-112-7-7152-177
     type: wireguard
     server: 8.6.112.7
     port: 7152
@@ -1387,7 +1897,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8af2:447b:a9b9:b420:ebff
-  - name: WG-8-6-112-81-3476-127
+  - name: WG-8-6-112-81-3476-178
     type: wireguard
     server: 8.6.112.81
     port: 3476
@@ -1397,7 +1907,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8a44:efc7:85a5:c43c:db5f
-  - name: WG-8-6-112-81-7559-128
+  - name: WG-8-6-112-81-7559-179
     type: wireguard
     server: 8.6.112.81
     port: 7559
@@ -1407,7 +1917,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:82c4:984f:f9b6:e48c:6bcb
-  - name: WG-8-6-112-81-8854-129
+  - name: WG-8-6-112-81-8854-180
     type: wireguard
     server: 8.6.112.81
     port: 8854
@@ -1417,7 +1927,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8c85:64b:d5ea:c2e7:2b86
-  - name: WG-8-6-112-83-890-130
+  - name: WG-8-6-112-83-890-181
     type: wireguard
     server: 8.6.112.83
     port: 890
@@ -1427,7 +1937,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:84e4:1906:fc3b:dc56:bac0
-  - name: WG-8-6-112-86-5279-131
+  - name: WG-8-6-112-86-5279-182
     type: wireguard
     server: 8.6.112.86
     port: 5279
@@ -1437,7 +1947,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8b8b:264d:8401:7db2:d444
-  - name: WG-8-6-112-88-4233-132
+  - name: WG-8-6-112-88-4233-183
     type: wireguard
     server: 8.6.112.88
     port: 4233
@@ -1447,7 +1957,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:872c:d27a:f304:f91d:3bf3
-  - name: WG-8-6-112-89-3476-133
+  - name: WG-8-6-112-89-3476-184
     type: wireguard
     server: 8.6.112.89
     port: 3476
@@ -1457,7 +1967,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8da5:19f:b9c7:698c:3d0d
-  - name: WG-8-6-112-90-7103-134
+  - name: WG-8-6-112-90-7103-185
     type: wireguard
     server: 8.6.112.90
     port: 7103
@@ -1467,7 +1977,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8d0d:4420:924:36f8:20de
-  - name: WG-8-6-112-90-908-135
+  - name: WG-8-6-112-90-908-186
     type: wireguard
     server: 8.6.112.90
     port: 908
@@ -1477,7 +1987,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8831:33d3:968c:485b:50a0
-  - name: WG-8-6-112-95-1387-136
+  - name: WG-8-6-112-95-1387-187
     type: wireguard
     server: 8.6.112.95
     port: 1387
@@ -1487,7 +1997,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8a74:a585:2354:6e36:665
-  - name: WG-8-6-112-95-908-137
+  - name: WG-8-6-112-95-908-188
     type: wireguard
     server: 8.6.112.95
     port: 908
@@ -1497,7 +2007,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8b4f:93c5:b658:f4e4:9b9a
-  - name: WG-8-6-112-96-8854-138
+  - name: WG-8-6-112-96-8854-189
     type: wireguard
     server: 8.6.112.96
     port: 8854
@@ -1507,7 +2017,7 @@ proxies:
     udp: true
     ip: 172.16.0.2
     ipv6: 2606:4700:110:8058:5bf5:ed41:ddf3:5eaa
-  - name: WG-8-6-112-9-5279-139
+  - name: WG-8-6-112-9-5279-190
     type: wireguard
     server: 8.6.112.9
     port: 5279
@@ -1532,146 +2042,197 @@ proxy-groups:
     tolerance: 50
     lazy: true
     proxies:
-      - WG-188-114-97-6-500-0
-      - WG-188-114-97-6-928-1
-      - WG-8-6-112-100-878-2
-      - WG-8-6-112-101-7152-3
-      - WG-8-6-112-106-1074-4
-      - WG-8-6-112-106-890-5
-      - WG-8-6-112-107-4500-6
-      - WG-8-6-112-108-890-7
-      - WG-8-6-112-10-894-8
-      - WG-8-6-112-110-943-9
-      - WG-8-6-112-112-7281-10
-      - WG-8-6-112-113-8319-11
-      - WG-8-6-112-118-1014-12
-      - WG-8-6-112-11-864-13
-      - WG-8-6-112-122-1701-14
-      - WG-8-6-112-129-500-15
-      - WG-8-6-112-12-2506-16
-      - WG-8-6-112-137-1180-17
-      - WG-8-6-112-137-3581-18
-      - WG-8-6-112-137-854-19
-      - WG-8-6-112-139-4233-20
-      - WG-8-6-112-141-3476-21
-      - WG-8-6-112-141-7103-22
-      - WG-8-6-112-141-8854-23
-      - WG-8-6-112-144-7156-24
-      - WG-8-6-112-145-928-25
-      - WG-8-6-112-149-988-26
-      - WG-8-6-112-154-1018-27
-      - WG-8-6-112-156-943-28
-      - WG-8-6-112-157-4500-29
-      - WG-8-6-112-159-3581-30
-      - WG-8-6-112-15-3854-31
-      - WG-8-6-112-162-8854-32
-      - WG-8-6-112-164-500-33
-      - WG-8-6-112-164-7103-34
-      - WG-8-6-112-164-878-35
-      - WG-8-6-112-165-880-36
-      - WG-8-6-112-166-1002-37
-      - WG-8-6-112-166-943-38
-      - WG-8-6-112-171-3581-39
-      - WG-8-6-112-171-942-40
-      - WG-8-6-112-172-1018-41
-      - WG-8-6-112-172-8742-42
-      - WG-8-6-112-176-3138-43
-      - WG-8-6-112-176-908-44
-      - WG-8-6-112-177-987-45
-      - WG-8-6-112-180-5956-46
-      - WG-8-6-112-180-903-47
-      - WG-8-6-112-181-946-48
-      - WG-8-6-112-182-5279-49
-      - WG-8-6-112-183-4198-50
-      - WG-8-6-112-183-8886-51
-      - WG-8-6-112-189-864-52
-      - WG-8-6-112-18-3138-53
-      - WG-8-6-112-191-4198-54
-      - WG-8-6-112-191-7152-55
-      - WG-8-6-112-193-903-56
-      - WG-8-6-112-195-894-57
-      - WG-8-6-112-197-1002-58
-      - WG-8-6-112-198-7281-59
-      - WG-8-6-112-199-890-60
-      - WG-8-6-112-200-1843-61
-      - WG-8-6-112-202-908-62
-      - WG-8-6-112-206-1010-63
-      - WG-8-6-112-206-939-64
-      - WG-8-6-112-206-943-65
-      - WG-8-6-112-206-955-66
-      - WG-8-6-112-20-4233-67
-      - WG-8-6-112-211-8742-68
-      - WG-8-6-112-211-928-69
-      - WG-8-6-112-213-2371-70
-      - WG-8-6-112-220-2408-71
-      - WG-8-6-112-22-4177-72
-      - WG-8-6-112-232-7559-73
-      - WG-8-6-112-234-5279-74
-      - WG-8-6-112-235-4198-75
-      - WG-8-6-112-235-943-76
-      - WG-8-6-112-236-3138-77
-      - WG-8-6-112-236-5279-78
-      - WG-8-6-112-237-8854-79
-      - WG-8-6-112-239-891-80
-      - WG-8-6-112-240-1010-81
-      - WG-8-6-112-240-1180-82
-      - WG-8-6-112-242-1074-83
-      - WG-8-6-112-244-1014-84
-      - WG-8-6-112-245-3138-85
-      - WG-8-6-112-246-8319-86
-      - WG-8-6-112-248-3138-87
-      - WG-8-6-112-253-4177-88
-      - WG-8-6-112-255-7559-89
-      - WG-8-6-112-26-2408-90
-      - WG-8-6-112-30-1014-91
-      - WG-8-6-112-30-1387-92
-      - WG-8-6-112-32-8742-93
-      - WG-8-6-112-32-8854-94
-      - WG-8-6-112-32-8886-95
-      - WG-8-6-112-32-894-96
-      - WG-8-6-112-33-1002-97
-      - WG-8-6-112-33-8854-98
-      - WG-8-6-112-34-5279-99
-      - WG-8-6-112-35-928-100
-      - WG-8-6-112-35-939-101
-      - WG-8-6-112-37-1070-102
-      - WG-8-6-112-40-859-103
-      - WG-8-6-112-40-890-104
-      - WG-8-6-112-46-4500-105
-      - WG-8-6-112-47-859-106
-      - WG-8-6-112-48-1010-107
-      - WG-8-6-112-48-1070-108
-      - WG-8-6-112-49-934-109
-      - WG-8-6-112-4-854-110
-      - WG-8-6-112-50-859-111
-      - WG-8-6-112-51-7559-112
-      - WG-8-6-112-52-894-113
-      - WG-8-6-112-53-987-114
-      - WG-8-6-112-56-5279-115
-      - WG-8-6-112-59-968-116
-      - WG-8-6-112-5-955-117
-      - WG-8-6-112-65-1180-118
-      - WG-8-6-112-65-894-119
-      - WG-8-6-112-65-955-120
-      - WG-8-6-112-73-3476-121
-      - WG-8-6-112-73-500-122
-      - WG-8-6-112-74-7156-123
-      - WG-8-6-112-77-894-124
-      - WG-8-6-112-78-7281-125
-      - WG-8-6-112-7-7152-126
-      - WG-8-6-112-81-3476-127
-      - WG-8-6-112-81-7559-128
-      - WG-8-6-112-81-8854-129
-      - WG-8-6-112-83-890-130
-      - WG-8-6-112-86-5279-131
-      - WG-8-6-112-88-4233-132
-      - WG-8-6-112-89-3476-133
-      - WG-8-6-112-90-7103-134
-      - WG-8-6-112-90-908-135
-      - WG-8-6-112-95-1387-136
-      - WG-8-6-112-95-908-137
-      - WG-8-6-112-96-8854-138
-      - WG-8-6-112-9-5279-139
+      - WG-8-6-112-4-7152-0
+      - WG-8-6-112-154-934-1
+      - WG-8-6-112-122-968-2
+      - WG-8-6-112-199-903-3
+      - WG-8-6-112-79-1010-4
+      - WG-8-6-112-169-945-5
+      - WG-8-6-112-174-1701-6
+      - WG-8-6-112-47-878-7
+      - WG-8-6-112-35-854-8
+      - WG-8-6-112-119-7559-9
+      - WG-8-6-112-136-1014-10
+      - WG-8-6-112-229-8319-11
+      - WG-8-6-112-155-1843-12
+      - WG-8-6-112-174-7152-13
+      - WG-8-6-112-37-1070-14
+      - WG-8-6-112-118-1010-15
+      - WG-8-6-112-143-859-16
+      - WG-8-6-112-195-2408-17
+      - WG-8-6-112-229-934-18
+      - WG-8-6-112-224-1014-19
+      - WG-8-6-112-41-894-20
+      - WG-8-6-112-195-908-21
+      - WG-8-6-112-240-928-22
+      - WG-8-6-112-177-903-23
+      - WG-8-6-112-88-854-24
+      - WG-8-6-112-113-4177-25
+      - WG-8-6-112-135-968-26
+      - WG-8-6-112-89-7559-27
+      - WG-8-6-112-95-1701-28
+      - WG-8-6-112-9-4198-29
+      - WG-8-39-204-206-8319-30
+      - WG-8-6-112-106-8886-31
+      - WG-8-6-112-167-859-32
+      - WG-8-6-112-211-945-33
+      - WG-8-6-112-232-1843-34
+      - WG-8-6-112-180-928-35
+      - WG-8-6-112-180-3854-36
+      - WG-8-6-112-160-3581-37
+      - WG-8-6-112-87-3476-38
+      - WG-8-6-112-149-4233-39
+      - WG-8-6-112-36-1701-40
+      - WG-8-6-112-246-1387-41
+      - WG-8-6-112-218-8742-42
+      - WG-8-6-112-104-1002-43
+      - WG-8-6-112-118-1014-44
+      - WG-8-6-112-193-946-45
+      - WG-8-6-112-23-5279-46
+      - WG-8-6-112-34-1843-47
+      - WG-8-6-112-209-987-48
+      - WG-8-6-112-95-859-49
+      - WG-8-6-112-169-891-50
+      - WG-188-114-97-6-500-51
+      - WG-188-114-97-6-928-52
+      - WG-8-6-112-100-878-53
+      - WG-8-6-112-101-7152-54
+      - WG-8-6-112-106-1074-55
+      - WG-8-6-112-106-890-56
+      - WG-8-6-112-107-4500-57
+      - WG-8-6-112-108-890-58
+      - WG-8-6-112-10-894-59
+      - WG-8-6-112-110-943-60
+      - WG-8-6-112-112-7281-61
+      - WG-8-6-112-113-8319-62
+      - WG-8-6-112-118-1014-63
+      - WG-8-6-112-11-864-64
+      - WG-8-6-112-122-1701-65
+      - WG-8-6-112-129-500-66
+      - WG-8-6-112-12-2506-67
+      - WG-8-6-112-137-1180-68
+      - WG-8-6-112-137-3581-69
+      - WG-8-6-112-137-854-70
+      - WG-8-6-112-139-4233-71
+      - WG-8-6-112-141-3476-72
+      - WG-8-6-112-141-7103-73
+      - WG-8-6-112-141-8854-74
+      - WG-8-6-112-144-7156-75
+      - WG-8-6-112-145-928-76
+      - WG-8-6-112-149-988-77
+      - WG-8-6-112-154-1018-78
+      - WG-8-6-112-156-943-79
+      - WG-8-6-112-157-4500-80
+      - WG-8-6-112-159-3581-81
+      - WG-8-6-112-15-3854-82
+      - WG-8-6-112-162-8854-83
+      - WG-8-6-112-164-500-84
+      - WG-8-6-112-164-7103-85
+      - WG-8-6-112-164-878-86
+      - WG-8-6-112-165-880-87
+      - WG-8-6-112-166-1002-88
+      - WG-8-6-112-166-943-89
+      - WG-8-6-112-171-3581-90
+      - WG-8-6-112-171-942-91
+      - WG-8-6-112-172-1018-92
+      - WG-8-6-112-172-8742-93
+      - WG-8-6-112-176-3138-94
+      - WG-8-6-112-176-908-95
+      - WG-8-6-112-177-987-96
+      - WG-8-6-112-180-5956-97
+      - WG-8-6-112-180-903-98
+      - WG-8-6-112-181-946-99
+      - WG-8-6-112-182-5279-100
+      - WG-8-6-112-183-4198-101
+      - WG-8-6-112-183-8886-102
+      - WG-8-6-112-189-864-103
+      - WG-8-6-112-18-3138-104
+      - WG-8-6-112-191-4198-105
+      - WG-8-6-112-191-7152-106
+      - WG-8-6-112-193-903-107
+      - WG-8-6-112-195-894-108
+      - WG-8-6-112-197-1002-109
+      - WG-8-6-112-198-7281-110
+      - WG-8-6-112-199-890-111
+      - WG-8-6-112-200-1843-112
+      - WG-8-6-112-202-908-113
+      - WG-8-6-112-206-1010-114
+      - WG-8-6-112-206-939-115
+      - WG-8-6-112-206-943-116
+      - WG-8-6-112-206-955-117
+      - WG-8-6-112-20-4233-118
+      - WG-8-6-112-211-8742-119
+      - WG-8-6-112-211-928-120
+      - WG-8-6-112-213-2371-121
+      - WG-8-6-112-220-2408-122
+      - WG-8-6-112-22-4177-123
+      - WG-8-6-112-232-7559-124
+      - WG-8-6-112-234-5279-125
+      - WG-8-6-112-235-4198-126
+      - WG-8-6-112-235-943-127
+      - WG-8-6-112-236-3138-128
+      - WG-8-6-112-236-5279-129
+      - WG-8-6-112-237-8854-130
+      - WG-8-6-112-239-891-131
+      - WG-8-6-112-240-1010-132
+      - WG-8-6-112-240-1180-133
+      - WG-8-6-112-242-1074-134
+      - WG-8-6-112-244-1014-135
+      - WG-8-6-112-245-3138-136
+      - WG-8-6-112-246-8319-137
+      - WG-8-6-112-248-3138-138
+      - WG-8-6-112-253-4177-139
+      - WG-8-6-112-255-7559-140
+      - WG-8-6-112-26-2408-141
+      - WG-8-6-112-30-1014-142
+      - WG-8-6-112-30-1387-143
+      - WG-8-6-112-32-8742-144
+      - WG-8-6-112-32-8854-145
+      - WG-8-6-112-32-8886-146
+      - WG-8-6-112-32-894-147
+      - WG-8-6-112-33-1002-148
+      - WG-8-6-112-33-8854-149
+      - WG-8-6-112-34-5279-150
+      - WG-8-6-112-35-928-151
+      - WG-8-6-112-35-939-152
+      - WG-8-6-112-37-1070-153
+      - WG-8-6-112-40-859-154
+      - WG-8-6-112-40-890-155
+      - WG-8-6-112-46-4500-156
+      - WG-8-6-112-47-859-157
+      - WG-8-6-112-48-1010-158
+      - WG-8-6-112-48-1070-159
+      - WG-8-6-112-49-934-160
+      - WG-8-6-112-4-854-161
+      - WG-8-6-112-50-859-162
+      - WG-8-6-112-51-7559-163
+      - WG-8-6-112-52-894-164
+      - WG-8-6-112-53-987-165
+      - WG-8-6-112-56-5279-166
+      - WG-8-6-112-59-968-167
+      - WG-8-6-112-5-955-168
+      - WG-8-6-112-65-1180-169
+      - WG-8-6-112-65-894-170
+      - WG-8-6-112-65-955-171
+      - WG-8-6-112-73-3476-172
+      - WG-8-6-112-73-500-173
+      - WG-8-6-112-74-7156-174
+      - WG-8-6-112-77-894-175
+      - WG-8-6-112-78-7281-176
+      - WG-8-6-112-7-7152-177
+      - WG-8-6-112-81-3476-178
+      - WG-8-6-112-81-7559-179
+      - WG-8-6-112-81-8854-180
+      - WG-8-6-112-83-890-181
+      - WG-8-6-112-86-5279-182
+      - WG-8-6-112-88-4233-183
+      - WG-8-6-112-89-3476-184
+      - WG-8-6-112-90-7103-185
+      - WG-8-6-112-90-908-186
+      - WG-8-6-112-95-1387-187
+      - WG-8-6-112-95-908-188
+      - WG-8-6-112-96-8854-189
+      - WG-8-6-112-9-5279-190
   - name: Auto
     type: url-test
     url: http://www.gstatic.com/generate_204
@@ -1679,291 +2240,393 @@ proxy-groups:
     tolerance: 50
     lazy: true
     proxies:
-      - WG-188-114-97-6-500-0
-      - WG-188-114-97-6-928-1
-      - WG-8-6-112-100-878-2
-      - WG-8-6-112-101-7152-3
-      - WG-8-6-112-106-1074-4
-      - WG-8-6-112-106-890-5
-      - WG-8-6-112-107-4500-6
-      - WG-8-6-112-108-890-7
-      - WG-8-6-112-10-894-8
-      - WG-8-6-112-110-943-9
-      - WG-8-6-112-112-7281-10
-      - WG-8-6-112-113-8319-11
-      - WG-8-6-112-118-1014-12
-      - WG-8-6-112-11-864-13
-      - WG-8-6-112-122-1701-14
-      - WG-8-6-112-129-500-15
-      - WG-8-6-112-12-2506-16
-      - WG-8-6-112-137-1180-17
-      - WG-8-6-112-137-3581-18
-      - WG-8-6-112-137-854-19
-      - WG-8-6-112-139-4233-20
-      - WG-8-6-112-141-3476-21
-      - WG-8-6-112-141-7103-22
-      - WG-8-6-112-141-8854-23
-      - WG-8-6-112-144-7156-24
-      - WG-8-6-112-145-928-25
-      - WG-8-6-112-149-988-26
-      - WG-8-6-112-154-1018-27
-      - WG-8-6-112-156-943-28
-      - WG-8-6-112-157-4500-29
-      - WG-8-6-112-159-3581-30
-      - WG-8-6-112-15-3854-31
-      - WG-8-6-112-162-8854-32
-      - WG-8-6-112-164-500-33
-      - WG-8-6-112-164-7103-34
-      - WG-8-6-112-164-878-35
-      - WG-8-6-112-165-880-36
-      - WG-8-6-112-166-1002-37
-      - WG-8-6-112-166-943-38
-      - WG-8-6-112-171-3581-39
-      - WG-8-6-112-171-942-40
-      - WG-8-6-112-172-1018-41
-      - WG-8-6-112-172-8742-42
-      - WG-8-6-112-176-3138-43
-      - WG-8-6-112-176-908-44
-      - WG-8-6-112-177-987-45
-      - WG-8-6-112-180-5956-46
-      - WG-8-6-112-180-903-47
-      - WG-8-6-112-181-946-48
-      - WG-8-6-112-182-5279-49
-      - WG-8-6-112-183-4198-50
-      - WG-8-6-112-183-8886-51
-      - WG-8-6-112-189-864-52
-      - WG-8-6-112-18-3138-53
-      - WG-8-6-112-191-4198-54
-      - WG-8-6-112-191-7152-55
-      - WG-8-6-112-193-903-56
-      - WG-8-6-112-195-894-57
-      - WG-8-6-112-197-1002-58
-      - WG-8-6-112-198-7281-59
-      - WG-8-6-112-199-890-60
-      - WG-8-6-112-200-1843-61
-      - WG-8-6-112-202-908-62
-      - WG-8-6-112-206-1010-63
-      - WG-8-6-112-206-939-64
-      - WG-8-6-112-206-943-65
-      - WG-8-6-112-206-955-66
-      - WG-8-6-112-20-4233-67
-      - WG-8-6-112-211-8742-68
-      - WG-8-6-112-211-928-69
-      - WG-8-6-112-213-2371-70
-      - WG-8-6-112-220-2408-71
-      - WG-8-6-112-22-4177-72
-      - WG-8-6-112-232-7559-73
-      - WG-8-6-112-234-5279-74
-      - WG-8-6-112-235-4198-75
-      - WG-8-6-112-235-943-76
-      - WG-8-6-112-236-3138-77
-      - WG-8-6-112-236-5279-78
-      - WG-8-6-112-237-8854-79
-      - WG-8-6-112-239-891-80
-      - WG-8-6-112-240-1010-81
-      - WG-8-6-112-240-1180-82
-      - WG-8-6-112-242-1074-83
-      - WG-8-6-112-244-1014-84
-      - WG-8-6-112-245-3138-85
-      - WG-8-6-112-246-8319-86
-      - WG-8-6-112-248-3138-87
-      - WG-8-6-112-253-4177-88
-      - WG-8-6-112-255-7559-89
-      - WG-8-6-112-26-2408-90
-      - WG-8-6-112-30-1014-91
-      - WG-8-6-112-30-1387-92
-      - WG-8-6-112-32-8742-93
-      - WG-8-6-112-32-8854-94
-      - WG-8-6-112-32-8886-95
-      - WG-8-6-112-32-894-96
-      - WG-8-6-112-33-1002-97
-      - WG-8-6-112-33-8854-98
-      - WG-8-6-112-34-5279-99
-      - WG-8-6-112-35-928-100
-      - WG-8-6-112-35-939-101
-      - WG-8-6-112-37-1070-102
-      - WG-8-6-112-40-859-103
-      - WG-8-6-112-40-890-104
-      - WG-8-6-112-46-4500-105
-      - WG-8-6-112-47-859-106
-      - WG-8-6-112-48-1010-107
-      - WG-8-6-112-48-1070-108
-      - WG-8-6-112-49-934-109
-      - WG-8-6-112-4-854-110
-      - WG-8-6-112-50-859-111
-      - WG-8-6-112-51-7559-112
-      - WG-8-6-112-52-894-113
-      - WG-8-6-112-53-987-114
-      - WG-8-6-112-56-5279-115
-      - WG-8-6-112-59-968-116
-      - WG-8-6-112-5-955-117
-      - WG-8-6-112-65-1180-118
-      - WG-8-6-112-65-894-119
-      - WG-8-6-112-65-955-120
-      - WG-8-6-112-73-3476-121
-      - WG-8-6-112-73-500-122
-      - WG-8-6-112-74-7156-123
-      - WG-8-6-112-77-894-124
-      - WG-8-6-112-78-7281-125
-      - WG-8-6-112-7-7152-126
-      - WG-8-6-112-81-3476-127
-      - WG-8-6-112-81-7559-128
-      - WG-8-6-112-81-8854-129
-      - WG-8-6-112-83-890-130
-      - WG-8-6-112-86-5279-131
-      - WG-8-6-112-88-4233-132
-      - WG-8-6-112-89-3476-133
-      - WG-8-6-112-90-7103-134
-      - WG-8-6-112-90-908-135
-      - WG-8-6-112-95-1387-136
-      - WG-8-6-112-95-908-137
-      - WG-8-6-112-96-8854-138
-      - WG-8-6-112-9-5279-139
+      - WG-8-6-112-4-7152-0
+      - WG-8-6-112-154-934-1
+      - WG-8-6-112-122-968-2
+      - WG-8-6-112-199-903-3
+      - WG-8-6-112-79-1010-4
+      - WG-8-6-112-169-945-5
+      - WG-8-6-112-174-1701-6
+      - WG-8-6-112-47-878-7
+      - WG-8-6-112-35-854-8
+      - WG-8-6-112-119-7559-9
+      - WG-8-6-112-136-1014-10
+      - WG-8-6-112-229-8319-11
+      - WG-8-6-112-155-1843-12
+      - WG-8-6-112-174-7152-13
+      - WG-8-6-112-37-1070-14
+      - WG-8-6-112-118-1010-15
+      - WG-8-6-112-143-859-16
+      - WG-8-6-112-195-2408-17
+      - WG-8-6-112-229-934-18
+      - WG-8-6-112-224-1014-19
+      - WG-8-6-112-41-894-20
+      - WG-8-6-112-195-908-21
+      - WG-8-6-112-240-928-22
+      - WG-8-6-112-177-903-23
+      - WG-8-6-112-88-854-24
+      - WG-8-6-112-113-4177-25
+      - WG-8-6-112-135-968-26
+      - WG-8-6-112-89-7559-27
+      - WG-8-6-112-95-1701-28
+      - WG-8-6-112-9-4198-29
+      - WG-8-39-204-206-8319-30
+      - WG-8-6-112-106-8886-31
+      - WG-8-6-112-167-859-32
+      - WG-8-6-112-211-945-33
+      - WG-8-6-112-232-1843-34
+      - WG-8-6-112-180-928-35
+      - WG-8-6-112-180-3854-36
+      - WG-8-6-112-160-3581-37
+      - WG-8-6-112-87-3476-38
+      - WG-8-6-112-149-4233-39
+      - WG-8-6-112-36-1701-40
+      - WG-8-6-112-246-1387-41
+      - WG-8-6-112-218-8742-42
+      - WG-8-6-112-104-1002-43
+      - WG-8-6-112-118-1014-44
+      - WG-8-6-112-193-946-45
+      - WG-8-6-112-23-5279-46
+      - WG-8-6-112-34-1843-47
+      - WG-8-6-112-209-987-48
+      - WG-8-6-112-95-859-49
+      - WG-8-6-112-169-891-50
+      - WG-188-114-97-6-500-51
+      - WG-188-114-97-6-928-52
+      - WG-8-6-112-100-878-53
+      - WG-8-6-112-101-7152-54
+      - WG-8-6-112-106-1074-55
+      - WG-8-6-112-106-890-56
+      - WG-8-6-112-107-4500-57
+      - WG-8-6-112-108-890-58
+      - WG-8-6-112-10-894-59
+      - WG-8-6-112-110-943-60
+      - WG-8-6-112-112-7281-61
+      - WG-8-6-112-113-8319-62
+      - WG-8-6-112-118-1014-63
+      - WG-8-6-112-11-864-64
+      - WG-8-6-112-122-1701-65
+      - WG-8-6-112-129-500-66
+      - WG-8-6-112-12-2506-67
+      - WG-8-6-112-137-1180-68
+      - WG-8-6-112-137-3581-69
+      - WG-8-6-112-137-854-70
+      - WG-8-6-112-139-4233-71
+      - WG-8-6-112-141-3476-72
+      - WG-8-6-112-141-7103-73
+      - WG-8-6-112-141-8854-74
+      - WG-8-6-112-144-7156-75
+      - WG-8-6-112-145-928-76
+      - WG-8-6-112-149-988-77
+      - WG-8-6-112-154-1018-78
+      - WG-8-6-112-156-943-79
+      - WG-8-6-112-157-4500-80
+      - WG-8-6-112-159-3581-81
+      - WG-8-6-112-15-3854-82
+      - WG-8-6-112-162-8854-83
+      - WG-8-6-112-164-500-84
+      - WG-8-6-112-164-7103-85
+      - WG-8-6-112-164-878-86
+      - WG-8-6-112-165-880-87
+      - WG-8-6-112-166-1002-88
+      - WG-8-6-112-166-943-89
+      - WG-8-6-112-171-3581-90
+      - WG-8-6-112-171-942-91
+      - WG-8-6-112-172-1018-92
+      - WG-8-6-112-172-8742-93
+      - WG-8-6-112-176-3138-94
+      - WG-8-6-112-176-908-95
+      - WG-8-6-112-177-987-96
+      - WG-8-6-112-180-5956-97
+      - WG-8-6-112-180-903-98
+      - WG-8-6-112-181-946-99
+      - WG-8-6-112-182-5279-100
+      - WG-8-6-112-183-4198-101
+      - WG-8-6-112-183-8886-102
+      - WG-8-6-112-189-864-103
+      - WG-8-6-112-18-3138-104
+      - WG-8-6-112-191-4198-105
+      - WG-8-6-112-191-7152-106
+      - WG-8-6-112-193-903-107
+      - WG-8-6-112-195-894-108
+      - WG-8-6-112-197-1002-109
+      - WG-8-6-112-198-7281-110
+      - WG-8-6-112-199-890-111
+      - WG-8-6-112-200-1843-112
+      - WG-8-6-112-202-908-113
+      - WG-8-6-112-206-1010-114
+      - WG-8-6-112-206-939-115
+      - WG-8-6-112-206-943-116
+      - WG-8-6-112-206-955-117
+      - WG-8-6-112-20-4233-118
+      - WG-8-6-112-211-8742-119
+      - WG-8-6-112-211-928-120
+      - WG-8-6-112-213-2371-121
+      - WG-8-6-112-220-2408-122
+      - WG-8-6-112-22-4177-123
+      - WG-8-6-112-232-7559-124
+      - WG-8-6-112-234-5279-125
+      - WG-8-6-112-235-4198-126
+      - WG-8-6-112-235-943-127
+      - WG-8-6-112-236-3138-128
+      - WG-8-6-112-236-5279-129
+      - WG-8-6-112-237-8854-130
+      - WG-8-6-112-239-891-131
+      - WG-8-6-112-240-1010-132
+      - WG-8-6-112-240-1180-133
+      - WG-8-6-112-242-1074-134
+      - WG-8-6-112-244-1014-135
+      - WG-8-6-112-245-3138-136
+      - WG-8-6-112-246-8319-137
+      - WG-8-6-112-248-3138-138
+      - WG-8-6-112-253-4177-139
+      - WG-8-6-112-255-7559-140
+      - WG-8-6-112-26-2408-141
+      - WG-8-6-112-30-1014-142
+      - WG-8-6-112-30-1387-143
+      - WG-8-6-112-32-8742-144
+      - WG-8-6-112-32-8854-145
+      - WG-8-6-112-32-8886-146
+      - WG-8-6-112-32-894-147
+      - WG-8-6-112-33-1002-148
+      - WG-8-6-112-33-8854-149
+      - WG-8-6-112-34-5279-150
+      - WG-8-6-112-35-928-151
+      - WG-8-6-112-35-939-152
+      - WG-8-6-112-37-1070-153
+      - WG-8-6-112-40-859-154
+      - WG-8-6-112-40-890-155
+      - WG-8-6-112-46-4500-156
+      - WG-8-6-112-47-859-157
+      - WG-8-6-112-48-1010-158
+      - WG-8-6-112-48-1070-159
+      - WG-8-6-112-49-934-160
+      - WG-8-6-112-4-854-161
+      - WG-8-6-112-50-859-162
+      - WG-8-6-112-51-7559-163
+      - WG-8-6-112-52-894-164
+      - WG-8-6-112-53-987-165
+      - WG-8-6-112-56-5279-166
+      - WG-8-6-112-59-968-167
+      - WG-8-6-112-5-955-168
+      - WG-8-6-112-65-1180-169
+      - WG-8-6-112-65-894-170
+      - WG-8-6-112-65-955-171
+      - WG-8-6-112-73-3476-172
+      - WG-8-6-112-73-500-173
+      - WG-8-6-112-74-7156-174
+      - WG-8-6-112-77-894-175
+      - WG-8-6-112-78-7281-176
+      - WG-8-6-112-7-7152-177
+      - WG-8-6-112-81-3476-178
+      - WG-8-6-112-81-7559-179
+      - WG-8-6-112-81-8854-180
+      - WG-8-6-112-83-890-181
+      - WG-8-6-112-86-5279-182
+      - WG-8-6-112-88-4233-183
+      - WG-8-6-112-89-3476-184
+      - WG-8-6-112-90-7103-185
+      - WG-8-6-112-90-908-186
+      - WG-8-6-112-95-1387-187
+      - WG-8-6-112-95-908-188
+      - WG-8-6-112-96-8854-189
+      - WG-8-6-112-9-5279-190
   - name: Fallback
     type: fallback
     url: http://www.gstatic.com/generate_204
     interval: 60
     lazy: true
     proxies:
-      - WG-188-114-97-6-500-0
-      - WG-188-114-97-6-928-1
-      - WG-8-6-112-100-878-2
-      - WG-8-6-112-101-7152-3
-      - WG-8-6-112-106-1074-4
-      - WG-8-6-112-106-890-5
-      - WG-8-6-112-107-4500-6
-      - WG-8-6-112-108-890-7
-      - WG-8-6-112-10-894-8
-      - WG-8-6-112-110-943-9
-      - WG-8-6-112-112-7281-10
-      - WG-8-6-112-113-8319-11
-      - WG-8-6-112-118-1014-12
-      - WG-8-6-112-11-864-13
-      - WG-8-6-112-122-1701-14
-      - WG-8-6-112-129-500-15
-      - WG-8-6-112-12-2506-16
-      - WG-8-6-112-137-1180-17
-      - WG-8-6-112-137-3581-18
-      - WG-8-6-112-137-854-19
-      - WG-8-6-112-139-4233-20
-      - WG-8-6-112-141-3476-21
-      - WG-8-6-112-141-7103-22
-      - WG-8-6-112-141-8854-23
-      - WG-8-6-112-144-7156-24
-      - WG-8-6-112-145-928-25
-      - WG-8-6-112-149-988-26
-      - WG-8-6-112-154-1018-27
-      - WG-8-6-112-156-943-28
-      - WG-8-6-112-157-4500-29
-      - WG-8-6-112-159-3581-30
-      - WG-8-6-112-15-3854-31
-      - WG-8-6-112-162-8854-32
-      - WG-8-6-112-164-500-33
-      - WG-8-6-112-164-7103-34
-      - WG-8-6-112-164-878-35
-      - WG-8-6-112-165-880-36
-      - WG-8-6-112-166-1002-37
-      - WG-8-6-112-166-943-38
-      - WG-8-6-112-171-3581-39
-      - WG-8-6-112-171-942-40
-      - WG-8-6-112-172-1018-41
-      - WG-8-6-112-172-8742-42
-      - WG-8-6-112-176-3138-43
-      - WG-8-6-112-176-908-44
-      - WG-8-6-112-177-987-45
-      - WG-8-6-112-180-5956-46
-      - WG-8-6-112-180-903-47
-      - WG-8-6-112-181-946-48
-      - WG-8-6-112-182-5279-49
-      - WG-8-6-112-183-4198-50
-      - WG-8-6-112-183-8886-51
-      - WG-8-6-112-189-864-52
-      - WG-8-6-112-18-3138-53
-      - WG-8-6-112-191-4198-54
-      - WG-8-6-112-191-7152-55
-      - WG-8-6-112-193-903-56
-      - WG-8-6-112-195-894-57
-      - WG-8-6-112-197-1002-58
-      - WG-8-6-112-198-7281-59
-      - WG-8-6-112-199-890-60
-      - WG-8-6-112-200-1843-61
-      - WG-8-6-112-202-908-62
-      - WG-8-6-112-206-1010-63
-      - WG-8-6-112-206-939-64
-      - WG-8-6-112-206-943-65
-      - WG-8-6-112-206-955-66
-      - WG-8-6-112-20-4233-67
-      - WG-8-6-112-211-8742-68
-      - WG-8-6-112-211-928-69
-      - WG-8-6-112-213-2371-70
-      - WG-8-6-112-220-2408-71
-      - WG-8-6-112-22-4177-72
-      - WG-8-6-112-232-7559-73
-      - WG-8-6-112-234-5279-74
-      - WG-8-6-112-235-4198-75
-      - WG-8-6-112-235-943-76
-      - WG-8-6-112-236-3138-77
-      - WG-8-6-112-236-5279-78
-      - WG-8-6-112-237-8854-79
-      - WG-8-6-112-239-891-80
-      - WG-8-6-112-240-1010-81
-      - WG-8-6-112-240-1180-82
-      - WG-8-6-112-242-1074-83
-      - WG-8-6-112-244-1014-84
-      - WG-8-6-112-245-3138-85
-      - WG-8-6-112-246-8319-86
-      - WG-8-6-112-248-3138-87
-      - WG-8-6-112-253-4177-88
-      - WG-8-6-112-255-7559-89
-      - WG-8-6-112-26-2408-90
-      - WG-8-6-112-30-1014-91
-      - WG-8-6-112-30-1387-92
-      - WG-8-6-112-32-8742-93
-      - WG-8-6-112-32-8854-94
-      - WG-8-6-112-32-8886-95
-      - WG-8-6-112-32-894-96
-      - WG-8-6-112-33-1002-97
-      - WG-8-6-112-33-8854-98
-      - WG-8-6-112-34-5279-99
-      - WG-8-6-112-35-928-100
-      - WG-8-6-112-35-939-101
-      - WG-8-6-112-37-1070-102
-      - WG-8-6-112-40-859-103
-      - WG-8-6-112-40-890-104
-      - WG-8-6-112-46-4500-105
-      - WG-8-6-112-47-859-106
-      - WG-8-6-112-48-1010-107
-      - WG-8-6-112-48-1070-108
-      - WG-8-6-112-49-934-109
-      - WG-8-6-112-4-854-110
-      - WG-8-6-112-50-859-111
-      - WG-8-6-112-51-7559-112
-      - WG-8-6-112-52-894-113
-      - WG-8-6-112-53-987-114
-      - WG-8-6-112-56-5279-115
-      - WG-8-6-112-59-968-116
-      - WG-8-6-112-5-955-117
-      - WG-8-6-112-65-1180-118
-      - WG-8-6-112-65-894-119
-      - WG-8-6-112-65-955-120
-      - WG-8-6-112-73-3476-121
-      - WG-8-6-112-73-500-122
-      - WG-8-6-112-74-7156-123
-      - WG-8-6-112-77-894-124
-      - WG-8-6-112-78-7281-125
-      - WG-8-6-112-7-7152-126
-      - WG-8-6-112-81-3476-127
-      - WG-8-6-112-81-7559-128
-      - WG-8-6-112-81-8854-129
-      - WG-8-6-112-83-890-130
-      - WG-8-6-112-86-5279-131
-      - WG-8-6-112-88-4233-132
-      - WG-8-6-112-89-3476-133
-      - WG-8-6-112-90-7103-134
-      - WG-8-6-112-90-908-135
-      - WG-8-6-112-95-1387-136
-      - WG-8-6-112-95-908-137
-      - WG-8-6-112-96-8854-138
-      - WG-8-6-112-9-5279-139
+      - WG-8-6-112-4-7152-0
+      - WG-8-6-112-154-934-1
+      - WG-8-6-112-122-968-2
+      - WG-8-6-112-199-903-3
+      - WG-8-6-112-79-1010-4
+      - WG-8-6-112-169-945-5
+      - WG-8-6-112-174-1701-6
+      - WG-8-6-112-47-878-7
+      - WG-8-6-112-35-854-8
+      - WG-8-6-112-119-7559-9
+      - WG-8-6-112-136-1014-10
+      - WG-8-6-112-229-8319-11
+      - WG-8-6-112-155-1843-12
+      - WG-8-6-112-174-7152-13
+      - WG-8-6-112-37-1070-14
+      - WG-8-6-112-118-1010-15
+      - WG-8-6-112-143-859-16
+      - WG-8-6-112-195-2408-17
+      - WG-8-6-112-229-934-18
+      - WG-8-6-112-224-1014-19
+      - WG-8-6-112-41-894-20
+      - WG-8-6-112-195-908-21
+      - WG-8-6-112-240-928-22
+      - WG-8-6-112-177-903-23
+      - WG-8-6-112-88-854-24
+      - WG-8-6-112-113-4177-25
+      - WG-8-6-112-135-968-26
+      - WG-8-6-112-89-7559-27
+      - WG-8-6-112-95-1701-28
+      - WG-8-6-112-9-4198-29
+      - WG-8-39-204-206-8319-30
+      - WG-8-6-112-106-8886-31
+      - WG-8-6-112-167-859-32
+      - WG-8-6-112-211-945-33
+      - WG-8-6-112-232-1843-34
+      - WG-8-6-112-180-928-35
+      - WG-8-6-112-180-3854-36
+      - WG-8-6-112-160-3581-37
+      - WG-8-6-112-87-3476-38
+      - WG-8-6-112-149-4233-39
+      - WG-8-6-112-36-1701-40
+      - WG-8-6-112-246-1387-41
+      - WG-8-6-112-218-8742-42
+      - WG-8-6-112-104-1002-43
+      - WG-8-6-112-118-1014-44
+      - WG-8-6-112-193-946-45
+      - WG-8-6-112-23-5279-46
+      - WG-8-6-112-34-1843-47
+      - WG-8-6-112-209-987-48
+      - WG-8-6-112-95-859-49
+      - WG-8-6-112-169-891-50
+      - WG-188-114-97-6-500-51
+      - WG-188-114-97-6-928-52
+      - WG-8-6-112-100-878-53
+      - WG-8-6-112-101-7152-54
+      - WG-8-6-112-106-1074-55
+      - WG-8-6-112-106-890-56
+      - WG-8-6-112-107-4500-57
+      - WG-8-6-112-108-890-58
+      - WG-8-6-112-10-894-59
+      - WG-8-6-112-110-943-60
+      - WG-8-6-112-112-7281-61
+      - WG-8-6-112-113-8319-62
+      - WG-8-6-112-118-1014-63
+      - WG-8-6-112-11-864-64
+      - WG-8-6-112-122-1701-65
+      - WG-8-6-112-129-500-66
+      - WG-8-6-112-12-2506-67
+      - WG-8-6-112-137-1180-68
+      - WG-8-6-112-137-3581-69
+      - WG-8-6-112-137-854-70
+      - WG-8-6-112-139-4233-71
+      - WG-8-6-112-141-3476-72
+      - WG-8-6-112-141-7103-73
+      - WG-8-6-112-141-8854-74
+      - WG-8-6-112-144-7156-75
+      - WG-8-6-112-145-928-76
+      - WG-8-6-112-149-988-77
+      - WG-8-6-112-154-1018-78
+      - WG-8-6-112-156-943-79
+      - WG-8-6-112-157-4500-80
+      - WG-8-6-112-159-3581-81
+      - WG-8-6-112-15-3854-82
+      - WG-8-6-112-162-8854-83
+      - WG-8-6-112-164-500-84
+      - WG-8-6-112-164-7103-85
+      - WG-8-6-112-164-878-86
+      - WG-8-6-112-165-880-87
+      - WG-8-6-112-166-1002-88
+      - WG-8-6-112-166-943-89
+      - WG-8-6-112-171-3581-90
+      - WG-8-6-112-171-942-91
+      - WG-8-6-112-172-1018-92
+      - WG-8-6-112-172-8742-93
+      - WG-8-6-112-176-3138-94
+      - WG-8-6-112-176-908-95
+      - WG-8-6-112-177-987-96
+      - WG-8-6-112-180-5956-97
+      - WG-8-6-112-180-903-98
+      - WG-8-6-112-181-946-99
+      - WG-8-6-112-182-5279-100
+      - WG-8-6-112-183-4198-101
+      - WG-8-6-112-183-8886-102
+      - WG-8-6-112-189-864-103
+      - WG-8-6-112-18-3138-104
+      - WG-8-6-112-191-4198-105
+      - WG-8-6-112-191-7152-106
+      - WG-8-6-112-193-903-107
+      - WG-8-6-112-195-894-108
+      - WG-8-6-112-197-1002-109
+      - WG-8-6-112-198-7281-110
+      - WG-8-6-112-199-890-111
+      - WG-8-6-112-200-1843-112
+      - WG-8-6-112-202-908-113
+      - WG-8-6-112-206-1010-114
+      - WG-8-6-112-206-939-115
+      - WG-8-6-112-206-943-116
+      - WG-8-6-112-206-955-117
+      - WG-8-6-112-20-4233-118
+      - WG-8-6-112-211-8742-119
+      - WG-8-6-112-211-928-120
+      - WG-8-6-112-213-2371-121
+      - WG-8-6-112-220-2408-122
+      - WG-8-6-112-22-4177-123
+      - WG-8-6-112-232-7559-124
+      - WG-8-6-112-234-5279-125
+      - WG-8-6-112-235-4198-126
+      - WG-8-6-112-235-943-127
+      - WG-8-6-112-236-3138-128
+      - WG-8-6-112-236-5279-129
+      - WG-8-6-112-237-8854-130
+      - WG-8-6-112-239-891-131
+      - WG-8-6-112-240-1010-132
+      - WG-8-6-112-240-1180-133
+      - WG-8-6-112-242-1074-134
+      - WG-8-6-112-244-1014-135
+      - WG-8-6-112-245-3138-136
+      - WG-8-6-112-246-8319-137
+      - WG-8-6-112-248-3138-138
+      - WG-8-6-112-253-4177-139
+      - WG-8-6-112-255-7559-140
+      - WG-8-6-112-26-2408-141
+      - WG-8-6-112-30-1014-142
+      - WG-8-6-112-30-1387-143
+      - WG-8-6-112-32-8742-144
+      - WG-8-6-112-32-8854-145
+      - WG-8-6-112-32-8886-146
+      - WG-8-6-112-32-894-147
+      - WG-8-6-112-33-1002-148
+      - WG-8-6-112-33-8854-149
+      - WG-8-6-112-34-5279-150
+      - WG-8-6-112-35-928-151
+      - WG-8-6-112-35-939-152
+      - WG-8-6-112-37-1070-153
+      - WG-8-6-112-40-859-154
+      - WG-8-6-112-40-890-155
+      - WG-8-6-112-46-4500-156
+      - WG-8-6-112-47-859-157
+      - WG-8-6-112-48-1010-158
+      - WG-8-6-112-48-1070-159
+      - WG-8-6-112-49-934-160
+      - WG-8-6-112-4-854-161
+      - WG-8-6-112-50-859-162
+      - WG-8-6-112-51-7559-163
+      - WG-8-6-112-52-894-164
+      - WG-8-6-112-53-987-165
+      - WG-8-6-112-56-5279-166
+      - WG-8-6-112-59-968-167
+      - WG-8-6-112-5-955-168
+      - WG-8-6-112-65-1180-169
+      - WG-8-6-112-65-894-170
+      - WG-8-6-112-65-955-171
+      - WG-8-6-112-73-3476-172
+      - WG-8-6-112-73-500-173
+      - WG-8-6-112-74-7156-174
+      - WG-8-6-112-77-894-175
+      - WG-8-6-112-78-7281-176
+      - WG-8-6-112-7-7152-177
+      - WG-8-6-112-81-3476-178
+      - WG-8-6-112-81-7559-179
+      - WG-8-6-112-81-8854-180
+      - WG-8-6-112-83-890-181
+      - WG-8-6-112-86-5279-182
+      - WG-8-6-112-88-4233-183
+      - WG-8-6-112-89-3476-184
+      - WG-8-6-112-90-7103-185
+      - WG-8-6-112-90-908-186
+      - WG-8-6-112-95-1387-187
+      - WG-8-6-112-95-908-188
+      - WG-8-6-112-96-8854-189
+      - WG-8-6-112-9-5279-190
 rules:
   - MATCH,PROXY
