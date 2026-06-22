@@ -306,6 +306,7 @@ jobs:
                   os.remove(os.path.join(CONF_DIR, f))
 
           all_configs = []
+          conf_counter = 1
 
           for i, filename in enumerate(FILES):
               if not os.path.exists(filename):
@@ -343,7 +344,8 @@ jobs:
                   if config:
                       all_configs.append(config)
                       
-                      conf_name = f"{endpoint.replace('.', '-').replace(':', '-')}.conf"
+                      conf_name = f"{conf_counter}.conf"
+                      conf_counter += 1
                       conf_path = os.path.join(CONF_DIR, conf_name)
                       generate_conf_file(config, conf_path)
                       
@@ -391,7 +393,7 @@ jobs:
                       if file.endswith('.conf'):
                           zipf.write(os.path.join(root, file), file)
           
-          print(f"Generated {zip_filename} with {len(all_configs)} WireGuard config files")
+          print(f"Generated {zip_filename} with {conf_counter - 1} WireGuard config files")
 
       - name: Commit and push changes
         run: |
