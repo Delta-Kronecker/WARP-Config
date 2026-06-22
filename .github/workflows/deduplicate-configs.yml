@@ -24,14 +24,15 @@ jobs:
       - name: Install PyYAML
         run: pip install pyyaml
 
-      - name: Deduplicate, sort and generate Clash configs
+      - name: Deduplicate, sort, generate Clash configs and WireGuard conf files
         shell: python
         run: |
-          import re, os, yaml
+          import re, os, yaml, zipfile
           from urllib.parse import unquote
 
           FILES = ["ALL.txt", "MCI.txt", "MTN.txt"]
           OUTPUT_FILES = ["ALL.yaml", "MCI.yaml", "MTN.yaml"]
+          CONF_DIR = "wireguard_configs"
 
           BASE_CONFIG = {
               "name": "Standard",
@@ -184,9 +185,13 @@ jobs:
                       key, value = param.split('=', 1)
                       params_dict[key] = value
               
-              mtu_raw = params_dict.get('mtu', '1420')
+              mtu_raw = params_dict.get('mtu', '1280')
               mtu_match = re.match(r'(\d+)', mtu_raw)
-              mtu = int(mtu_match.group(1)) if mtu_match else 1420
+              mtu = int(mtu_match.group(1)) if mtu_match else 1280
+              
+              keepalive_raw = params_dict.get('keepalive', '5')
+              keepalive_match = re.match(r'(\d+)', keepalive_raw)
+              keepalive = int(keepalive_match.group(1)) if keepalive_match else 5
               
               addresses_raw = params_dict.get('address', '')
               addresses = []
@@ -195,19 +200,92 @@ jobs:
                   if addr:
                       addresses.append(addr)
               
+              reserved_raw = params_dict.get('reserved', '0,0,0')
+              reserved = []
+              for r in reserved_raw.split(','):
+                  r = r.strip()
+                  if r:
+                      reserved.append(int(r))
+              
+              wpayloadsize_raw = params_dict.get('wpayloadsize', '')
+              jc = 5
+              jmin = 50
+              jmax = 100
+              s1 = 0
+              s2 = 0
+              h1 = 1
+              h2 = 2
+              h3 = 3
+              h4 = 4
+              
+              if wpayloadsize_raw:
+                  parts = wpayloadsize_raw.split('-')
+                  if len(parts) == 2:
+                      s1 = int(parts[0])
+                      s2 = int(parts[1])
+              
+              wnoisecount_raw = params_dict.get('wnoisecount', '15')
+              wnoisecount_match = re.match(r'(\d+)', wnoisecount_raw)
+              jc = int(wnoisecount_match.group(1)) if wnoisecount_match else 15
+              
+              wnoisedelay_raw = params_dict.get('wnoisedelay', '1-2')
+              delay_parts = wnoisedelay_raw.split('-')
+              if len(delay_parts) == 2:
+                  jmin = int(delay_parts[0])
+                  jmax = int(delay_parts[1])
+              
               return {
                   'private_key': private_key,
                   'address': address,
                   'port': port,
                   'public_key': params_dict.get('publickey', ''),
+                  'preshared_key': params_dict.get('presharedkey', ''),
                   'addresses': addresses,
                   'mtu': mtu,
+                  'keepalive': keepalive,
+                  'reserved': reserved,
+                  'jc': jc,
+                  'jmin': jmin,
+                  'jmax': jmax,
+                  's1': s1,
+                  's2': s2,
+                  'h1': h1,
+                  'h2': h2,
+                  'h3': h3,
+                  'h4': h4,
                   'endpoint': f"{address}:{port}"
               }
 
           def generate_proxy_name(endpoint, index):
               safe_name = re.sub(r'[^a-zA-Z0-9\-]', '-', endpoint)
               return f"WG-{safe_name}-{index}"
+
+          def generate_conf_file(config, filename):
+              conf = f"""[Interface]
+          PrivateKey = {config['private_key']}
+          Address = {', '.join(config['addresses'])}
+          DNS = 1.1.1.1, 1.0.0.1, 2606:4700:4700::1111, 2606:4700:4700::1001
+          MTU = {config['mtu']}
+          Jc = {config['jc']}
+          Jmin = {config['jmin']}
+          Jmax = {config['jmax']}
+          S1 = {config['s1']}
+          S2 = {config['s2']}
+          H1 = {config['h1']}
+          H2 = {config['h2']}
+          H3 = {config['h3']}
+          H4 = {config['h4']}
+          [Peer]
+          PublicKey = {config['public_key']}
+          AllowedIPs = 0.0.0.0/0, ::/0
+          Endpoint = {config['endpoint']}
+          PersistentKeepalive = {config['keepalive']}
+          """
+              if config['preshared_key']:
+                  conf = conf.replace('[Peer]\n', f'[Peer]\nPresharedKey = {config["preshared_key"]}\n')
+              
+              with open(filename, 'w', encoding='utf-8') as f:
+                  f.write(conf.strip() + '\n')
 
           def write_yaml(config, filepath):
               class CustomDumper(yaml.Dumper):
@@ -220,6 +298,14 @@ jobs:
                             allow_unicode=True, 
                             sort_keys=False,
                             indent=2)
+
+          os.makedirs(CONF_DIR, exist_ok=True)
+          
+          for f in os.listdir(CONF_DIR):
+              if f.endswith('.conf'):
+                  os.remove(os.path.join(CONF_DIR, f))
+
+          all_configs = []
 
           for i, filename in enumerate(FILES):
               if not os.path.exists(filename):
@@ -252,9 +338,15 @@ jobs:
               proxies = []
               proxy_names = []
               
-              for _, cfg in unique_configs:
+              for endpoint, cfg in unique_configs:
                   config = parse_wireguard_config(cfg)
                   if config:
+                      all_configs.append(config)
+                      
+                      conf_name = f"{endpoint.replace('.', '-').replace(':', '-')}.conf"
+                      conf_path = os.path.join(CONF_DIR, conf_name)
+                      generate_conf_file(config, conf_path)
+                      
                       proxy_name = generate_proxy_name(config['endpoint'], len(proxies))
                       proxy_names.append(proxy_name)
                       
@@ -267,9 +359,9 @@ jobs:
                           'public-key': config['public_key'],
                           'mtu': config['mtu'],
                           'udp': True,
-                          'reserved': [0, 0, 0],
+                          'reserved': config['reserved'],
                           'workers': 4,
-                          'persistent-keepalive': 25
+                          'persistent-keepalive': config['keepalive']
                       }
                       
                       if config['addresses']:
@@ -292,10 +384,19 @@ jobs:
               write_yaml(output_config, OUTPUT_FILES[i])
               print(f"Generated {OUTPUT_FILES[i]} with {len(proxies)} WireGuard proxies")
 
+          zip_filename = "wireguard_configs.zip"
+          with zipfile.ZipFile(zip_filename, 'w', zipfile.ZIP_DEFLATED) as zipf:
+              for root, dirs, files in os.walk(CONF_DIR):
+                  for file in files:
+                      if file.endswith('.conf'):
+                          zipf.write(os.path.join(root, file), file)
+          
+          print(f"Generated {zip_filename} with {len(all_configs)} WireGuard config files")
+
       - name: Commit and push changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
-          git diff --staged --quiet || git commit -m "Deduplicate, sort and generate Clash configs"
+          git diff --staged --quiet || git commit -m "Deduplicate, sort, generate Clash configs and WireGuard conf files"
           git push
