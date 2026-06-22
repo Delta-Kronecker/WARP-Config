@@ -1,4 +1,4 @@
-name: Generate Clash Configs from WireGuard
+name: Process WireGuard Configs
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  generate-clash:
+  process-configs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -24,7 +24,7 @@ jobs:
       - name: Install PyYAML
         run: pip install pyyaml
 
-      - name: Generate Clash configs
+      - name: Deduplicate, sort and generate Clash configs
         shell: python
         run: |
           import re, os, yaml
@@ -42,7 +42,7 @@ jobs:
               "bind-address": "*",
               "mode": "global",
               "log-level": "info",
-              "ipv6": False,
+              "ipv6": True,
               "external-controller": "127.0.0.1:9090",
               "external-ui": "ui",
               "secret": "",
@@ -57,7 +57,7 @@ jobs:
               },
               "dns": {
                   "enable": True,
-                  "ipv6": False,
+                  "ipv6": True,
                   "listen": "0.0.0.0:5353",
                   "enhanced-mode": "fake-ip",
                   "fake-ip-range": "198.18.0.1/16",
@@ -222,39 +222,65 @@ jobs:
                             indent=2)
 
           for i, filename in enumerate(FILES):
+              if not os.path.exists(filename):
+                  print(f"File {filename} not found, skipping...")
+                  continue
+              
+              seen_endpoints = set()
+              unique_configs = []
+              
+              with open(filename, 'r', encoding='utf-8') as f:
+                  for line in f:
+                      line = line.strip()
+                      if not line.startswith("wireguard://"):
+                          continue
+                      match = re.search(r'@([^?#]+)', line)
+                      if not match:
+                          continue
+                      endpoint = match.group(1)
+                      if endpoint not in seen_endpoints:
+                          seen_endpoints.add(endpoint)
+                          unique_configs.append((endpoint, line))
+              
+              if unique_configs:
+                  unique_configs.sort(key=lambda x: x[0])
+                  with open(filename, 'w', encoding='utf-8') as f:
+                      for _, cfg in unique_configs:
+                          f.write(cfg + "\n")
+                  print(f"{filename}: {len(unique_configs)} unique configs written")
+              
               proxies = []
               proxy_names = []
               
-              if os.path.exists(filename):
-                  with open(filename, 'r', encoding='utf-8') as f:
-                      for line in f:
-                          line = line.strip()
-                          if line.startswith("wireguard://"):
-                              config = parse_wireguard_config(line)
-                              if config:
-                                  proxy_name = generate_proxy_name(config['endpoint'], len(proxies))
-                                  proxy_names.append(proxy_name)
-                                  
-                                  proxy = {
-                                      'name': proxy_name,
-                                      'type': 'wireguard',
-                                      'server': config['address'],
-                                      'port': config['port'],
-                                      'private-key': config['private_key'],
-                                      'public-key': config['public_key'],
-                                      'mtu': config['mtu'],
-                                      'udp': True
-                                  }
-                                  
-                                  if config['addresses']:
-                                      for addr in config['addresses']:
-                                          addr_clean = addr.strip().split('/')[0] if '/' in addr else addr.strip()
-                                          if ':' in addr_clean:
-                                              proxy['ipv6'] = addr_clean
-                                          else:
-                                              proxy['ip'] = addr_clean
-                                  
-                                  proxies.append(proxy)
+              for _, cfg in unique_configs:
+                  config = parse_wireguard_config(cfg)
+                  if config:
+                      proxy_name = generate_proxy_name(config['endpoint'], len(proxies))
+                      proxy_names.append(proxy_name)
+                      
+                      proxy = {
+                          'name': proxy_name,
+                          'type': 'wireguard',
+                          'server': config['address'],
+                          'port': config['port'],
+                          'private-key': config['private_key'],
+                          'public-key': config['public_key'],
+                          'mtu': config['mtu'],
+                          'udp': True,
+                          'reserved': [0, 0, 0],
+                          'workers': 4,
+                          'persistent-keepalive': 25
+                      }
+                      
+                      if config['addresses']:
+                          for addr in config['addresses']:
+                              addr_clean = addr.strip().split('/')[0] if '/' in addr else addr.strip()
+                              if ':' in addr_clean:
+                                  proxy['ipv6'] = addr_clean
+                              else:
+                                  proxy['ip'] = addr_clean
+                      
+                      proxies.append(proxy)
               
               output_config = BASE_CONFIG.copy()
               output_config['proxies'] = proxies
@@ -271,5 +297,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
-          git diff --staged --quiet || git commit -m "Generate Clash configs based on standard template"
+          git diff --staged --quiet || git commit -m "Deduplicate, sort and generate Clash configs"
           git push
