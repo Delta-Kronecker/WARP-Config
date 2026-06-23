@@ -304,15 +304,16 @@ jobs:
           for f in os.listdir(CONF_DIR):
               os.remove(os.path.join(CONF_DIR, f))
 
-          conf_counter = 0
+          global_conf_counter = 0
+          global_seen_endpoints = set()
 
           for i, filename in enumerate(FILES):
               if not os.path.exists(filename):
                   print(f"File {filename} not found, skipping...")
                   continue
               
-              seen_endpoints = set()
               parsed_configs = []
+              file_seen = set()
               
               with open(filename, 'r', encoding='utf-8') as f:
                   for line in f:
@@ -323,8 +324,9 @@ jobs:
                       if not match:
                           continue
                       endpoint = match.group(1)
-                      if endpoint not in seen_endpoints:
-                          seen_endpoints.add(endpoint)
+                      if endpoint not in file_seen and endpoint not in global_seen_endpoints:
+                          file_seen.add(endpoint)
+                          global_seen_endpoints.add(endpoint)
                           config = parse_wireguard_config(line)
                           if config:
                               parsed_configs.append(config)
@@ -340,8 +342,8 @@ jobs:
               proxy_names = []
               
               for config in parsed_configs:
-                  conf_counter += 1
-                  conf_name = f"@DeltaKroneckerGithub ({conf_counter}).conf"
+                  global_conf_counter += 1
+                  conf_name = f"@DeltaKroneckerGithub ({global_conf_counter}).conf"
                   conf_path = os.path.join(CONF_DIR, conf_name)
                   generate_conf_file(config, conf_path)
                   
@@ -387,13 +389,13 @@ jobs:
               os.remove(zip_filename)
           
           with zipfile.ZipFile(zip_filename, 'w', zipfile.ZIP_DEFLATED) as zipf:
-              for i in range(1, conf_counter + 1):
+              for i in range(1, global_conf_counter + 1):
                   conf_file = f"@DeltaKroneckerGithub ({i}).conf"
                   conf_path = os.path.join(CONF_DIR, conf_file)
                   if os.path.exists(conf_path):
                       zipf.write(conf_path, conf_file)
           
-          print(f"Generated {zip_filename} with {conf_counter} WireGuard config files")
+          print(f"Generated {zip_filename} with {global_conf_counter} WireGuard config files")
 
       - name: Commit and push changes
         run: |
