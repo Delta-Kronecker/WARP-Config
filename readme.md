@@ -1,19 +1,14 @@
-### معمولا روی ایرانسل سرعت به مراتب بهتر است،
-### اکثر اوقات نتیجه تست پینگ قابل اعتماد نیست،
-### می توانید در همان برنامه های رایج V2rayN,V2aryNG ساب لینک ها را وارد کنید.
-
-
-### ایرانسل:
-```
-https://github.com/Delta-Kronecker/WARP-Config/raw/refs/heads/main/MTN.txt
-```
-
-### همراه اول:
-```
-https://github.com/Delta-Kronecker/WARP-Config/raw/refs/heads/main/MCI.txt
-```
-
-### همه کانفیگ ها:
+### 🔥 ساب لینک مخصوص هیدیفای:
 ```
 https://github.com/Delta-Kronecker/WARP-Config/raw/refs/heads/main/ALL.txt
+```
+
+### 🔥 ساب لینک کلش:
+```
+https://github.com/Delta-Kronecker/WARP-Config/raw/refs/heads/main/ALL.yaml
+```
+
+### 🔥 فایل فشرده حاوی فایل های conf. کانفیگ ها:
+```
+https://github.com/Delta-Kronecker/WARP-Config/raw/refs/heads/main/wireguard_configs.zip
 ```
