@@ -1,1 +1,0 @@
-wireguard://YPwzgArVmS5He8FxDji5vVO+wG0pj0ZSPz7q8srPFEo=@8.6.112.100:955?publickey=bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=&address=172.16.0.2/32,2606:4700:110:8e4e:939b:b987:39aa:c46c/128&mtu=1280
