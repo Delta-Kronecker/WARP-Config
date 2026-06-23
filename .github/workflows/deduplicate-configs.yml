@@ -135,7 +135,7 @@ jobs:
                   {
                       "name": "PROXY",
                       "type": "select",
-                      "proxies": ["Fallback", "Auto", "Load Balance"]
+                      "proxies": ["Auto", "Load Balance"]
                   },
                   {
                       "name": "Load Balance",
@@ -153,14 +153,6 @@ jobs:
                       "url": "http://www.gstatic.com/generate_204",
                       "interval": 60,
                       "tolerance": 50,
-                      "lazy": True,
-                      "proxies": []
-                  },
-                  {
-                      "name": "Fallback",
-                      "type": "fallback",
-                      "url": "http://www.gstatic.com/generate_204",
-                      "interval": 60,
                       "lazy": True,
                       "proxies": []
                   }
