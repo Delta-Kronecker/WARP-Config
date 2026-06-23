@@ -135,14 +135,14 @@ jobs:
                   {
                       "name": "PROXY",
                       "type": "select",
-                      "proxies": ["Auto", "Load Balance"]
+                      "proxies": ["Fallback", "Auto", "Load Balance"]
                   },
                   {
                       "name": "Load Balance",
                       "type": "load-balance",
                       "strategy": "consistent-hashing",
                       "url": "http://www.gstatic.com/generate_204",
-                      "interval": 180,
+                      "interval": 60,
                       "tolerance": 50,
                       "lazy": True,
                       "proxies": []
@@ -151,8 +151,16 @@ jobs:
                       "name": "Auto",
                       "type": "url-test",
                       "url": "http://www.gstatic.com/generate_204",
-                      "interval": 180,
+                      "interval": 60,
                       "tolerance": 50,
+                      "lazy": True,
+                      "proxies": []
+                  },
+                  {
+                      "name": "Fallback",
+                      "type": "fallback",
+                      "url": "http://www.gstatic.com/generate_204",
+                      "interval": 60,
                       "lazy": True,
                       "proxies": []
                   }
@@ -304,7 +312,7 @@ jobs:
                   continue
               
               seen_endpoints = set()
-              unique_configs = []
+              parsed_configs = []
               
               with open(filename, 'r', encoding='utf-8') as f:
                   for line in f:
@@ -317,52 +325,52 @@ jobs:
                       endpoint = match.group(1)
                       if endpoint not in seen_endpoints:
                           seen_endpoints.add(endpoint)
-                          unique_configs.append((endpoint, line))
+                          config = parse_wireguard_config(line)
+                          if config:
+                              parsed_configs.append(config)
               
-              if unique_configs:
-                  unique_configs.sort(key=lambda x: x[0])
+              if parsed_configs:
+                  parsed_configs.sort(key=lambda x: x['endpoint'])
                   with open(filename, 'w', encoding='utf-8') as f:
-                      for _, cfg in unique_configs:
-                          f.write(cfg + "\n")
-                  print(f"{filename}: {len(unique_configs)} unique configs written")
+                      for config in parsed_configs:
+                          f.write(f"wireguard://{config['private_key']}@{config['endpoint']}?publickey={config['public_key']}&address={','.join(config['addresses'])}&mtu={config['mtu']}\n")
+                  print(f"{filename}: {len(parsed_configs)} unique configs written")
               
               proxies = []
               proxy_names = []
               
-              for endpoint, cfg in unique_configs:
-                  config = parse_wireguard_config(cfg)
-                  if config:
-                      conf_counter += 1
-                      conf_name = f"@DeltaKroneckerGithub ({conf_counter}).conf"
-                      conf_path = os.path.join(CONF_DIR, conf_name)
-                      generate_conf_file(config, conf_path)
-                      
-                      proxy_name = generate_proxy_name(config['endpoint'], len(proxies))
-                      proxy_names.append(proxy_name)
-                      
-                      proxy = {
-                          'name': proxy_name,
-                          'type': 'wireguard',
-                          'server': config['address'],
-                          'port': config['port'],
-                          'private-key': config['private_key'],
-                          'public-key': config['public_key'],
-                          'mtu': config['mtu'],
-                          'udp': True,
-                          'reserved': config['reserved'],
-                          'workers': 4,
-                          'persistent-keepalive': config['keepalive']
-                      }
-                      
-                      if config['addresses']:
-                          for addr in config['addresses']:
-                              addr_clean = addr.strip().split('/')[0] if '/' in addr else addr.strip()
-                              if ':' in addr_clean:
-                                  proxy['ipv6'] = addr_clean
-                              else:
-                                  proxy['ip'] = addr_clean
-                      
-                      proxies.append(proxy)
+              for config in parsed_configs:
+                  conf_counter += 1
+                  conf_name = f"@DeltaKroneckerGithub ({conf_counter}).conf"
+                  conf_path = os.path.join(CONF_DIR, conf_name)
+                  generate_conf_file(config, conf_path)
+                  
+                  proxy_name = generate_proxy_name(config['endpoint'], len(proxies))
+                  proxy_names.append(proxy_name)
+                  
+                  proxy = {
+                      'name': proxy_name,
+                      'type': 'wireguard',
+                      'server': config['address'],
+                      'port': config['port'],
+                      'private-key': config['private_key'],
+                      'public-key': config['public_key'],
+                      'mtu': config['mtu'],
+                      'udp': True,
+                      'reserved': config['reserved'],
+                      'workers': 4,
+                      'persistent-keepalive': config['keepalive']
+                  }
+                  
+                  if config['addresses']:
+                      for addr in config['addresses']:
+                          addr_clean = addr.strip().split('/')[0] if '/' in addr else addr.strip()
+                          if ':' in addr_clean:
+                              proxy['ipv6'] = addr_clean
+                          else:
+                              proxy['ip'] = addr_clean
+                  
+                  proxies.append(proxy)
               
               output_config = BASE_CONFIG.copy()
               output_config['proxies'] = proxies
