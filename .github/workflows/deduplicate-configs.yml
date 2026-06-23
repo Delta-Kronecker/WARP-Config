@@ -27,12 +27,12 @@ jobs:
       - name: Deduplicate, sort, generate Clash configs and WireGuard conf files
         shell: python
         run: |
-          import re, os, yaml, zipfile
+          import re, os, yaml, zipfile, tempfile
           from urllib.parse import unquote
 
-          FILES = ["ALL.txt", "MCI.txt", "MTN.txt"]
-          OUTPUT_FILES = ["ALL.yaml", "MCI.yaml", "MTN.yaml"]
-          CONF_DIR = "wireguard_configs"
+          INPUT_FILE = "ALL.txt"
+          OUTPUT_FILE = "ALL.yaml"
+          ZIP_FILE = "wireguard_configs.zip"
 
           BASE_CONFIG = {
               "name": "Standard",
@@ -185,14 +185,6 @@ jobs:
                       key, value = param.split('=', 1)
                       params_dict[key] = value
               
-              mtu_raw = params_dict.get('mtu', '1280')
-              mtu_match = re.match(r'(\d+)', mtu_raw)
-              mtu = int(mtu_match.group(1)) if mtu_match else 1280
-              
-              keepalive_raw = params_dict.get('keepalive', '5')
-              keepalive_match = re.match(r'(\d+)', keepalive_raw)
-              keepalive = int(keepalive_match.group(1)) if keepalive_match else 5
-              
               addresses_raw = params_dict.get('address', '')
               addresses = []
               for addr in addresses_raw.split(','):
@@ -207,33 +199,6 @@ jobs:
                   if r:
                       reserved.append(int(r))
               
-              wpayloadsize_raw = params_dict.get('wpayloadsize', '')
-              jc = 5
-              jmin = 50
-              jmax = 100
-              s1 = 0
-              s2 = 0
-              h1 = 1
-              h2 = 2
-              h3 = 3
-              h4 = 4
-              
-              if wpayloadsize_raw:
-                  parts = wpayloadsize_raw.split('-')
-                  if len(parts) == 2:
-                      s1 = int(parts[0])
-                      s2 = int(parts[1])
-              
-              wnoisecount_raw = params_dict.get('wnoisecount', '15')
-              wnoisecount_match = re.match(r'(\d+)', wnoisecount_raw)
-              jc = int(wnoisecount_match.group(1)) if wnoisecount_match else 15
-              
-              wnoisedelay_raw = params_dict.get('wnoisedelay', '1-2')
-              delay_parts = wnoisedelay_raw.split('-')
-              if len(delay_parts) == 2:
-                  jmin = int(delay_parts[0])
-                  jmax = int(delay_parts[1])
-              
               return {
                   'private_key': private_key,
                   'address': address,
@@ -241,18 +206,7 @@ jobs:
                   'public_key': params_dict.get('publickey', ''),
                   'preshared_key': params_dict.get('presharedkey', ''),
                   'addresses': addresses,
-                  'mtu': mtu,
-                  'keepalive': keepalive,
                   'reserved': reserved,
-                  'jc': jc,
-                  'jmin': jmin,
-                  'jmax': jmax,
-                  's1': s1,
-                  's2': s2,
-                  'h1': h1,
-                  'h2': h2,
-                  'h3': h3,
-                  'h4': h4,
                   'endpoint': f"{address}:{port}"
               }
 
@@ -260,32 +214,33 @@ jobs:
               safe_name = re.sub(r'[^a-zA-Z0-9\-]', '-', endpoint)
               return f"WG-{safe_name}-{index}"
 
-          def generate_conf_file(config, filename):
+          def generate_conf_content(config):
               conf = f"""[Interface]
           PrivateKey = {config['private_key']}
           Address = {', '.join(config['addresses'])}
           DNS = 1.1.1.1, 1.0.0.1, 2606:4700:4700::1111, 2606:4700:4700::1001
-          MTU = {config['mtu']}
-          Jc = {config['jc']}
-          Jmin = {config['jmin']}
-          Jmax = {config['jmax']}
-          S1 = {config['s1']}
-          S2 = {config['s2']}
-          H1 = {config['h1']}
-          H2 = {config['h2']}
-          H3 = {config['h3']}
-          H4 = {config['h4']}
+          MTU = 1420
+          Jc = 6
+          Jmin = 10
+          Jmax = 50
+          S1 = 0
+          S2 = 0
+          S3 = 14
+          I1 = <r 2><b 0x858000010001000000000669636c6f756403636f6d0000010001c00c000100010000105a00044d583737>
+          H1 = 1
+          H2 = 2
+          H3 = 3
+          H4 = 4
           [Peer]
           PublicKey = {config['public_key']}
           AllowedIPs = 0.0.0.0/0, ::/0
           Endpoint = {config['endpoint']}
-          PersistentKeepalive = {config['keepalive']}
+          PersistentKeepalive = 10
           """
               if config['preshared_key']:
                   conf = conf.replace('[Peer]\n', f'[Peer]\nPresharedKey = {config["preshared_key"]}\n')
               
-              with open(filename, 'w', encoding='utf-8') as f:
-                  f.write(conf.strip() + '\n')
+              return conf.strip() + '\n'
 
           def write_yaml(config, filepath):
               class CustomDumper(yaml.Dumper):
@@ -299,55 +254,47 @@ jobs:
                             sort_keys=False,
                             indent=2)
 
-          os.makedirs(CONF_DIR, exist_ok=True)
+          if not os.path.exists(INPUT_FILE):
+              print(f"File {INPUT_FILE} not found!")
+              exit(1)
+
+          seen_endpoints = set()
+          parsed_configs = []
           
-          for f in os.listdir(CONF_DIR):
-              os.remove(os.path.join(CONF_DIR, f))
-
-          global_conf_counter = 0
-          global_seen_endpoints = set()
-
-          for i, filename in enumerate(FILES):
-              if not os.path.exists(filename):
-                  print(f"File {filename} not found, skipping...")
-                  continue
-              
-              parsed_configs = []
-              file_seen = set()
-              
-              with open(filename, 'r', encoding='utf-8') as f:
-                  for line in f:
-                      line = line.strip()
-                      if not line.startswith("wireguard://"):
-                          continue
-                      match = re.search(r'@([^?#]+)', line)
-                      if not match:
-                          continue
-                      endpoint = match.group(1)
-                      if endpoint not in file_seen and endpoint not in global_seen_endpoints:
-                          file_seen.add(endpoint)
-                          global_seen_endpoints.add(endpoint)
-                          config = parse_wireguard_config(line)
-                          if config:
-                              parsed_configs.append(config)
-              
-              if parsed_configs:
-                  parsed_configs.sort(key=lambda x: x['endpoint'])
-                  with open(filename, 'w', encoding='utf-8') as f:
-                      for config in parsed_configs:
-                          f.write(f"wireguard://{config['private_key']}@{config['endpoint']}?publickey={config['public_key']}&address={','.join(config['addresses'])}&mtu={config['mtu']}\n")
-                  print(f"{filename}: {len(parsed_configs)} unique configs written")
-              
-              proxies = []
-              proxy_names = []
-              
-              for config in parsed_configs:
-                  global_conf_counter += 1
-                  conf_name = f"@DeltaKroneckerGithub ({global_conf_counter}).conf"
-                  conf_path = os.path.join(CONF_DIR, conf_name)
-                  generate_conf_file(config, conf_path)
+          with open(INPUT_FILE, 'r', encoding='utf-8') as f:
+              for line in f:
+                  line = line.strip()
+                  if not line.startswith("wireguard://"):
+                      continue
+                  match = re.search(r'@([^?#]+)', line)
+                  if not match:
+                      continue
+                  endpoint = match.group(1)
+                  if endpoint not in seen_endpoints:
+                      seen_endpoints.add(endpoint)
+                      config = parse_wireguard_config(line)
+                      if config:
+                          parsed_configs.append(config)
+          
+          if parsed_configs:
+              parsed_configs.sort(key=lambda x: x['endpoint'])
+              with open(INPUT_FILE, 'w', encoding='utf-8') as f:
+                  for config in parsed_configs:
+                      f.write(f"wireguard://{config['private_key']}@{config['endpoint']}?publickey={config['public_key']}&address={','.join(config['addresses'])}&mtu=1420\n")
+              print(f"{INPUT_FILE}: {len(parsed_configs)} unique configs written")
+          
+          proxies = []
+          proxy_names = []
+          
+          with tempfile.TemporaryDirectory() as tmpdir:
+              for idx, config in enumerate(parsed_configs, 1):
+                  conf_name = f"@DeltaKroneckerGithub ({idx}).conf"
+                  conf_path = os.path.join(tmpdir, conf_name)
+                  conf_content = generate_conf_content(config)
+                  with open(conf_path, 'w', encoding='utf-8') as f:
+                      f.write(conf_content)
                   
-                  proxy_name = generate_proxy_name(config['endpoint'], len(proxies))
+                  proxy_name = generate_proxy_name(config['endpoint'], idx)
                   proxy_names.append(proxy_name)
                   
                   proxy = {
@@ -357,11 +304,11 @@ jobs:
                       'port': config['port'],
                       'private-key': config['private_key'],
                       'public-key': config['public_key'],
-                      'mtu': config['mtu'],
+                      'mtu': 1420,
                       'udp': True,
                       'reserved': config['reserved'],
                       'workers': 4,
-                      'persistent-keepalive': config['keepalive']
+                      'persistent-keepalive': 10
                   }
                   
                   if config['addresses']:
@@ -374,33 +321,31 @@ jobs:
                   
                   proxies.append(proxy)
               
-              output_config = BASE_CONFIG.copy()
-              output_config['proxies'] = proxies
+              if os.path.exists(ZIP_FILE):
+                  os.remove(ZIP_FILE)
               
-              for group in output_config['proxy-groups']:
-                  if group['name'] in ['Load Balance', 'Auto', 'Fallback']:
-                      group['proxies'] = proxy_names.copy()
-              
-              write_yaml(output_config, OUTPUT_FILES[i])
-              print(f"Generated {OUTPUT_FILES[i]} with {len(proxies)} WireGuard proxies")
-
-          zip_filename = "wireguard_configs.zip"
-          if os.path.exists(zip_filename):
-              os.remove(zip_filename)
+              with zipfile.ZipFile(ZIP_FILE, 'w', zipfile.ZIP_DEFLATED) as zipf:
+                  for i in range(1, len(parsed_configs) + 1):
+                      conf_file = f"@DeltaKroneckerGithub ({i}).conf"
+                      conf_path = os.path.join(tmpdir, conf_file)
+                      if os.path.exists(conf_path):
+                          zipf.write(conf_path, conf_file)
           
-          with zipfile.ZipFile(zip_filename, 'w', zipfile.ZIP_DEFLATED) as zipf:
-              for i in range(1, global_conf_counter + 1):
-                  conf_file = f"@DeltaKroneckerGithub ({i}).conf"
-                  conf_path = os.path.join(CONF_DIR, conf_file)
-                  if os.path.exists(conf_path):
-                      zipf.write(conf_path, conf_file)
+          output_config = BASE_CONFIG.copy()
+          output_config['proxies'] = proxies
           
-          print(f"Generated {zip_filename} with {global_conf_counter} WireGuard config files")
+          for group in output_config['proxy-groups']:
+              if group['name'] in ['Load Balance', 'Auto', 'Fallback']:
+                  group['proxies'] = proxy_names.copy()
+          
+          write_yaml(output_config, OUTPUT_FILE)
+          print(f"Generated {OUTPUT_FILE} with {len(proxies)} WireGuard proxies")
+          print(f"Generated {ZIP_FILE} with {len(parsed_configs)} WireGuard config files")
 
       - name: Commit and push changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
-          git diff --staged --quiet || git commit -m "Deduplicate, sort, generate Clash configs and WireGuard conf files"
+          git diff --staged --quiet || git commit -m "Deduplicate, sort, generate Clash config and WireGuard conf files"
           git push
