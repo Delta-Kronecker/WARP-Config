@@ -142,7 +142,7 @@ jobs:
                       "type": "load-balance",
                       "strategy": "consistent-hashing",
                       "url": "http://www.gstatic.com/generate_204",
-                      "interval": 60,
+                      "interval": 180,
                       "tolerance": 50,
                       "lazy": True,
                       "proxies": []
@@ -151,7 +151,7 @@ jobs:
                       "name": "Auto",
                       "type": "url-test",
                       "url": "http://www.gstatic.com/generate_204",
-                      "interval": 60,
+                      "interval": 180,
                       "tolerance": 50,
                       "lazy": True,
                       "proxies": []
