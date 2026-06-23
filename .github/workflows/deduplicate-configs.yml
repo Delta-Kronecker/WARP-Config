@@ -27,7 +27,7 @@ jobs:
       - name: Deduplicate, sort, generate Clash configs and WireGuard conf files
         shell: python
         run: |
-          import re, os, yaml, zipfile, tempfile
+          import re, os, yaml, zipfile, tempfile, base64
           from urllib.parse import unquote
 
           INPUT_FILE = "ALL.txt"
@@ -168,13 +168,24 @@ jobs:
               "rules": ["MATCH,PROXY"]
           }
 
+          def decode_base64_key(key):
+              key = key.strip()
+              padding = 4 - len(key) % 4
+              if padding != 4:
+                  key += '=' * padding
+              try:
+                  decoded = base64.b64decode(key)
+                  return base64.b64encode(decoded).decode('ascii')
+              except:
+                  return key
+
           def parse_wireguard_config(line):
               decoded = unquote(line)
               match = re.match(r'wireguard://([^@]+)@([^:]+):(\d+)\?(.+?)(?:#(.+))?$', decoded)
               if not match:
                   return None
               
-              private_key = match.group(1)
+              private_key = decode_base64_key(match.group(1))
               address = match.group(2)
               port = int(match.group(3))
               params = match.group(4)
@@ -184,6 +195,9 @@ jobs:
                   if '=' in param:
                       key, value = param.split('=', 1)
                       params_dict[key] = value
+              
+              public_key = decode_base64_key(params_dict.get('publickey', ''))
+              preshared_key = decode_base64_key(params_dict.get('presharedkey', ''))
               
               addresses_raw = params_dict.get('address', '')
               addresses = []
@@ -203,8 +217,8 @@ jobs:
                   'private_key': private_key,
                   'address': address,
                   'port': port,
-                  'public_key': params_dict.get('publickey', ''),
-                  'preshared_key': params_dict.get('presharedkey', ''),
+                  'public_key': public_key,
+                  'preshared_key': preshared_key,
                   'addresses': addresses,
                   'reserved': reserved,
                   'endpoint': f"{address}:{port}"
