@@ -225,10 +225,10 @@ jobs:
           PrivateKey = {config['private_key']}
           Address = {', '.join(config['addresses'])}
           DNS = 1.1.1.1, 1.0.0.1, 2606:4700:4700::1111, 2606:4700:4700::1001
-          MTU = 1152
-          Jc = 6
-          Jmin = 10
-          Jmax = 50
+          MTU = 1280
+          Jc = 5
+          Jmin = 50
+          Jmax = 100
           S1 = 0
           S2 = 0
           S3 = 14
