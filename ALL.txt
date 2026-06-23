@@ -1,3 +1,60 @@
+# WARP Config Links - import in v2rayN or similar clients
+
+# Config 1
+wireguard://mFEaT%2FR8FUVbQjGINLxovu0V2c2OmT5P9Orbr7j%2BVnk%3D@8.6.112.144:943?wnoise=quic&presharedkey=&address=172.16.0.2%2F32%2C%202606%3A4700%3A110%3A8be5%3Ac22c%3Ac211%3A3ed0%3A798%2F128&reserved=0%2C0%2C0&keepalive=5&wpayloadsize=5-10&publickey=bmXOC%2BF1FxEMF9dyiK2H5%2F1SUtzH0JuVo51h2wPfgyo%3D&wnoisedelay=1-2&wnoisecount=15&mtu=1280#@DeltaKroneckerGithub
+
+# Config 2
+wireguard://8My6FPbHNwsR9FKegi744RlXONsbLw93z%2FLaDnf0KnM%3D@8.6.112.235:1018?wnoise=quic&presharedkey=&address=172.16.0.2%2F32%2C%202606%3A4700%3A110%3A8c3a%3Abd5c%3A4c23%3Afa25%3A54aa%2F128&reserved=0%2C0%2C0&keepalive=5&wpayloadsize=5-10&publickey=bmXOC%2BF1FxEMF9dyiK2H5%2F1SUtzH0JuVo51h2wPfgyo%3D&wnoisedelay=1-2&wnoisecount=15&mtu=1280#@DeltaKroneckerGithub
+
+# Config 3
+wireguard://iCYqiinFKmeE7dCwxxk2Z9NCLNJ1OjKk6vf4FPQIXWY%3D@8.6.112.27:891?wnoise=quic&presharedkey=&address=172.16.0.2%2F32%2C%202606%3A4700%3A110%3A83a5%3Ad2eb%3Ae639%3A6a6d%3A8416%2F128&reserved=0%2C0%2C0&keepalive=5&wpayloadsize=5-10&publickey=bmXOC%2BF1FxEMF9dyiK2H5%2F1SUtzH0JuVo51h2wPfgyo%3D&wnoisedelay=1-2&wnoisecount=15&mtu=1280#@DeltaKroneckerGithub
+
+# Config 4
+wireguard://yOwRHYRn8Xy8Xds%2Fba3RAx9FGebYMBUGIrhWPG95Okw%3D@8.6.112.67:1002?wnoise=quic&presharedkey=&address=172.16.0.2%2F32%2C%202606%3A4700%3A110%3A8a58%3A2f48%3A97e%3Ae6dc%3A241c%2F128&reserved=0%2C0%2C0&keepalive=5&wpayloadsize=5-10&publickey=bmXOC%2BF1FxEMF9dyiK2H5%2F1SUtzH0JuVo51h2wPfgyo%3D&wnoisedelay=1-2&wnoisecount=15&mtu=1280#@DeltaKroneckerGithub
+
+# Config 5
+wireguard://sEBMEU93QzLkR4dS8KDMyUwVjBmor3QCprHXMXZypnM%3D@8.6.112.49:1002?wnoise=quic&presharedkey=&address=172.16.0.2%2F32%2C%202606%3A4700%3A110%3A8e2c%3A4c6f%3A3489%3A7a73%3Ac60d%2F128&reserved=0%2C0%2C0&keepalive=5&wpayloadsize=5-10&publickey=bmXOC%2BF1FxEMF9dyiK2H5%2F1SUtzH0JuVo51h2wPfgyo%3D&wnoisedelay=1-2&wnoisecount=15&mtu=1280#@DeltaKroneckerGithub
+
+# Config 6
+wireguard://sMxy3ZxcUH95fiKMXlAsfQnRl8v3EAQjbDJF51pajnA%3D@8.6.112.58:943?wnoise=quic&presharedkey=&address=172.16.0.2%2F32%2C%202606%3A4700%3A110%3A8634%3A69b6%3Ae4e2%3A5383%3A7c90%2F128&reserved=0%2C0%2C0&keepalive=5&wpayloadsize=5-10&publickey=bmXOC%2BF1FxEMF9dyiK2H5%2F1SUtzH0JuVo51h2wPfgyo%3D&wnoisedelay=1-2&wnoisecount=15&mtu=1280#@DeltaKroneckerGithub
+
+# Config 7
+wireguard://uNy%2FZi2MYN%2B33CdLs3Gtt4AY3Df6JjZW5TSc%2F1xwvX4%3D@8.6.112.68:7281?wnoise=quic&presharedkey=&address=172.16.0.2%2F32%2C%202606%3A4700%3A110%3A836f%3A3cd0%3A6ba4%3A529b%3A304f%2F128&reserved=0%2C0%2C0&keepalive=5&wpayloadsize=5-10&publickey=bmXOC%2BF1FxEMF9dyiK2H5%2F1SUtzH0JuVo51h2wPfgyo%3D&wnoisedelay=1-2&wnoisecount=15&mtu=1280#@DeltaKroneckerGithub
+
+# Config 8
+wireguard://ONxQMv4f3G9BJqDOvBvkW55nvLWJ8tAB1J%2F3FiccdEk%3D@8.6.112.191:894?wnoise=quic&presharedkey=&address=172.16.0.2%2F32%2C%202606%3A4700%3A110%3A8cf7%3A35d9%3Ab44a%3A6e8e%3A9dcf%2F128&reserved=0%2C0%2C0&keepalive=5&wpayloadsize=5-10&publickey=bmXOC%2BF1FxEMF9dyiK2H5%2F1SUtzH0JuVo51h2wPfgyo%3D&wnoisedelay=1-2&wnoisecount=15&mtu=1280#@DeltaKroneckerGithub
+
+# Config 9
+wireguard://mJELsbYFEvqxHzynwmpUbfPhl4511BpgrQXkx%2B09LE0%3D@8.6.112.223:8319?wnoise=quic&presharedkey=&address=172.16.0.2%2F32%2C%202606%3A4700%3A110%3A8dbd%3Ac2a5%3Ab23b%3Adac9%3A4f50%2F128&reserved=0%2C0%2C0&keepalive=5&wpayloadsize=5-10&publickey=bmXOC%2BF1FxEMF9dyiK2H5%2F1SUtzH0JuVo51h2wPfgyo%3D&wnoisedelay=1-2&wnoisecount=15&mtu=1280#@DeltaKroneckerGithub
+
+# Config 10
+wireguard://sBx5p1Bm9ZRZvFu2X7kkY1AfxsPXLIDNMhCFwz500HM%3D@8.6.112.162:1843?wnoise=quic&presharedkey=&address=172.16.0.2%2F32%2C%202606%3A4700%3A110%3A8a17%3Af027%3A8c36%3Acb1f%3A3e32%2F128&reserved=0%2C0%2C0&keepalive=5&wpayloadsize=5-10&publickey=bmXOC%2BF1FxEMF9dyiK2H5%2F1SUtzH0JuVo51h2wPfgyo%3D&wnoisedelay=1-2&wnoisecount=15&mtu=1280#@DeltaKroneckerGithub
+
+# Config 11
+wireguard://CB99Y2%2FnsBJO0peg%2FBRMlaX1aCxORbtN7dt3%2BrMcbHw%3D@8.6.112.60:1387?wnoise=quic&presharedkey=&address=172.16.0.2%2F32%2C%202606%3A4700%3A110%3A84a2%3A2ad7%3A8287%3A4ba4%3Adfdd%2F128&reserved=0%2C0%2C0&keepalive=5&wpayloadsize=5-10&publickey=bmXOC%2BF1FxEMF9dyiK2H5%2F1SUtzH0JuVo51h2wPfgyo%3D&wnoisedelay=1-2&wnoisecount=15&mtu=1280#@DeltaKroneckerGithub
+
+# Config 12
+wireguard://AGpOClQltEiijAkgAMl3XT71kgR0AHIiiKeJSPnVWWE%3D@8.6.112.144:1701?wnoise=quic&presharedkey=&address=172.16.0.2%2F32%2C%202606%3A4700%3A110%3A81f8%3A2b83%3Aa1da%3A786%3A5b0d%2F128&reserved=0%2C0%2C0&keepalive=5&wpayloadsize=5-10&publickey=bmXOC%2BF1FxEMF9dyiK2H5%2F1SUtzH0JuVo51h2wPfgyo%3D&wnoisedelay=1-2&wnoisecount=15&mtu=1280#@DeltaKroneckerGithub
+
+# Config 13
+wireguard://EFXK9P5ws2N9VM1K48TvnUT3%2F56xthvNxyF44nq%2F5EE%3D@8.6.112.210:854?wnoise=quic&presharedkey=&address=172.16.0.2%2F32%2C%202606%3A4700%3A110%3A8eb3%3A2073%3A1a9d%3A2e33%3A9733%2F128&reserved=0%2C0%2C0&keepalive=5&wpayloadsize=5-10&publickey=bmXOC%2BF1FxEMF9dyiK2H5%2F1SUtzH0JuVo51h2wPfgyo%3D&wnoisedelay=1-2&wnoisecount=15&mtu=1280#@DeltaKroneckerGithub
+
+# Config 14
+wireguard://gNngGdFfUUvfox9TK7MyQTpVddmnp201UD5KbT%2BDIUk%3D@8.6.112.124:1070?wnoise=quic&presharedkey=&address=172.16.0.2%2F32%2C%202606%3A4700%3A110%3A87eb%3A50d5%3A6772%3Af159%3A858%2F128&reserved=0%2C0%2C0&keepalive=5&wpayloadsize=5-10&publickey=bmXOC%2BF1FxEMF9dyiK2H5%2F1SUtzH0JuVo51h2wPfgyo%3D&wnoisedelay=1-2&wnoisecount=15&mtu=1280#@DeltaKroneckerGithub
+
+# Config 15
+wireguard://SHBrCB2EoxkVlv5D7gn%2B3lVB%2F9%2BOYMSLJr%2BY95H3hV8%3D@8.6.112.5:968?wnoise=quic&presharedkey=&address=172.16.0.2%2F32%2C%202606%3A4700%3A110%3A8c13%3Ac62b%3Ad4d9%3Adc4c%3A10bb%2F128&reserved=0%2C0%2C0&keepalive=5&wpayloadsize=5-10&publickey=bmXOC%2BF1FxEMF9dyiK2H5%2F1SUtzH0JuVo51h2wPfgyo%3D&wnoisedelay=1-2&wnoisecount=15&mtu=1280#@DeltaKroneckerGithub
+
+# Config 16
+wireguard://cJtITcf0x9e%2B9d6XPb8QfWyLGUyDCrOXzu7rtKFXOFE%3D@8.6.112.135:946?wnoise=quic&presharedkey=&address=172.16.0.2%2F32%2C%202606%3A4700%3A110%3A87e9%3A1896%3Af212%3A9443%3Ad128%2F128&reserved=0%2C0%2C0&keepalive=5&wpayloadsize=5-10&publickey=bmXOC%2BF1FxEMF9dyiK2H5%2F1SUtzH0JuVo51h2wPfgyo%3D&wnoisedelay=1-2&wnoisecount=15&mtu=1280#@DeltaKroneckerGithub
+
+# Config 17
+wireguard://AOVWgdXUZhKdgp%2BXlMi%2By4s3avh%2B8%2BB7aI1I7psCSEE%3D@8.47.69.56:942?wnoise=quic&presharedkey=&address=172.16.0.2%2F32%2C%202606%3A4700%3A110%3A8e63%3Afa7b%3A97ce%3A8e3c%3A5890%2F128&reserved=0%2C0%2C0&keepalive=5&wpayloadsize=5-10&publickey=bmXOC%2BF1FxEMF9dyiK2H5%2F1SUtzH0JuVo51h2wPfgyo%3D&wnoisedelay=1-2&wnoisecount=15&mtu=1280#@DeltaKroneckerGithub
+
+# Config 18
+wireguard://SFIC%2BMs1%2FBFH2Cg2sofU5d9ZaNL%2FJsNiQAw15uLVhkA%3D@8.6.112.127:8319?wnoise=quic&presharedkey=&address=172.16.0.2%2F32%2C%202606%3A4700%3A110%3A8d87%3Aa83f%3Ab1dc%3A169a%3A3a51%2F128&reserved=0%2C0%2C0&keepalive=5&wpayloadsize=5-10&publickey=bmXOC%2BF1FxEMF9dyiK2H5%2F1SUtzH0JuVo51h2wPfgyo%3D&wnoisedelay=1-2&wnoisecount=15&mtu=1280#@DeltaKroneckerGithub
+
+
 wireguard://QMrJn3tORbDYWiRuH/1sicGeVC4ywmPUMqnhuhkcSHg=@162.159.195.6:3476?publickey=bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=&address=172.16.0.2/32,2606:4700:110:8c4a:cf7b:ba80:c3d0:6fe9/128&mtu=1280
 wireguard://0Ox6AXVMuCPNwqmJNJC6zBOAfC6elC008F3MVTnJP3A=@188.114.96.125:988?publickey=bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=&address=172.16.0.2/32,2606:4700:110:8b6b:1b17:602f:8756:109f/128&mtu=1280
 wireguard://uHUJu7apO9V/qEQlLRIewwMGlzelY96CMjlej13S9Es=@188.114.96.35:7152?publickey=bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=&address=172.16.0.2/32,2606:4700:110:8777:2b4c:14bf:e37a:d4ae/128&mtu=1280
