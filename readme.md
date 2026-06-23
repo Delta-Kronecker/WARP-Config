@@ -1,14 +1,14 @@
-### 🔥 ساب لینک مخصوص هیدیفای:
+### 🔥 Hiddify Subscription Link / ساب لینک مخصوص هیدیفای:
 ```
 https://github.com/Delta-Kronecker/WARP-Config/raw/refs/heads/main/ALL.txt
 ```
 
-### 🔥 ساب لینک کلش:
+### 🔥 Clash Subscription Link / ساب لینک کلش:
 ```
 https://github.com/Delta-Kronecker/WARP-Config/raw/refs/heads/main/ALL.yaml
 ```
 
-### 🔥 فایل فشرده حاوی فایل های conf. کانفیگ ها:
+### 🔥 .conf Config Files (ZIP) / فایل فشرده حاوی فایل های conf کانفیگ ها:
 ```
 https://github.com/Delta-Kronecker/WARP-Config/raw/refs/heads/main/wireguard_configs.zip
 ```
