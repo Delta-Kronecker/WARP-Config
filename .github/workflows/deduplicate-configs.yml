@@ -27,7 +27,7 @@ jobs:
       - name: Deduplicate, sort, generate Clash configs and WireGuard conf files
         shell: python
         run: |
-          import re, os, yaml, zipfile, tempfile, base64
+          import re, os, yaml, zipfile, tempfile, base64, random
           from urllib.parse import unquote, quote
 
           INPUT_FILE = "ALL.txt"
@@ -291,13 +291,13 @@ jobs:
                           parsed_configs.append(config)
           
           if parsed_configs:
-              parsed_configs.sort(key=lambda x: x['endpoint'])
+              random.shuffle(parsed_configs)
               with open(INPUT_FILE, 'w', encoding='utf-8') as f:
                   for config in parsed_configs:
                       encoded_private = quote(config['private_key'], safe='')
                       encoded_public = quote(config['public_key'], safe='')
                       f.write(f"wireguard://{encoded_private}@{config['endpoint']}?publickey={encoded_public}&address={','.join(config['addresses'])}&mtu=1420\n")
-              print(f"{INPUT_FILE}: {len(parsed_configs)} unique configs written")
+              print(f"{INPUT_FILE}: {len(parsed_configs)} unique configs written (random order)")
           
           proxies = []
           proxy_names = []
@@ -355,7 +355,7 @@ jobs:
                   group['proxies'] = proxy_names.copy()
           
           write_yaml(output_config, OUTPUT_FILE)
-          print(f"Generated {OUTPUT_FILE} with {len(proxies)} WireGuard proxies")
+          print(f"Generated {OUTPUT_FILE} with {len(proxies)} WireGuard proxies (random order)")
           print(f"Generated {ZIP_FILE} with {len(parsed_configs)} WireGuard config files")
 
       - name: Commit and push changes
