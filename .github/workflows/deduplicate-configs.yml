@@ -28,7 +28,7 @@ jobs:
         shell: python
         run: |
           import re, os, yaml, zipfile, tempfile, base64
-          from urllib.parse import unquote
+          from urllib.parse import unquote, quote
 
           INPUT_FILE = "ALL.txt"
           OUTPUT_FILE = "ALL.yaml"
@@ -168,7 +168,7 @@ jobs:
               "rules": ["MATCH,PROXY"]
           }
 
-          def decode_base64_key(key):
+          def fix_base64_key(key):
               key = key.strip()
               padding = 4 - len(key) % 4
               if padding != 4:
@@ -185,7 +185,7 @@ jobs:
               if not match:
                   return None
               
-              private_key = decode_base64_key(match.group(1))
+              private_key = fix_base64_key(match.group(1))
               address = match.group(2)
               port = int(match.group(3))
               params = match.group(4)
@@ -196,8 +196,8 @@ jobs:
                       key, value = param.split('=', 1)
                       params_dict[key] = value
               
-              public_key = decode_base64_key(params_dict.get('publickey', ''))
-              preshared_key = decode_base64_key(params_dict.get('presharedkey', ''))
+              public_key = fix_base64_key(params_dict.get('publickey', ''))
+              preshared_key = fix_base64_key(params_dict.get('presharedkey', ''))
               
               addresses_raw = params_dict.get('address', '')
               addresses = []
@@ -294,7 +294,9 @@ jobs:
               parsed_configs.sort(key=lambda x: x['endpoint'])
               with open(INPUT_FILE, 'w', encoding='utf-8') as f:
                   for config in parsed_configs:
-                      f.write(f"wireguard://{config['private_key']}@{config['endpoint']}?publickey={config['public_key']}&address={','.join(config['addresses'])}&mtu=1420\n")
+                      encoded_private = quote(config['private_key'], safe='')
+                      encoded_public = quote(config['public_key'], safe='')
+                      f.write(f"wireguard://{encoded_private}@{config['endpoint']}?publickey={encoded_public}&address={','.join(config['addresses'])}&mtu=1420\n")
               print(f"{INPUT_FILE}: {len(parsed_configs)} unique configs written")
           
           proxies = []
