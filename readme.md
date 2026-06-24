@@ -9,6 +9,7 @@ https://github.com/Delta-Kronecker/WARP-Config/raw/refs/heads/main/ALL.yaml
 ```
 
 ### 🔥 .conf Config Files (ZIP) / فایل فشرده حاوی فایل های conf کانفیگ ها:
+###     use in WireSock or WG Tunnel / در برنامه WireSock و یا WG Tunnel استفاده کنید
 ```
 https://github.com/Delta-Kronecker/WARP-Config/raw/refs/heads/main/wireguard_configs.zip
 ```
