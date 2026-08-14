@@ -24,7 +24,7 @@ jobs:
       - name: Install PyYAML
         run: pip install pyyaml
 
-      - name: Deduplicate, sort, generate Clash configs and WireGuard conf files
+      - name: Deduplicate, sort, generate AmneziaWG Clash configs and WireGuard conf files
         shell: python
         run: |
           import re, os, yaml, zipfile, tempfile, base64, random
@@ -63,13 +63,9 @@ jobs:
                   "enhanced-mode": "fake-ip",
                   "fake-ip-range": "198.18.0.1/16",
                   "fake-ip-filter": [
-                      "*.local",
-                      "*.lan",
-                      "*.localhost",
-                      "+.stun.*.*",
-                      "+.stun.*.*.*",
-                      "time.*",
-                      "time.*.com",
+                      "*.local", "*.lan", "*.localhost",
+                      "+.stun.*.*", "+.stun.*.*.*",
+                      "time.*", "time.*.com",
                       "connectivitycheck.gstatic.com",
                       "detectportal.firefox.com",
                       "captive.apple.com",
@@ -80,12 +76,7 @@ jobs:
                       "208.67.220.220", "208.67.222.222", "8.26.56.26", "8.20.247.20"
                   ],
                   "nameserver": [
-                    "208.67.220.220",
-                    "208.67.222.222",
-                    "8.26.56.26",
-                    "8.20.247.20"
-
-
+                      "208.67.220.220", "208.67.222.222", "8.26.56.26", "8.20.247.20"
                   ]
               },
               "proxies": [],
@@ -93,7 +84,7 @@ jobs:
                   {
                       "name": "PROXY",
                       "type": "select",
-                      "proxies": [ "Auto", "Load Balance"]
+                      "proxies": ["Fallback", "Auto", "Load Balance"]
                   },
                   {
                       "name": "Load Balance",
@@ -150,18 +141,10 @@ jobs:
               preshared_key = fix_base64_key(params_dict.get('presharedkey', ''))
               
               addresses_raw = params_dict.get('address', '')
-              addresses = []
-              for addr in addresses_raw.split(','):
-                  addr = addr.strip()
-                  if addr:
-                      addresses.append(addr)
+              addresses = [addr.strip() for addr in addresses_raw.split(',') if addr.strip()]
               
               reserved_raw = params_dict.get('reserved', '0,0,0')
-              reserved = []
-              for r in reserved_raw.split(','):
-                  r = r.strip()
-                  if r:
-                      reserved.append(int(r))
+              reserved = [int(r.strip()) for r in reserved_raw.split(',') if r.strip()]
               
               return {
                   'private_key': private_key,
@@ -203,7 +186,6 @@ jobs:
           """
               if config['preshared_key']:
                   conf = conf.replace('[Peer]\n', f'[Peer]\nPresharedKey = {config["preshared_key"]}\n')
-              
               return conf.strip() + '\n'
 
           def write_yaml(config, filepath):
@@ -246,7 +228,7 @@ jobs:
                   for config in parsed_configs:
                       encoded_private = quote(config['private_key'], safe='')
                       encoded_public = quote(config['public_key'], safe='')
-                      f.write(f"wireguard://{encoded_private}@{config['endpoint']}?publickey={encoded_public}&address={','.join(config['addresses'])}&mtu=1420\n")
+                      f.write(f"wireguard://{encoded_private}@{config['endpoint']}?publickey={encoded_public}&address={','.join(config['addresses'])}&mtu=1280\n")
               print(f"{INPUT_FILE}: {len(parsed_configs)} unique configs written (random order)")
           
           proxies = []
@@ -256,13 +238,13 @@ jobs:
               for idx, config in enumerate(parsed_configs, 1):
                   conf_name = f"@DeltaKroneckerGithub ({idx}).conf"
                   conf_path = os.path.join(tmpdir, conf_name)
-                  conf_content = generate_conf_content(config)
                   with open(conf_path, 'w', encoding='utf-8') as f:
-                      f.write(conf_content)
+                      f.write(generate_conf_content(config))
                   
                   proxy_name = generate_proxy_name(config['endpoint'], idx)
                   proxy_names.append(proxy_name)
                   
+                  # ✅ AmneziaWG format for Clash/Hiddify
                   proxy = {
                       'name': proxy_name,
                       'type': 'wireguard',
@@ -270,11 +252,23 @@ jobs:
                       'port': config['port'],
                       'private-key': config['private_key'],
                       'public-key': config['public_key'],
-                      'mtu': 1420,
+                      'mtu': 1280,
                       'udp': True,
                       'reserved': config['reserved'],
                       'workers': 4,
-                      'persistent-keepalive': 10
+                      'persistent-keepalive': 10,
+                      # Amnezia Noise Parameters
+                      'jc': 5,
+                      'jmin': 24,
+                      'jmax': 100,
+                      's1': 0,
+                      's2': 0,
+                      's3': 14,
+                      'i1': 0,
+                      'h1': 1,
+                      'h2': 2,
+                      'h3': 3,
+                      'h4': 4
                   }
                   
                   if config['addresses']:
@@ -305,7 +299,7 @@ jobs:
                   group['proxies'] = proxy_names.copy()
           
           write_yaml(output_config, OUTPUT_FILE)
-          print(f"Generated {OUTPUT_FILE} with {len(proxies)} WireGuard proxies (random order)")
+          print(f"Generated {OUTPUT_FILE} with {len(proxies)} AmneziaWG proxies (random order)")
           print(f"Generated {ZIP_FILE} with {len(parsed_configs)} WireGuard config files")
 
       - name: Commit and push changes
@@ -313,5 +307,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
-          git diff --staged --quiet || git commit -m "Deduplicate, sort, generate Clash config and WireGuard conf files"
+          git diff --staged --quiet || git commit -m "Generate AmneziaWG Clash config with noise parameters and WireGuard conf files"
           git push
