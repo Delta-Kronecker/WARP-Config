@@ -84,7 +84,7 @@ jobs:
                   {
                       "name": "PROXY",
                       "type": "select",
-                      "proxies": ["Fallback", "Auto", "Load Balance"]
+                      "proxies": ["Auto", "Load Balance"]
                   },
                   {
                       "name": "Load Balance",
@@ -244,7 +244,6 @@ jobs:
                   proxy_name = generate_proxy_name(config['endpoint'], idx)
                   proxy_names.append(proxy_name)
                   
-                  # ✅ AmneziaWG format for Clash/Hiddify
                   proxy = {
                       'name': proxy_name,
                       'type': 'wireguard',
@@ -257,7 +256,6 @@ jobs:
                       'reserved': config['reserved'],
                       'workers': 4,
                       'persistent-keepalive': 10,
-                      # Amnezia Noise Parameters
                       'jc': 5,
                       'jmin': 24,
                       'jmax': 100,
@@ -295,7 +293,7 @@ jobs:
           output_config['proxies'] = proxies
           
           for group in output_config['proxy-groups']:
-              if group['name'] in ['Load Balance', 'Auto', 'Fallback']:
+              if group['name'] in ['Load Balance', 'Auto']:
                   group['proxies'] = proxy_names.copy()
           
           write_yaml(output_config, OUTPUT_FILE)
