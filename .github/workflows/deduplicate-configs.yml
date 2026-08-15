@@ -167,11 +167,11 @@ jobs:
           DNS = 1.1.1.1, 1.0.0.1, 8.8.8.8, 8.8.4.4, 9.9.9.9, 149.112.112.112, 208.67.222.222, 208.67.220.220, 8.26.56.26, 8.20.247.20
           MTU = 1280
           Jc = 5
-          Jmin = 49
-          Jmax = 146
-          S1 = 8
-          S2 = 16
-          S3 = 32
+          Jmin = 24
+          Jmax = 100
+          S1 = 0
+          S2 = 0
+          S3 = 14
           I1 = 0
           H1 = 1
           H2 = 2
@@ -291,8 +291,9 @@ jobs:
           output_config = BASE_CONFIG.copy()
           output_config['proxies'] = proxies
           
+          # Assign all proxy names directly to PROXY group
           for group in output_config['proxy-groups']:
-              if group['name'] in ['Load Balance', 'Auto']:
+              if group['name'] == 'PROXY':
                   group['proxies'] = proxy_names.copy()
           
           write_yaml(output_config, OUTPUT_FILE)
@@ -304,5 +305,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
-          git diff --staged --quiet || git commit -m "Generate AmneziaWG Clash config with expanded DNS and noise parameters"
+          git diff --staged --quiet || git commit -m "Generate AmneziaWG Clash config with individual selectable proxies"
           git push
