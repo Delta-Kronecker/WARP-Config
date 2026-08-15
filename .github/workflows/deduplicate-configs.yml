@@ -64,37 +64,37 @@ jobs:
                   "fake-ip-range": "198.18.0.1/16",
                   "fake-ip-filter": [
                       "*.local", "*.lan", "*.localhost",
-                      "*.msftncsi.com", "*.msftconnecttest.com",
-                      "+.stun.*.*", "+.stun.*.*.*", "+.stun.*.*.*.*", "+.stun.*.*.*.*.*",
-                      "time.*", "time.*.com", "time.*.gov", "time.*.edu.cn",
-                      "ntp.*.com", "pool.ntp.org", "time1.cloud.tencent.com", "mus.cisco.com",
-                      "connectivitycheck.gstatic.com", "detectportal.firefox.com",
-                      "captive.apple.com", "www.msftncsi.com", "cp.cloudflare.com",
-                      "dns.msftncsi.com", "resolver1.opendns.com",
-                      "api.ipify.org", "api.myip.com", "ipinfo.io", "ifconfig.me",
-                      "icanhazip.com", "ident.me", "api.ip.sb",
-                      "checkip.amazonaws.com", "myexternalip.com", "wtfismyip.com",
-                      "geolocation-db.com", "speed.cloudflare.com", "cloudflare.com/cdn-cgi/trace",
-                      "+.srv.nintendo.net", "+.stun.playstation.net",
-                      "xbox.*.microsoft.com", "+.xboxlive.com",
-                      "msftconnecttest.com", "dns.google", "dns.adguard.com",
-                      "doh.pub", "dot.pub", "dns.alidns.com", "dot.360.cn"
+                      "+.stun.*.*", "+.stun.*.*.*",
+                      "time.*", "time.*.com",
+                      "connectivitycheck.gstatic.com",
+                      "detectportal.firefox.com",
+                      "captive.apple.com",
+                      "www.msftncsi.com",
+                      "cp.cloudflare.com"
                   ],
-                  "default-nameserver": ["208.67.222.222", "208.67.220.220", "1.1.1.1", "8.8.8.8"],
+                  "default-nameserver": [
+                      "1.1.1.1",
+                      "1.0.0.1",
+                      "8.8.8.8",
+                      "8.8.4.4",
+                      "9.9.9.9",
+                      "149.112.112.112",
+                      "208.67.222.222",
+                      "208.67.220.220",
+                      "8.26.56.26",
+                      "8.20.247.20"
+                  ],
                   "nameserver": [
-                      "https://dns.google/dns-query", "https://cloudflare-dns.com/dns-query",
-                      "https://dns.adguard.com/dns-query",
-                      "208.67.222.222", "208.67.220.220", "1.1.1.1", "8.8.8.8", "9.9.9.9"
-                  ],
-                  "fallback": [
-                      "https://dns.google/dns-query", "https://cloudflare-dns.com/dns-query",
-                      "https://dns.adguard.com/dns-query", "https://doh.pub/dns-query",
-                      "8.8.8.8", "8.8.4.4", "1.1.1.1", "1.0.0.1",
-                      "9.9.9.9", "149.112.112.112", "208.67.222.222", "208.67.220.220"
-                  ],
-                  "proxy-server-nameserver": [
-                      "https://dns.google/dns-query", "https://cloudflare-dns.com/dns-query",
-                      "208.67.222.222", "208.67.220.220", "1.1.1.1"
+                      "1.1.1.1",
+                      "1.0.0.1",
+                      "8.8.8.8",
+                      "8.8.4.4",
+                      "9.9.9.9",
+                      "149.112.112.112",
+                      "208.67.222.222",
+                      "208.67.220.220",
+                      "8.26.56.26",
+                      "8.20.247.20"
                   ]
               },
               "proxies": [],
@@ -183,7 +183,7 @@ jobs:
               conf = f"""[Interface]
           PrivateKey = {config['private_key']}
           Address = {', '.join(config['addresses'])}
-          DNS = 208.67.220.220, 208.67.222.222, 8.26.56.26, 8.20.247.20
+          DNS = 1.1.1.1, 1.0.0.1, 8.8.8.8, 8.8.4.4, 9.9.9.9, 149.112.112.112, 208.67.222.222, 208.67.220.220, 8.26.56.26, 8.20.247.20
           MTU = 1280
           Jc = 5
           Jmin = 24
@@ -323,5 +323,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
-          git diff --staged --quiet || git commit -m "Generate AmneziaWG Clash config with professional DNS and noise parameters"
+          git diff --staged --quiet || git commit -m "Generate AmneziaWG Clash config with expanded DNS and noise parameters"
           git push
