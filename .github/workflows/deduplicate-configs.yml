@@ -92,32 +92,10 @@ jobs:
                       "8.8.8.8", "8.8.4.4", "1.1.1.1", "1.0.0.1",
                       "9.9.9.9", "149.112.112.112", "208.67.222.222", "208.67.220.220"
                   ],
-                  "fallback-filter": {
-                      "geoip": True,
-                      "geoip-code": "IR",
-                      "ipcidr": ["240.0.0.0/4", "0.0.0.0/32"],
-                      "domain": [
-                          "+.google.com", "+.facebook.com", "+.youtube.com",
-                          "+.githubusercontent.com", "+.googlevideo.com",
-                          "+.msftconnecttest.com", "+.msftncsi.com",
-                          "+.apple.com", "+.icloud.com", "+.cdn-apple.com"
-                      ]
-                  },
                   "proxy-server-nameserver": [
                       "https://dns.google/dns-query", "https://cloudflare-dns.com/dns-query",
                       "208.67.222.222", "208.67.220.220", "1.1.1.1"
-                  ],
-                  "nameserver-policy": {
-                      "geosite:cn,private": [
-                          "https://doh.pub/dns-query", "https://dns.alidns.com/dns-query",
-                          "223.5.5.5", "223.6.6.6", "119.29.29.29"
-                      ],
-                      "geosite:ir": [
-                          "https://doh.pub/dns-query", "https://dns.alidns.com/dns-query",
-                          "223.5.5.5", "223.6.6.6", "119.29.29.29"
-                      ]
-                  },
-                  "respect-rules": True
+                  ]
               },
               "proxies": [],
               "proxy-groups": [
@@ -297,8 +275,8 @@ jobs:
                       'workers': 4,
                       'persistent-keepalive': 10,
                       'jc': 5,
-                      'jmin': 39,
-                      'jmax': 125,
+                      'jmin': 24,
+                      'jmax': 100,
                       's1': 0,
                       's2': 0,
                       's3': 14,
