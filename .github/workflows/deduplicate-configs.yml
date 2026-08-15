@@ -34,79 +34,70 @@ jobs:
           OUTPUT_FILE = "ALL.yaml"
           ZIP_FILE = "wireguard_configs.zip"
 
-          BASE_CONFIG = {
-              "name": "Standard",
-              "mixed-port": 7890,
-              "socks-port": 7891,
-              "port": 7892,
-              "allow-lan": True,
-              "bind-address": "*",
-              "mode": "global",
-              "log-level": "info",
-              "ipv6": True,
-              "external-controller": "127.0.0.1:9090",
-              "external-ui": "ui",
-              "secret": "",
-              "unified-delay": True,
-              "tcp-concurrent": True,
-              "global-client-fingerprint": "chrome",
-              "find-process-mode": "strict",
-              "keep-alive-interval": 15,
-              "profile": {
-                  "store-selected": True,
-                  "store-fake-ip": False
-              },
-              "dns": {
-                  "enable": True,
+          def get_base_config(proxy_names):
+              return {
+                  "name": "Standard",
+                  "mixed-port": 7890,
+                  "socks-port": 7891,
+                  "port": 7892,
+                  "allow-lan": True,
+                  "bind-address": "*",
+                  "mode": "global",
+                  "log-level": "info",
                   "ipv6": True,
-                  "listen": "0.0.0.0:5353",
-                  "enhanced-mode": "fake-ip",
-                  "fake-ip-range": "198.18.0.1/16",
-                  "fake-ip-filter": [
-                      "*.local", "*.lan", "*.localhost",
-                      "+.stun.*.*", "+.stun.*.*.*",
-                      "time.*", "time.*.com",
-                      "connectivitycheck.gstatic.com",
-                      "detectportal.firefox.com",
-                      "captive.apple.com",
-                      "www.msftncsi.com",
-                      "cp.cloudflare.com"
+                  "external-controller": "127.0.0.1:9090",
+                  "external-ui": "ui",
+                  "secret": "",
+                  "unified-delay": True,
+                  "tcp-concurrent": True,
+                  "global-client-fingerprint": "chrome",
+                  "find-process-mode": "strict",
+                  "keep-alive-interval": 15,
+                  "profile": {
+                      "store-selected": True,
+                      "store-fake-ip": False
+                  },
+                  "dns": {
+                      "enable": True,
+                      "ipv6": True,
+                      "listen": "0.0.0.0:5353",
+                      "enhanced-mode": "fake-ip",
+                      "fake-ip-range": "198.18.0.1/16",
+                      "fake-ip-filter": [
+                          "*.local", "*.lan", "*.localhost",
+                          "+.stun.*.*", "+.stun.*.*.*",
+                          "time.*", "time.*.com",
+                          "connectivitycheck.gstatic.com",
+                          "detectportal.firefox.com",
+                          "captive.apple.com",
+                          "www.msftncsi.com",
+                          "cp.cloudflare.com"
+                      ],
+                      "default-nameserver": [
+                          "1.1.1.1", "1.0.0.1",
+                          "8.8.8.8", "8.8.4.4",
+                          "9.9.9.9", "149.112.112.112",
+                          "208.67.222.222", "208.67.220.220",
+                          "8.26.56.26", "8.20.247.20"
+                      ],
+                      "nameserver": [
+                          "1.1.1.1", "1.0.0.1",
+                          "8.8.8.8", "8.8.4.4",
+                          "9.9.9.9", "149.112.112.112",
+                          "208.67.222.222", "208.67.220.220",
+                          "8.26.56.26", "8.20.247.20"
+                      ]
+                  },
+                  "proxies": [],
+                  "proxy-groups": [
+                      {
+                          "name": "PROXY",
+                          "type": "select",
+                          "proxies": proxy_names
+                      }
                   ],
-                  "default-nameserver": [
-                      "1.1.1.1",
-                      "1.0.0.1",
-                      "8.8.8.8",
-                      "8.8.4.4",
-                      "9.9.9.9",
-                      "149.112.112.112",
-                      "208.67.222.222",
-                      "208.67.220.220",
-                      "8.26.56.26",
-                      "8.20.247.20"
-                  ],
-                  "nameserver": [
-                      "1.1.1.1",
-                      "1.0.0.1",
-                      "8.8.8.8",
-                      "8.8.4.4",
-                      "9.9.9.9",
-                      "149.112.112.112",
-                      "208.67.222.222",
-                      "208.67.220.220",
-                      "8.26.56.26",
-                      "8.20.247.20"
-                  ]
-              },
-              "proxies": [],
-              "proxy-groups": [
-                  {
-                      "name": "PROXY",
-                      "type": "select",
-                      "proxies": []
-                  }
-              ],
-              "rules": ["MATCH,PROXY"]
-          }
+                  "rules": ["MATCH,PROXY"]
+              }
 
           def fix_base64_key(key):
               key = key.strip()
@@ -288,13 +279,9 @@ jobs:
                       if os.path.exists(conf_path):
                           zipf.write(conf_path, conf_file)
           
-          output_config = BASE_CONFIG.copy()
+          # Build final config with populated proxy names
+          output_config = get_base_config(proxy_names)
           output_config['proxies'] = proxies
-          
-          # Assign all proxy names directly to PROXY group
-          for group in output_config['proxy-groups']:
-              if group['name'] == 'PROXY':
-                  group['proxies'] = proxy_names.copy()
           
           write_yaml(output_config, OUTPUT_FILE)
           print(f"Generated {OUTPUT_FILE} with {len(proxies)} AmneziaWG proxies (random order)")
