@@ -157,17 +157,9 @@ jobs:
           Address = {', '.join(config['addresses'])}
           DNS = 1.1.1.1, 1.0.0.1, 8.8.8.8, 8.8.4.4, 9.9.9.9, 149.112.112.112, 208.67.222.222, 208.67.220.220, 8.26.56.26, 8.20.247.20
           MTU = 1280
-          Jc = 4
-          Jmin = 46
-          Jmax = 66
-          S1 = 0
-          S2 = 0
-          S3 = 0
-          I1 = 0
-          H1 = 1
-          H2 = 2
-          H3 = 3
-          H4 = 4
+          Jc = 1
+          Jmin = 34
+          Jmax = 112
           [Peer]
           PublicKey = {config['public_key']}
           AllowedIPs = 0.0.0.0/0, ::/0
