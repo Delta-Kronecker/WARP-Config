@@ -167,10 +167,6 @@ jobs:
                   'endpoint': f"{address}:{port}"
               }
 
-          def generate_proxy_name(endpoint, index):
-              safe_name = re.sub(r'[^a-zA-Z0-9\-]', '-', endpoint)
-              return f"WG-{safe_name}-{index}"
-
           def generate_conf_content(config):
               conf = f"""[Interface]
           PrivateKey = {config['private_key']}
@@ -249,7 +245,7 @@ jobs:
                   with open(conf_path, 'w', encoding='utf-8') as f:
                       f.write(generate_conf_content(config))
                   
-                  proxy_name = generate_proxy_name(config['endpoint'], idx)
+                  proxy_name = f"WG-{idx}"
                   proxy_names.append(proxy_name)
                   
                   proxy = {
@@ -319,5 +315,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
-          git diff --staged --quiet || git commit -m "Generate AmneziaWG config with amnezia-wg-option format and chain pairs"
+          git diff --staged --quiet || git commit -m "Generate AmneziaWG config with simple names and chain pairs"
           git push
