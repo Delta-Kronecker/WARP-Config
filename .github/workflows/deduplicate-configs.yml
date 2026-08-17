@@ -103,10 +103,10 @@ jobs:
                   },
                   {
                       "name": "Chain",
-                      type: load-balance
-                      strategy: round-robin
-                      url: https://www.gstatic.com/generate_204
-                      interval: 300
+                      "type": "load-balance",
+                      "strategy": "round-robin",
+                      "url": "https://www.gstatic.com/generate_204",
+                      "interval": "300",
                       "proxies": []
                   }
               ],
