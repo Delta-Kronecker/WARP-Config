@@ -102,17 +102,12 @@ jobs:
                       "proxies": ["Auto", "Chain"]
                   },
                   {
-                      "name": "Auto",
+                      "name": "Chain",
                       "type": "url-test",
                       "url": "http://www.gstatic.com/generate_204",
                       "interval": 60,
                       "tolerance": 50,
                       "lazy": True,
-                      "proxies": []
-                  },
-                  {
-                      "name": "Chain",
-                      "type": "select",
                       "proxies": []
                   }
               ],
