@@ -99,7 +99,7 @@ jobs:
                   {
                       "name": "PROXY",
                       "type": "select",
-                      "proxies": ["Auto"]
+                      "proxies": ["Auto", "Chain"]
                   },
                   {
                       "name": "Auto",
@@ -108,6 +108,11 @@ jobs:
                       "interval": 60,
                       "tolerance": 50,
                       "lazy": True,
+                      "proxies": []
+                  },
+                  {
+                      "name": "Chain",
+                      "type": "select",
                       "proxies": []
                   }
               ],
@@ -234,6 +239,7 @@ jobs:
           
           proxies = []
           proxy_names = []
+          chain_proxy_names = []
           
           with tempfile.TemporaryDirectory() as tmpdir:
               for idx, config in enumerate(parsed_configs, 1):
@@ -266,6 +272,13 @@ jobs:
                       'i4': '<r 2><b 0xb4e900010001000000000e636c65616e62726f7773696e67036f72670000010001c00c0001000100000e100004b9e4a809>'
                   }
                   
+                  # ✅ Chain pairing: odd configs are outer layer, even configs are inner layer
+                  # Even-indexed proxies (2nd, 4th, ...) use previous odd proxy as dialer-proxy
+                  if idx > 1 and idx % 2 == 0:
+                      proxy['dialer-proxy'] = proxy_names[idx - 2]
+                      chain_name = f"Chain-{idx-1}-{idx}"
+                      chain_proxy_names.append(chain_name)
+                  
                   if config['addresses']:
                       for addr in config['addresses']:
                           addr_clean = addr.strip().split('/')[0] if '/' in addr else addr.strip()
@@ -292,9 +305,13 @@ jobs:
           for group in output_config['proxy-groups']:
               if group['name'] == 'Auto':
                   group['proxies'] = proxy_names.copy()
+              elif group['name'] == 'Chain':
+                  group['proxies'] = chain_proxy_names.copy()
           
           write_yaml(output_config, OUTPUT_FILE)
-          print(f"Generated {OUTPUT_FILE} with {len(proxies)} AmneziaWG proxies (random order)")
+          print(f"Generated {OUTPUT_FILE} with {len(proxies)} AmneziaWG proxies")
+          print(f"  - Single proxies: {len(proxy_names)}")
+          print(f"  - Chain pairs: {len(chain_proxy_names)}")
           print(f"Generated {ZIP_FILE} with {len(parsed_configs)} WireGuard config files")
 
       - name: Commit and push changes
@@ -302,5 +319,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
-          git diff --staged --quiet || git commit -m "Generate AmneziaWG config with updated I params and DNS providers"
+          git diff --staged --quiet || git commit -m "Generate AmneziaWG config with chain proxy pairs"
           git push
