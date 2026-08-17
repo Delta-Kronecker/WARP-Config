@@ -34,70 +34,85 @@ jobs:
           OUTPUT_FILE = "ALL.yaml"
           ZIP_FILE = "wireguard_configs.zip"
 
-          def get_base_config(proxy_names):
-              return {
-                  "name": "Standard",
-                  "mixed-port": 7890,
-                  "socks-port": 7891,
-                  "port": 7892,
-                  "allow-lan": True,
-                  "bind-address": "*",
-                  "mode": "global",
-                  "log-level": "info",
+          BASE_CONFIG = {
+              "name": "Standard",
+              "mixed-port": 7890,
+              "socks-port": 7891,
+              "port": 7892,
+              "allow-lan": True,
+              "bind-address": "*",
+              "mode": "global",
+              "log-level": "info",
+              "ipv6": True,
+              "external-controller": "127.0.0.1:9090",
+              "external-ui": "ui",
+              "secret": "",
+              "unified-delay": True,
+              "tcp-concurrent": True,
+              "global-client-fingerprint": "chrome",
+              "find-process-mode": "strict",
+              "keep-alive-interval": 15,
+              "profile": {
+                  "store-selected": True,
+                  "store-fake-ip": False
+              },
+              "dns": {
+                  "enable": True,
                   "ipv6": True,
-                  "external-controller": "127.0.0.1:9090",
-                  "external-ui": "ui",
-                  "secret": "",
-                  "unified-delay": True,
-                  "tcp-concurrent": True,
-                  "global-client-fingerprint": "chrome",
-                  "find-process-mode": "strict",
-                  "keep-alive-interval": 15,
-                  "profile": {
-                      "store-selected": True,
-                      "store-fake-ip": False
-                  },
-                  "dns": {
-                      "enable": True,
-                      "ipv6": True,
-                      "listen": "0.0.0.0:5353",
-                      "enhanced-mode": "fake-ip",
-                      "fake-ip-range": "198.18.0.1/16",
-                      "fake-ip-filter": [
-                          "*.local", "*.lan", "*.localhost",
-                          "+.stun.*.*", "+.stun.*.*.*",
-                          "time.*", "time.*.com",
-                          "connectivitycheck.gstatic.com",
-                          "detectportal.firefox.com",
-                          "captive.apple.com",
-                          "www.msftncsi.com",
-                          "cp.cloudflare.com"
-                      ],
-                      "default-nameserver": [
-                          "1.1.1.1", "1.0.0.1",
-                          "8.8.8.8", "8.8.4.4",
-                          "9.9.9.9", "149.112.112.112",
-                          "208.67.222.222", "208.67.220.220",
-                          "8.26.56.26", "8.20.247.20"
-                      ],
-                      "nameserver": [
-                          "1.1.1.1", "1.0.0.1",
-                          "8.8.8.8", "8.8.4.4",
-                          "9.9.9.9", "149.112.112.112",
-                          "208.67.222.222", "208.67.220.220",
-                          "8.26.56.26", "8.20.247.20"
-                      ]
-                  },
-                  "proxies": [],
-                  "proxy-groups": [
-                      {
-                          "name": "PROXY",
-                          "type": "select",
-                          "proxies": proxy_names
-                      }
+                  "listen": "0.0.0.0:5353",
+                  "enhanced-mode": "fake-ip",
+                  "fake-ip-range": "198.18.0.1/16",
+                  "fake-ip-filter": [
+                      "*.local", "*.lan", "*.localhost",
+                      "+.stun.*.*", "+.stun.*.*.*",
+                      "time.*", "time.*.com",
+                      "connectivitycheck.gstatic.com",
+                      "detectportal.firefox.com",
+                      "captive.apple.com",
+                      "www.msftncsi.com",
+                      "cp.cloudflare.com"
                   ],
-                  "rules": ["MATCH,PROXY"]
-              }
+                  "fake-ip-cache-ttl": 3600,
+                  "default-nameserver": [
+                      "208.67.222.222",
+                      "208.67.220.220",
+                      "8.26.56.26",
+                      "8.20.247.20",
+                      "223.5.5.5",
+                      "223.6.6.6",
+                      "77.88.8.8",
+                      "77.88.8.1"
+                  ],
+                  "nameserver": [
+                      "208.67.222.222",
+                      "208.67.220.220",
+                      "8.26.56.26",
+                      "8.20.247.20",
+                      "223.5.5.5",
+                      "223.6.6.6",
+                      "77.88.8.8",
+                      "77.88.8.1"
+                  ]
+              },
+              "proxies": [],
+              "proxy-groups": [
+                  {
+                      "name": "PROXY",
+                      "type": "select",
+                      "proxies": ["Auto"]
+                  },
+                  {
+                      "name": "Auto",
+                      "type": "url-test",
+                      "url": "http://www.gstatic.com/generate_204",
+                      "interval": 60,
+                      "tolerance": 50,
+                      "lazy": True,
+                      "proxies": []
+                  }
+              ],
+              "rules": ["MATCH,PROXY"]
+          }
 
           def fix_base64_key(key):
               key = key.strip()
@@ -155,11 +170,22 @@ jobs:
               conf = f"""[Interface]
           PrivateKey = {config['private_key']}
           Address = {', '.join(config['addresses'])}
-          DNS = 1.1.1.1, 1.0.0.1, 8.8.8.8, 8.8.4.4, 9.9.9.9, 149.112.112.112, 208.67.222.222, 208.67.220.220, 8.26.56.26, 8.20.247.20
+          DNS = 208.67.222.222, 208.67.220.220, 8.26.56.26, 8.20.247.20, 223.5.5.5, 223.6.6.6, 77.88.8.8, 77.88.8.1
           MTU = 1280
-          Jc = 1
-          Jmin = 58
-          Jmax = 192
+          Jc = 5
+          Jmin = 24
+          Jmax = 100
+          S1 = 0
+          S2 = 0
+          S3 = 14
+          I1 = <r 2><b 0x858000010001000000000669636c6f756403636f6d0000010001c00c000100010000105a00044d583737>
+          I2 = <r 2><b 0xa3c100010001000000000679616e6465780272750000010001c00c0001000100000e1000044d580808>
+          I3 = <r 2><b 0xf7d2000100010000000006616c69646e7303636f6d0000010001c00c0001000100000fa00004df050505>
+          I4 = <r 2><b 0xb4e90001000100000000076f70656e646e7303636f6d0000010001c00c0001000100000d200004d043dede>
+          H1 = Host: cloud.com
+          H2 = Host: yandex.ru
+          H3 = Host: alidns.com
+          H4 = Host: opendns.com
           [Peer]
           PublicKey = {config['public_key']}
           AllowedIPs = 0.0.0.0/0, ::/0
@@ -239,16 +265,19 @@ jobs:
                       'workers': 4,
                       'persistent-keepalive': 10,
                       'jc': 5,
-                      'jmin': 24,
-                      'jmax': 100,
+                      'jmin': 39,
+                      'jmax': 136,
                       's1': 0,
                       's2': 0,
-                      's3': 14,
-                      'i1': 0,
-                      'h1': 1,
-                      'h2': 2,
-                      'h3': 3,
-                      'h4': 4
+                      's3': 0,
+                      'i1': '<r 2><b 0x858000010001000000000669636c6f756403636f6d0000010001c00c000100010000105a00044d583737>',
+                      'i2': '<r 2><b 0xa3c100010001000000000679616e6465780272750000010001c00c0001000100000e1000044d580808>',
+                      'i3': '<r 2><b 0xf7d2000100010000000006616c69646e7303636f6d0000010001c00c0001000100000fa00004df050505>',
+                      'i4': '<r 2><b 0xb4e90001000100000000076f70656e646e7303636f6d0000010001c00c0001000100000d200004d043dede>',
+                      'h1': 'Host: cloud.com',
+                      'h2': 'Host: yandex.ru',
+                      'h3': 'Host: alidns.com',
+                      'h4': 'Host: opendns.com'
                   }
                   
                   if config['addresses']:
@@ -271,9 +300,12 @@ jobs:
                       if os.path.exists(conf_path):
                           zipf.write(conf_path, conf_file)
           
-          # Build final config with populated proxy names
-          output_config = get_base_config(proxy_names)
+          output_config = BASE_CONFIG.copy()
           output_config['proxies'] = proxies
+          
+          for group in output_config['proxy-groups']:
+              if group['name'] == 'Auto':
+                  group['proxies'] = proxy_names.copy()
           
           write_yaml(output_config, OUTPUT_FILE)
           print(f"Generated {OUTPUT_FILE} with {len(proxies)} AmneziaWG proxies (random order)")
@@ -284,5 +316,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
-          git diff --staged --quiet || git commit -m "Generate AmneziaWG Clash config with individual selectable proxies"
+          git diff --staged --quiet || git commit -m "Generate AmneziaWG Clash config with full noise parameters"
           git push
