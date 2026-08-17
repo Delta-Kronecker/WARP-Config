@@ -99,7 +99,7 @@ jobs:
                   {
                       "name": "PROXY",
                       "type": "select",
-                      "proxies": ["Auto", "Chain"]
+                      "proxies": ["Chain"]
                   },
                   {
                       "name": "Chain",
