@@ -24,7 +24,7 @@ jobs:
       - name: Install PyYAML
         run: pip install pyyaml
 
-      - name: Deduplicate, sort, generate AmneziaWG Clash configs and WireGuard conf files
+      - name: Deduplicate, sort, generate WireGuard configs
         shell: python
         run: |
           import re, os, yaml, zipfile, tempfile, base64, random
@@ -99,24 +99,11 @@ jobs:
                   {
                       "name": "PROXY",
                       "type": "select",
-                      "proxies": ["Auto", "Chain"]
-                  },
-                  {
-                      "name": "Auto",
-                      "type": "url-test",
-                      "url": "http://www.gstatic.com/generate_204",
-                      "interval": 60,
-                      "tolerance": 50,
-                      "lazy": True,
-                      "proxies": []
+                      "proxies": ["Chain"]
                   },
                   {
                       "name": "Chain",
-                      "type": "url-test",
-                      "url": "http://www.gstatic.com/generate_204",
-                      "interval": 60,
-                      "tolerance": 50,
-                      "lazy": True,
+                      "type": "select",
                       "proxies": []
                   }
               ],
@@ -177,13 +164,6 @@ jobs:
           Address = {', '.join(config['addresses'])}
           DNS = 1.1.1.1, 1.0.0.1, 8.8.8.8, 8.8.4.4, 9.9.9.9, 149.112.112.112, 185.228.168.9, 185.228.169.9
           MTU = 1280
-          Jc = 5
-          Jmin = 39
-          Jmax = 146
-          I1 = <r 2><b 0x858000010001000000000a636c6f7564666c61726503636f6d0000010001c00c0001000100000e10000401010101>
-          I2 = <r 2><b 0xa3c1000100010000000006676f6f676c6503636f6d0000010001c00c0001000100000e10000408080808>
-          I3 = <r 2><b 0xf7d20001000100000000057175616439036e65740000010001c00c0001000100000e10000409090909>
-          I4 = <r 2><b 0xb4e900010001000000000e636c65616e62726f7773696e67036f72670000010001c00c0001000100000e100004b9e4a809>
           [Peer]
           PublicKey = {config['public_key']}
           AllowedIPs = 0.0.0.0/0, ::/0
@@ -261,16 +241,7 @@ jobs:
                       'mtu': 1280,
                       'udp': True,
                       'allowed-ips': ['0.0.0.0/0', '::/0'],
-                      'persistent-keepalive': 10,
-                      'amnezia-wg-option': {
-                          'jc': 5,
-                          'jmin': 39,
-                          'jmax': 146,
-                          'i1': '<r 2><b 0x858000010001000000000a636c6f7564666c61726503636f6d0000010001c00c0001000100000e10000401010101>',
-                          'i2': '<r 2><b 0xa3c1000100010000000006676f6f676c6503636f6d0000010001c00c0001000100000e10000408080808>',
-                          'i3': '<r 2><b 0xf7d20001000100000000057175616439036e65740000010001c00c0001000100000e10000409090909>',
-                          'i4': '<r 2><b 0xb4e900010001000000000e636c65616e62726f7773696e67036f72670000010001c00c0001000100000e100004b9e4a809>'
-                      }
+                      'persistent-keepalive': 10
                   }
                   
                   if idx > 1 and idx % 2 == 0:
@@ -301,14 +272,12 @@ jobs:
           output_config['proxies'] = proxies
           
           for group in output_config['proxy-groups']:
-              if group['name'] == 'Auto':
-                  group['proxies'] = proxy_names.copy()
-              elif group['name'] == 'Chain':
+              if group['name'] == 'Chain':
                   group['proxies'] = chain_proxy_names.copy()
           
           write_yaml(output_config, OUTPUT_FILE)
-          print(f"Generated {OUTPUT_FILE} with {len(proxies)} AmneziaWG proxies")
-          print(f"  - Single proxies (Auto): {len(proxy_names)}")
+          print(f"Generated {OUTPUT_FILE} with {len(proxies)} WireGuard proxies (no noise params)")
+          print(f"  - Total proxies: {len(proxy_names)}")
           print(f"  - Chained proxies (Chain): {len(chain_proxy_names)}")
           print(f"Generated {ZIP_FILE} with {len(parsed_configs)} WireGuard config files")
 
@@ -317,5 +286,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
-          git diff --staged --quiet || git commit -m "Generate AmneziaWG config with url-test Chain group"
+          git diff --staged --quiet || git commit -m "Generate WireGuard config with Chain select group"
           git push
