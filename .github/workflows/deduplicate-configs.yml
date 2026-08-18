@@ -242,7 +242,7 @@ jobs:
                   proxy_name = f"WG-{idx}"
                   proxy_names.append(proxy_name)
                   
-                  proxy = {
+                  proxy_single = {
                       'name': proxy_name,
                       'type': 'wireguard',
                       'server': config['address'],
@@ -264,19 +264,51 @@ jobs:
                       }
                   }
                   
-                  if idx > 1 and idx % 2 == 0:
-                      proxy['dialer-proxy'] = proxy_names[idx - 2]
-                      chain_proxy_names.append(proxy_name)
+                  if config['addresses']:
+                      for addr in config['addresses']:
+                          addr_clean = addr.strip().split('/')[0] if '/' in addr else addr.strip()
+                          if ':' in addr_clean:
+                              proxy_single['ipv6'] = addr_clean
+                          else:
+                              proxy_single['ip'] = addr_clean
+                  
+                  proxies.append(proxy_single)
+                  
+                  chain_name = f"WG-{idx}-Chain"
+                  chain_proxy_names.append(chain_name)
+                  
+                  proxy_chain = {
+                      'name': chain_name,
+                      'type': 'wireguard',
+                      'server': config['address'],
+                      'port': config['port'],
+                      'private-key': config['private_key'],
+                      'public-key': config['public_key'],
+                      'mtu': 1280,
+                      'udp': True,
+                      'allowed-ips': ['0.0.0.0/0', '::/0'],
+                      'persistent-keepalive': 10,
+                      'dialer-proxy': proxy_name,
+                      'amnezia-wg-option': {
+                          'jc': 5,
+                          'jmin': 39,
+                          'jmax': 146,
+                          'i1': '<r 2><b 0x858000010001000000000a636c6f7564666c61726503636f6d0000010001c00c0001000100000e10000401010101>',
+                          'i2': '<r 2><b 0xa3c1000100010000000006676f6f676c6503636f6d0000010001c00c0001000100000e10000408080808>',
+                          'i3': '<r 2><b 0xf7d20001000100000000057175616439036e65740000010001c00c0001000100000e10000409090909>',
+                          'i4': '<r 2><b 0xb4e900010001000000000e636c65616e62726f7773696e67036f72670000010001c00c0001000100000e100004b9e4a809>'
+                      }
+                  }
                   
                   if config['addresses']:
                       for addr in config['addresses']:
                           addr_clean = addr.strip().split('/')[0] if '/' in addr else addr.strip()
                           if ':' in addr_clean:
-                              proxy['ipv6'] = addr_clean
+                              proxy_chain['ipv6'] = addr_clean
                           else:
-                              proxy['ip'] = addr_clean
+                              proxy_chain['ip'] = addr_clean
                   
-                  proxies.append(proxy)
+                  proxies.append(proxy_chain)
               
               if os.path.exists(ZIP_FILE):
                   os.remove(ZIP_FILE)
@@ -292,15 +324,13 @@ jobs:
           output_config['proxies'] = proxies
           
           for group in output_config['proxy-groups']:
-              if group['name'] == 'Auto':
-                  group['proxies'] = proxy_names.copy()
-              elif group['name'] == 'Chain':
+              if group['name'] == 'Chain':
                   group['proxies'] = chain_proxy_names.copy()
           
           write_yaml(output_config, OUTPUT_FILE)
-          print(f"Generated {OUTPUT_FILE} with {len(proxies)} AmneziaWG proxies")
-          print(f"  - Single proxies (Auto): {len(proxy_names)}")
-          print(f"  - Chained proxies (Chain): {len(chain_proxy_names)}")
+          print(f"Generated {OUTPUT_FILE} with {len(proxies)} total proxies")
+          print(f"  - Single proxies: {len(proxy_names)}")
+          print(f"  - Self-chain proxies (Chain): {len(chain_proxy_names)}")
           print(f"Generated {ZIP_FILE} with {len(parsed_configs)} WireGuard config files")
 
       - name: Commit and push changes
@@ -308,5 +338,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
-          git diff --staged --quiet || git commit -m "Generate AmneziaWG config with url-test Chain group"
+          git diff --staged --quiet || git commit -m "Generate AmneziaWG config with self-chain and url-test Chain group"
           git push
