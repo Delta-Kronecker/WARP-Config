@@ -74,24 +74,16 @@ jobs:
                   ],
                   "fake-ip-cache-ttl": 3600,
                   "default-nameserver": [
-                      "1.1.1.1",
-                      "1.0.0.1",
-                      "8.8.8.8",
-                      "8.8.4.4",
-                      "9.9.9.9",
-                      "149.112.112.112",
-                      "185.228.168.9",
-                      "185.228.169.9"
+                      "https://doh.opendns.com/dns-query",
+                      "https://dns.google/dns-query",
+                      "https://dns.quad9.net/dns-query",
+                      "https://doh.cleanbrowsing.org/doh/security-filter/"
                   ],
                   "nameserver": [
-                      "1.1.1.1",
-                      "1.0.0.1",
-                      "8.8.8.8",
-                      "8.8.4.4",
-                      "9.9.9.9",
-                      "149.112.112.112",
-                      "185.228.168.9",
-                      "185.228.169.9"
+                      "https://doh.opendns.com/dns-query",
+                      "https://dns.google/dns-query",
+                      "https://dns.quad9.net/dns-query",
+                      "https://doh.cleanbrowsing.org/doh/security-filter/"
                   ]
               },
               "proxies": [],
@@ -166,7 +158,7 @@ jobs:
               conf = f"""[Interface]
           PrivateKey = {config['private_key']}
           Address = {', '.join(config['addresses'])}
-          DNS = 1.1.1.1, 1.0.0.1, 8.8.8.8, 8.8.4.4, 9.9.9.9, 149.112.112.112, 185.228.168.9, 185.228.169.9
+          DNS = 208.67.222.222, 208.67.220.220, 8.8.8.8, 8.8.4.4, 9.9.9.9, 149.112.112.112, 185.228.168.9, 185.228.169.9
           MTU = 1280
           Jc = 5
           Jmin = 39
@@ -288,7 +280,7 @@ jobs:
                   group['proxies'] = chain_proxy_names.copy()
           
           write_yaml(output_config, OUTPUT_FILE)
-          print(f"Generated {OUTPUT_FILE} with {len(proxies)} AmneziaWG proxies (J params only, no I params)")
+          print(f"Generated {OUTPUT_FILE} with {len(proxies)} AmneziaWG proxies (J params only, DoH DNS)")
           print(f"  - Total proxies: {len(proxy_names)}")
           print(f"  - Chained proxies (Chain): {len(chain_proxy_names)}")
           print(f"Generated {ZIP_FILE} with {len(parsed_configs)} WireGuard config files")
@@ -298,5 +290,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
-          git diff --staged --quiet || git commit -m "Generate AmneziaWG config with J params only for testing"
+          git diff --staged --quiet || git commit -m "Generate AmneziaWG config with DoH DNS and OpenDNS"
           git push
