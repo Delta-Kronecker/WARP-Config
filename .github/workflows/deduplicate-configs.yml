@@ -171,6 +171,10 @@ jobs:
           Jc = 5
           Jmin = 39
           Jmax = 146
+          I1 = <r 2><b 0x858000010001000000000a636c6f7564666c61726503636f6d0000010001c00c0001000100000e10000401010101>
+          I2 = <r 2><b 0xa3c1000100010000000006676f6f676c6503636f6d0000010001c00c0001000100000e10000408080808>
+          I3 = <r 2><b 0xf7d20001000100000000057175616439036e65740000010001c00c0001000100000e10000409090909>
+          I4 = <r 2><b 0xb4e900010001000000000e636c65616e62726f7773696e67036f72670000010001c00c0001000100000e100004b9e4a809>
           [Peer]
           PublicKey = {config['public_key']}
           AllowedIPs = 0.0.0.0/0, ::/0
@@ -252,7 +256,11 @@ jobs:
                       'amnezia-wg-option': {
                           'jc': 5,
                           'jmin': 39,
-                          'jmax': 146
+                          'jmax': 146,
+                          'i1': '<r 2><b 0x858000010001000000000a636c6f7564666c61726503636f6d0000010001c00c0001000100000e10000401010101>',
+                          'i2': '<r 2><b 0xa3c1000100010000000006676f6f676c6503636f6d0000010001c00c0001000100000e10000408080808>',
+                          'i3': '<r 2><b 0xf7d20001000100000000057175616439036e65740000010001c00c0001000100000e10000409090909>',
+                          'i4': '<r 2><b 0xb4e900010001000000000e636c65616e62726f7773696e67036f72670000010001c00c0001000100000e100004b9e4a809>'
                       }
                   }
                   
@@ -288,7 +296,7 @@ jobs:
                   group['proxies'] = chain_proxy_names.copy()
           
           write_yaml(output_config, OUTPUT_FILE)
-          print(f"Generated {OUTPUT_FILE} with {len(proxies)} AmneziaWG proxies (J params only, no I params)")
+          print(f"Generated {OUTPUT_FILE} with {len(proxies)} AmneziaWG proxies")
           print(f"  - Total proxies: {len(proxy_names)}")
           print(f"  - Chained proxies (Chain): {len(chain_proxy_names)}")
           print(f"Generated {ZIP_FILE} with {len(parsed_configs)} WireGuard config files")
@@ -298,5 +306,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
-          git diff --staged --quiet || git commit -m "Generate AmneziaWG config with J params only for testing"
+          git diff --staged --quiet || git commit -m "Generate AmneziaWG config with Chain url-test only"
           git push
