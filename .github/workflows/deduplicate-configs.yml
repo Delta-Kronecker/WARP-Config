@@ -103,7 +103,11 @@ jobs:
                   },
                   {
                       "name": "Chain",
-                      "type": "select",
+                      "type": "url-test",
+                      "url": "http://www.gstatic.com/generate_204",
+                      "interval": 60,
+                      "tolerance": 50,
+                      "lazy": True,
                       "proxies": []
                   }
               ],
@@ -286,5 +290,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
-          git diff --staged --quiet || git commit -m "Generate WireGuard config with Chain select group"
+          git diff --staged --quiet || git commit -m "Generate WireGuard config without noise params for testing"
           git push
