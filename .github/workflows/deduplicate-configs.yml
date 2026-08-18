@@ -103,11 +103,9 @@ jobs:
                   },
                   {
                       "name": "Chain",
-                      "type": "url-test",
+                      "type": "round-robin",
                       "url": "http://www.gstatic.com/generate_204",
-                      "interval": 60,
-                      "tolerance": 50,
-                      "lazy": True,
+                      "interval": 60
                       "proxies": []
                   }
               ],
