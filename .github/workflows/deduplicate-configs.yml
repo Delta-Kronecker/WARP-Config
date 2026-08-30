@@ -258,7 +258,8 @@ jobs:
                       'amnezia-wg-option': {
                           'jc': 0,
                           'jmin': 0,
-                          'jmax': 0
+                          'jmax': 0,
+                      }
                   }
                   
                   if idx > 1 and idx % 2 == 0:
