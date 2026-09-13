@@ -33,6 +33,7 @@ jobs:
           INPUT_FILE = "ALL.txt"
           OUTPUT_FILE = "ALL.yaml"
           ZIP_FILE = "wireguard_configs.zip"
+          AETHER_FILE = "aether.txt"
 
           BASE_CONFIG = {
               "name": "Standard",
@@ -74,24 +75,12 @@ jobs:
                   ],
                   "fake-ip-cache-ttl": 3600,
                   "default-nameserver": [
-                      "1.1.1.1",
-                      "1.0.0.1",
-                      "8.8.8.8",
-                      "8.8.4.4",
-                      "9.9.9.9",
-                      "149.112.112.112",
-                      "185.228.168.9",
-                      "185.228.169.9"
+                      "1.1.1.1", "1.0.0.1", "8.8.8.8", "8.8.4.4",
+                      "9.9.9.9", "149.112.112.112", "185.228.168.9", "185.228.169.9"
                   ],
                   "nameserver": [
-                      "1.1.1.1",
-                      "1.0.0.1",
-                      "8.8.8.8",
-                      "8.8.4.4",
-                      "9.9.9.9",
-                      "149.112.112.112",
-                      "185.228.168.9",
-                      "185.228.169.9"
+                      "1.1.1.1", "1.0.0.1", "8.8.8.8", "8.8.4.4",
+                      "9.9.9.9", "149.112.112.112", "185.228.168.9", "185.228.169.9"
                   ]
               },
               "proxies": [],
@@ -186,6 +175,20 @@ jobs:
               if config['preshared_key']:
                   conf = conf.replace('[Peer]\n', f'[Peer]\nPresharedKey = {config["preshared_key"]}\n')
               return conf.strip() + '\n'
+
+          def generate_aether_link(config, idx):
+              """ساخت لینک aether:// از کانفیگ WireGuard"""
+              name = quote(f"@DeltaKroneckerGithub ({idx})", safe='')
+              server = config['address']
+              port = config['port']
+              return (
+                  f"aether://{server}:{port}"
+                  f"?protocol=wg"
+                  f"&scan=balanced"
+                  f"&noize=balanced"
+                  f"&ip=v4"
+                  f"#{name}"
+              )
 
           def write_yaml(config, filepath):
               class CustomDumper(yaml.Dumper):
@@ -300,11 +303,18 @@ jobs:
           print(f"  - Single proxies (Auto): {len(proxy_names)}")
           print(f"  - Chained proxies (Chain): {len(chain_proxy_names)}")
           print(f"Generated {ZIP_FILE} with {len(parsed_configs)} WireGuard config files")
+          
+          # --- تولید فایل aether.txt ---
+          if parsed_configs:
+              with open(AETHER_FILE, 'w', encoding='utf-8') as f:
+                  for idx, config in enumerate(parsed_configs, 1):
+                      f.write(generate_aether_link(config, idx) + '\n')
+              print(f"Generated {AETHER_FILE} with {len(parsed_configs)} Aether configs")
 
       - name: Commit and push changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
-          git diff --staged --quiet || git commit -m "Generate AmneziaWG config with Auto and Chain groups"
+          git diff --staged --quiet || git commit -m "Generate AmneziaWG config with Auto and Chain groups + Aether configs"
           git push
