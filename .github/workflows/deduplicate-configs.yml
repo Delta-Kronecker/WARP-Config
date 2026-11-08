@@ -88,7 +88,7 @@ jobs:
                   {
                       "name": "PROXY",
                       "type": "select",
-                      "proxies": ["Auto", "Chain"]
+                      "proxies": ["Auto"]
                   },
                   {
                       "name": "Auto",
@@ -96,15 +96,6 @@ jobs:
                       "url": "http://www.gstatic.com/generate_204",
                       "interval": 60,
                       "tolerance": 50,
-                      "lazy": True,
-                      "proxies": []
-                  },
-                  {
-                      "name": "Chain",
-                      "type": "load-balance",
-                      "strategy": "round-robin",
-                      "url": "http://www.gstatic.com/generate_204",
-                      "interval": 60,
                       "lazy": True,
                       "proxies": []
                   }
@@ -235,7 +226,6 @@ jobs:
           
           proxies = []
           proxy_names = []
-          chain_proxy_names = []
           
           with tempfile.TemporaryDirectory() as tmpdir:
               for idx, config in enumerate(parsed_configs, 1):
@@ -261,10 +251,6 @@ jobs:
                       'amnezia-wg-option': {
                       }
                   }
-                  
-                  if idx > 1 and idx % 2 == 0:
-                      proxy['dialer-proxy'] = proxy_names[idx - 2]
-                      chain_proxy_names.append(proxy_name)
                   
                   if config['addresses']:
                       for addr in config['addresses']:
@@ -292,13 +278,10 @@ jobs:
           for group in output_config['proxy-groups']:
               if group['name'] == 'Auto':
                   group['proxies'] = proxy_names.copy()
-              elif group['name'] == 'Chain':
-                  group['proxies'] = chain_proxy_names.copy()
           
           write_yaml(output_config, OUTPUT_FILE)
           print(f"Generated {OUTPUT_FILE} with {len(proxies)} AmneziaWG proxies")
           print(f"  - Single proxies (Auto): {len(proxy_names)}")
-          print(f"  - Chained proxies (Chain): {len(chain_proxy_names)}")
           print(f"Generated {ZIP_FILE} with {len(parsed_configs)} WireGuard config files")
           
           # --- تولید فایل aether.txt ---
@@ -313,5 +296,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
-          git diff --staged --quiet || git commit -m "Generate AmneziaWG config with Auto and Chain groups + Aether configs"
+          git diff --staged --quiet || git commit -m "Generate AmneziaWG config with Auto group + Aether configs"
           git push
