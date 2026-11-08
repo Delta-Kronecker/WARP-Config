@@ -259,9 +259,6 @@ jobs:
                       'allowed-ips': ['0.0.0.0/0', '::/0'],
                       'persistent-keepalive': 10,
                       'amnezia-wg-option': {
-                          'jc': 0,
-                          'jmin': 0,
-                          'jmax': 0,
                       }
                   }
                   
